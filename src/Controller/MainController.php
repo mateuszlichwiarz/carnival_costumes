@@ -8,7 +8,17 @@ use Symfony\Component\HttpFoundation\Response;
 
 class MainController
 {
-    public function index(): Response
+    public function mainPage(): Response
+    {
+        return new Response();
+    }
+
+    public function contact(): Response
+    {
+        return new Response();
+    }
+
+    public function priceList(): Response
     {
         return new Response();
     }
