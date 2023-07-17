@@ -5,47 +5,47 @@ declare(strict_types=1);
 class Open
 {
     public function __construct(
-        private null|string $monday = null,
-        private null|string $tuesday = null,
-        private null|string $wednesday = null,
-        private null|string $thursday = null,
-        private null|string $friday = null,
-        private null|string $saturday = null,
-        private null|string $sunday = null
+        private ?string $monday = '',
+        private ?string $tuesday = '',
+        private ?string $wednesday = '',
+        private ?string $thursday = '',
+        private ?string $friday = '',
+        private ?string $saturday = '',
+        private ?string $sunday = ''
     )
     {}
 
-    public function getMonday(): null|string
+    public function getMonday(): ?string
     {
         return $this->monday;
     }
 
-    public function getTuesday(): null|string
+    public function getTuesday(): ?string
     {
         return $this->tuesday;
     }
 
-    public function getWednesday(): null|string
+    public function getWednesday(): ?string
     {
         return $this->tuesday;
     }
 
-    public function getThursday(): null|string
+    public function getThursday(): ?string
     {
         return $this->tuesday;
     }
 
-    public function getFriday(): null|string
+    public function getFriday(): ?string
     {
         return $this->tuesday;
     }
 
-    public function getSaturday(): null|string
+    public function getSaturday(): ?string
     {
         return $this->tuesday;
     }
 
-    public function getSunday(): null|string
+    public function getSunday(): ?string
     {
         return $this->tuesday;
     }

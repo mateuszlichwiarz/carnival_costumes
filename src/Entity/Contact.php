@@ -7,12 +7,12 @@ namespace App\Entity;
 class Contact
 {
     public function __construct(
-        private ?int $phone = null,
-        private ?string $address = null,
+        private null|int $phone = null,
+        private ?string $address = '',
         )
     {}
 
-    public function getPhone(): ?int
+    public function getPhone(): null|int
     {
         return $this->phone;
     }
