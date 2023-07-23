@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class MainController
 {
-    public function mainPage(): Response
+    public function home(): Response
     {
         return new Response();
     }
