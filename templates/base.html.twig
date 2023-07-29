@@ -2,8 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <title>{% block title %}Welcome{% endblock %}</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -13,28 +14,25 @@
         {% endblock %}
     </head>
     <body>
-        <nav class="nav">
-                
-                <div id="logo">
-                
-                    <span class="text1"> WYPOŻYCZALNIA </span>
-                    <img src="img/crown.png" />
-                    <br/> 
-                    <span class="text2"> Stroje Karnawałowe-Kłodzko </span>
+            <nav class="nav">
+                    <div id="logo">
                     
-                </div>
-                
-                <div id="menu">
-                
-                    <a id="link1" href="#"> <div class="option"> Strona Główna</div></a>
-                    <a id="link2" href="#"><div class="option"> Regulamin </div></a>
-                    <a id="link3" href="#"><div class="option"> Galeria </div></a>
-                    <a id="link4" href="#"><div class="option"> Cennik </div></a>
-                    <a id="link5" href="#"><div class="option"> Kontakt </div></a>
-                    <div style="clear:both" > </div>
-                </div>
-                
-            </nav>
+                        <span class="text1"> WYPOŻYCZALNIA </span>
+                        <img src="img/crown.png" />
+                        <br/> 
+                        <span class="text2"> Stroje Karnawałowe-Kłodzko </span>
+                        
+                    </div>
+                    
+                    <div id="menu">
+                        <a id="link" href="/home"><div class="option"> Home </div></a>
+                        <a id="link" href="/statute"><div class="option"> Statute </div></a>
+                        <a id="link" href="/gallery"><div class="option"> Gallery </div></a>
+                        <a id="link" href="/pricing"><div class="option"> Pricing </div></a>
+                        <a id="link" href="/contact"><div class="option"> Contact </div></a>
+                        <div style="clear:both" ></div>
+                    </div>
+                </nav>
 
         {% block body %}{% endblock %}
     </body>
