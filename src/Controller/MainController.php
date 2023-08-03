@@ -58,12 +58,12 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/statute', name: 'statute')]
-    public function statute(): Response
+    #[Route('/about', name: 'about')]
+    public function about(): Response
     {
-        $message = '/statute';
+        $message = '/about';
 
-        return $this->render('page/statute.html.twig', [
+        return $this->render('page/about.html.twig', [
             'message' => $message,
         ]);
     }
