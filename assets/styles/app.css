@@ -60,14 +60,17 @@ body
   {
       margin-left: auto;
       margin-right: auto;
+      text-align: center;
   }
   
   footer
   {
+      font-size: 16px;
       color: #ffffff;
       text-align: center;
       padding: 30px;
       background-color: #3D4252;
+      bottom: 0px;
       
   }
   
