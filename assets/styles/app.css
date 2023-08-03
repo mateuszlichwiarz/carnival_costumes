@@ -44,7 +44,8 @@ body
   #content
   {
       background-color: #fff;
-      width: 800px;
+      width: 850px;
+      height: 1000px;
       margin-left: auto;
       margin-right: auto;
       text-align: justify;
@@ -65,6 +66,8 @@ body
   
   footer
   {
+      text-align: center;
+      width: 100%;
       font-size: 16px;
       color: #ffffff;
       text-align: center;
@@ -122,6 +125,21 @@ body
       justify-content: center;
   
   }
+
+.gallery
+{
+    background-color: #fff;
+    width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    padding-top: 10px;
+    padding-left: 75px;
+    padding-right: 75px;
+    border-bottom: 3px solid #e0e0e0;
+    border-left: 3px solid #e0e0e0;
+    border-right: 3px solid #e0e0e0;
+}
   
   .scrollup
   {
