@@ -1,3 +1,165 @@
-body {
-    background-color: lightgray;
-}
+@import '~bootstrap';
+
+
+body
+  {
+        font-family: 'Open Sans', sans-serif;
+      color: #000000;
+      font-size: 20px;
+      margin: 0 !important;
+      padding: 0 !important;
+  }
+  
+  #container
+  {
+      width: 100%;
+  }
+  
+  nav
+  {
+      position: fixed;
+      background-color: #33ccff;		
+      color: #ffffff;
+      width: 100%;
+      border-bottom: 3px solid #11aadd;
+  }
+  
+  #logo
+  {
+      text-align: center;
+      font-size: 36px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      font-weight: 700;
+  }
+  
+  #menu
+  {
+      text-align: center;
+      width: 100%;
+  }
+  
+  #content
+  {
+      background-color: #fff;
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: justify;
+      padding-top: 10px;
+      padding-left: 75px;
+      padding-right: 75px;
+      border-bottom: 3px solid #e0e0e0;
+      border-left: 3px solid #e0e0e0;
+      border-right: 3px solid #e0e0e0;
+  }
+  
+  #galeria
+  {
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
+  footer
+  {
+      color: #ffffff;
+      text-align: center;
+      padding: 30px;
+      background-color: #3D4252;
+      
+  }
+  
+  .option
+  {
+      text-align: center;
+      padding: 20px;
+      display: inline-block;
+  
+  }
+  
+  .option:hover
+  {
+      color: #000000;
+      background-color: #ffffff;
+      cursor: pointer;
+  }
+  
+  .text1
+  {
+      font-size: 46px;
+      color: gold;
+      font-weight: bold italic;
+  }
+  
+  .text2
+  {
+      font-size: 28px;
+  }
+  
+  .sticky
+  {
+      width: 100%;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 100;
+  }
+  
+  .c1
+  {
+      text-align: center;
+  }
+  
+  .photo
+  {
+      width: 800px;
+      display: flex;
+      justify-content: center;
+  
+  }
+  
+  .scrollup
+  {
+      width: 78px;
+      height: 78px;
+      text-decoration: none;
+      position: fixed;
+      right: 100px;
+      bottom: 50px;
+      display: none;
+      
+  }
+  
+  
+  a:link
+  {
+      text-decoration: none;
+      color: white;
+  }
+  
+  a:visited
+  {
+      color: white;
+      text-decoration: none;
+  }
+  
+  a:hover
+  {
+      color: black;
+  }
+  
+  h1
+  {
+      color: gold;
+      font-size: 40px;
+      text-align: center;
+      text-shadow: 
+      1px 1px 0.05em #333,
+      -1px 1px 0.05em #333,
+      -1px -1px 0.05em #333,
+      1px -1px 0.05em #333;
+  }
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmNzcyIsIm1hcHBpbmdzIjoiOzs7QUFBQTtJQUNJLDJCQUEyQjtBQUMvQiIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL2Fzc2V0cy9zdHlsZXMvYXBwLmNzcyJdLCJzb3VyY2VzQ29udGVudCI6WyJib2R5IHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBsaWdodGdyYXk7XG59XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=*/
