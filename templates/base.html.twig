@@ -19,26 +19,32 @@
         {% endblock %}
     </head>
     <body{{ stimulus_controller('symfony/ux-swup/swup', { containers: ['#swup', '#nav'] }) }}>
-        <nav id="nav">
-            <div id="logo">
-                <span class="text1"> Wypożyczalnia </span>
-                <img src="img/crown.png" />
-                <br/> 
-                <span class="text2"> Stroje Karnawałowe-Kłodzko </span>
-                </div>
-                        
-            <div id="menu">
-                <a id="link" href="/home"><div class="option"> Home </div></a>
-                <a id="link" href="/about"><div class="option"> About </div></a>
-                <a id="link" href="/gallery"><div class="option"> Gallery </div></a>
-                <a id="link" href="/pricing"><div class="option"> Pricing </div></a>
-                <a id="link" href="/contact"><div class="option"> Contact </div></a>
-                <div style="clear:both" ></div>
-            </div>
-        </nav>
-        <main id="swup">
+    	<div id="container">
+        	
+		<a href="#" class="scrollup"></a>
 
-        </main>
+            <nav id="nav">
+            
+                <div id="logo">
+                    <span class="text1"> Wypożyczalnia </span>
+                    <img src="img/crown.png" />
+                    <br/> 
+                    <span class="text2"> Stroje Karnawałowe-Kłodzko </span>
+                    </div>
+                            
+                <div id="menu">
+                    <a id="link" href="/home"><div class="option"> Home </div></a>
+                    <a id="link" href="/about"><div class="option"> About </div></a>
+                    <a id="link" href="/gallery"><div class="option"> Gallery </div></a>
+                    <a id="link" href="/pricing"><div class="option"> Pricing </div></a>
+                    <a id="link" href="/contact"><div class="option"> Contact </div></a>
+                    <div style="clear:both" ></div>
+                </div>
+            </nav>
+            <main id="swup">
+
+            </main>
         {% block body %}{% endblock %}
+    </div>
     </body>
 </html>
