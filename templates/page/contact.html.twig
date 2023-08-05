@@ -5,13 +5,33 @@
         <div class="contact">
             <br><br><br><br><br><br>
             <br>{{ message }}<br>
-            <h1>Kontakt</h1>
-                            
-            <strong>Phone number: +48 697 160 121</strong>
-				<br/><br/>
-			<strong>Czynne w godzinach: 6:00-15:30</strong>
-				<br/><br/>
-			<strong>Adres: Kłodzko, Ul.Hołdu Pruskiego</strong>
+                <br><br>
+            <div class="phoneNumber">
+
+                <h2>Phone number </h2>
+
+                {{ phoneNumber }} <br><br>
+            </div>
+
+            <div class="openingHours">
+
+                <h2>Opening hours </h2>
+
+                Monday: {{ hours.monday }}<br>
+                Tuesday: {{hours.tuesday }}<br>
+                Wendsday: <br>
+                Thursday: <br>
+                Saturday: <br>
+                Sunday: <br>
+                <br><br>
+            </div>
+
+            <div class="address">
+            
+                <h2>Address</h2>
+
+                {{ contact.city|capitalize }}, st. {{ contact.street|capitalize }}
+            </div>
         </div>
     </div>
 {% endblock %}
