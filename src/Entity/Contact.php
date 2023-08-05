@@ -6,19 +6,45 @@ namespace App\Entity;
 
 class Contact
 {
-    public function __construct(
-        private null|int $phone = null,
-        private ?string $address = '',
-        )
-    {}
+    private string $city = '';
+
+    private string $street = '';
+
+    private null|int $phone = null;
 
     public function getPhone(): null|int
     {
         return $this->phone;
     }
 
-    public function getAddress(): ?string
+    public function setPhone($phone): self
     {
-        return $this->address;
+        $this->phone = $phone;
+        
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity($city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getStreet(): ?string
+    {
+        return $this->street;
+    }
+
+    public function setStreet($street): self
+    {
+        $this->street = $street;
+
+        return $this;
     }
 }
