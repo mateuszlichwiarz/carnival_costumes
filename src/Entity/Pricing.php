@@ -17,7 +17,7 @@ class Pricing
         return $this->minPrice;
     }
 
-    public function setMinPrice($minPrice): self
+    public function setMinPrice(int $minPrice): self
     {
         $this->minPrice = $minPrice;
         return $this;
@@ -28,7 +28,7 @@ class Pricing
         return $this->maxPrice;
     }
 
-    public function setMaxPrice($maxPrice): self
+    public function setMaxPrice(int $maxPrice): self
     {
         $this->maxPrice = $maxPrice;
         return $this;
@@ -39,7 +39,7 @@ class Pricing
         return $this->deposit;
     }
 
-    public function setDeposit($deposit): self
+    public function setDeposit(int $deposit): self
     {
         $this->deposit = $deposit;
         return $this;

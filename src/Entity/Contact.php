@@ -17,10 +17,9 @@ class Contact
         return $this->phone;
     }
 
-    public function setPhone($phone): self
+    public function setPhone(int $phone): self
     {
         $this->phone = $phone;
-        
         return $this;
     }
 
@@ -29,10 +28,9 @@ class Contact
         return $this->city;
     }
 
-    public function setCity($city): self
+    public function setCity(string $city): self
     {
         $this->city = $city;
-
         return $this;
     }
 
@@ -41,10 +39,9 @@ class Contact
         return $this->street;
     }
 
-    public function setStreet($street): self
+    public function setStreet(string $street): self
     {
         $this->street = $street;
-
         return $this;
     }
 }

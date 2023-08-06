@@ -25,7 +25,7 @@ class OpeningHours
         return $this->monday;
     }
 
-    public function setMonday($monday): self
+    public function setMonday(string $monday): self
     {
         $this->monday = $monday;
         return $this;
@@ -36,7 +36,7 @@ class OpeningHours
         return $this->tuesday;
     }
 
-    public function setTuesday($tuesday): self
+    public function setTuesday(string $tuesday): self
     {
         $this->tuesday = $tuesday;
         return $this;
@@ -47,7 +47,7 @@ class OpeningHours
         return $this->wednesday;
     }
 
-    public function setWednesday($wednesday): self
+    public function setWednesday(string $wednesday): self
     {
         $this->wednesday = $wednesday;
         return $this;
@@ -58,7 +58,7 @@ class OpeningHours
         return $this->thursday;
     }
 
-    public function setThursday($thursday): self
+    public function setThursday(string $thursday): self
     {
         $this->thursday = $thursday;
         return $this;
@@ -69,7 +69,7 @@ class OpeningHours
         return $this->friday;
     }
 
-    public function setFriday($friday): self
+    public function setFriday(string $friday): self
     {
         $this->friday = $friday;
         return $this;
@@ -80,7 +80,7 @@ class OpeningHours
         return $this->saturday;
     }
 
-    public function setSaturday($saturday): self
+    public function setSaturday(string $saturday): self
     {
         $this->saturday = $saturday;
         return $this;
@@ -91,7 +91,7 @@ class OpeningHours
         return $this->sunday;
     }
 
-    public function setSunday($sunday): self
+    public function setSunday(string $sunday): self
     {
         $this->sunday = $sunday;
         return $this;
