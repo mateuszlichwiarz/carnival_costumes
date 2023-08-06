@@ -5,25 +5,21 @@
         <div class="home">
             <br><br><br><br><br><br>
             <br>{{ message }}<br>
-            <h1>Witam wszystkich odwiedzających stronę!</h1>
-									<br/><br/>
-							Serdecznie zapraszamy do wypożyczania markowych strojów, starannie wybieranych na podstawie aktualnych trendów.
-									<br/><br/>
-							Posiadamy szeroką gamę strojów. W naszej ofercie znajdują się stroje głownie na karnawał oraz jasełka. Przy odrobinie chęci każdy znajdzie coś dla siebie.
-									<br/><br/>
-							Najmniejsze stroje są dla dzieci z przedziału wiekowego 3-6 miesięcy.
-									<br/><br/>
-							Największe do 12 lat.
-								
-									<br/><br/><br/><br/>
-					
-							<strong>Nie prowadzimy wypożyczeń on-line.</strong>
-													<br/><br/>
-							<strong>Stroje tylko dla dzieci.</strong>
-													<br/><br/>
-							<strong>Zachęcam do kontaktu telefonicznego!</strong>
-											
-									<br/><br/>
+            <h2>Welcome</h2>
+			<br><br>
+            <div class="desc">
+                <b>This is not on-line rental service</b>
+                <br><br>
+
+                This website has been placed in Your hands for geting most important information about carnival rental at <strong>{{ contact.street|capitalize }}</strong> street in <strong>{{ contact.city|capitalize }}</strong>.
+			    <br><br>
+
+                <b>Costumes only for kids</b>
+                <br><br>
+
+			    We have costumes for kids from few month age to 12 years old. Most of collection is licensed brand costumes like 
+                <strong>Cinderella, Batman, Superman, Starwars</strong>.
+            </div>
         </div>
     </div>
 {% endblock %}
