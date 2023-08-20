@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Entity\OpeningHours;
+
 class MainController extends AbstractController
 {
     #[Route('/index', name: 'index')]
@@ -22,19 +24,40 @@ class MainController extends AbstractController
     {
         $message = '/home';
 
+        $contact = ['street' => 'holdu pruskiego'
+            ,'city' => 'klodzko'
+        ];
+
         return $this->render('page/home.html.twig', [
             'message' => $message,
+            'contact' => $contact,
         ]);
     }
 
     #[Route('/contact', name: 'contact')]
     public function contact(): Response
     {
-
         $message = '/contact';
+
+        $openHours = new OpeningHours();
+        $openHours->setMonday('6-14');
+        $openHours->setTuesday('9-18');
+
+        $contact = ['city' => 'klodzko',
+            'street' => 'holdu pruskiego',
+        ];
+
+        $phoneNumber = 697160121;
+
+        $hours = ['monday' => $openHours->getMonday(),
+            'tuesday' => $openHours->getTuesday(),
+        ];
 
         return $this->render('page/contact.html.twig', [
             'message' => $message,
+            'phoneNumber' => $phoneNumber,
+            'hours' => $hours,
+            'contact' => $contact,
         ]);
     }
 
@@ -58,12 +81,12 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/about', name: 'about')]
-    public function about(): Response
+    #[Route('/statute', name: 'statute')]
+    public function statute(): Response
     {
-        $message = '/about';
+        $message = '/statute';
 
-        return $this->render('page/about.html.twig', [
+        return $this->render('page/statute.html.twig', [
             'message' => $message,
         ]);
     }
