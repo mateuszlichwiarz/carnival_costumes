@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\OpeningHours;
+use App\Entity\Pricing;
 
 class MainController extends AbstractController
 {
@@ -66,8 +67,13 @@ class MainController extends AbstractController
     {
         $message = '/pricing';
 
+        $pricing = new Pricing();
+        $pricing->setMaxPrice(35);
+        $pricing->setMinPrice(25);
+
         return $this->render('page/pricing.html.twig', [
             'message' => $message,
+            'pricing' => $pricing,
         ]);
     }
 
