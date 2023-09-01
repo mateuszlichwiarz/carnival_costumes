@@ -8,12 +8,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Bundle\SecurityBundle\Security;
+
+use App\Entity\Admin;
+
 class DashboardController extends AbstractController
 {
+    public function __construct(private Security $security)
+    {}
+
     #[Route('/admin', name: 'admin_index')]
     public function index()
     {   
-        return $this->render('admin/index.html.twig');
+        /** @var Admin $admin */
+        $admin = $this->security->getUser();
+
+        return $this->render('admin/index.html.twig', [
+            'admin' => $admin,
+        ]);
     }
 
     public function pricing()
