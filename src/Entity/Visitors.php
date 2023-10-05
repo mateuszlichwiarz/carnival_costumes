@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\VisitorsRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: VisitorsRepository::class)]
@@ -13,67 +14,67 @@ class Visitors
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $total = null;
+    #[ORM\Column(length: 255)]
+    private ?string $week = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $month = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $year = null;
 
     #[ORM\Column]
-    private ?int $week = null;
-
-    #[ORM\Column]
-    private ?int $month = null;
-
-    #[ORM\Column]
-    private ?int $year = null;
+    private ?int $visitors = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTotal(): ?int
-    {
-        return $this->total;
-    }
-
-    public function setTotal(int $total): static
-    {
-        $this->total = $total;
-
-        return $this;
-    }
-
-    public function getWeek(): ?int
+    public function getWeek(): ?string
     {
         return $this->week;
     }
 
-    public function setWeek(int $week): static
+    public function setWeek(string $week): static
     {
         $this->week = $week;
 
         return $this;
     }
 
-    public function getMonth(): ?int
+    public function getMonth(): ?string
     {
         return $this->month;
     }
 
-    public function setMonth(int $month): static
+    public function setMonth(string $month): static
     {
         $this->month = $month;
 
         return $this;
     }
 
-    public function getYear(): ?int
+    public function getYear(): ?\DateTimeInterface
     {
         return $this->year;
     }
 
-    public function setYear(int $year): static
+    public function setYear(\DateTimeInterface $year): static
     {
         $this->year = $year;
+
+        return $this;
+    }
+
+    public function getVisitors(): ?int
+    {
+        return $this->visitors;
+    }
+
+    public function setVisitors(int $visitors): static
+    {
+        $this->visitors = $visitors;
 
         return $this;
     }
