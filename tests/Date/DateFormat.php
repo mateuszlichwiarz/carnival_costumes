@@ -6,24 +6,24 @@ namespace App\Tests\Calendar;
 
 use PHPUnit\Framework\TestCase;
 
-use App\Calendar\CurrentTime;
+use App\Date\DateFormat;
 
 
-final class CurrentTimeTest extends TestCase
+final class DateFormatTest extends TestCase
 {
 
     public function testGetProperYearFormat(): void
     {
 
-        $currentTime = new CurrentTime();
-        $currentDateFormat = $currentTime->getYear();
+        $dateFormat = new DateFormat();
+        $currentDateFormat = $dateFormat->getYear();
 
         $this->assertSame(2023, $currentDateFormat);
     }
 
     public function testGetProperMonthFormat(): void
     {
-        $currentTime = new CurrentTime();
+        $currentTime = new DateFormat();
         $currentDateFormat = $currentTime->getMonth();
 
         $this->assertSame(10, $currentDateFormat);
@@ -31,7 +31,7 @@ final class CurrentTimeTest extends TestCase
 
     public function testGetProperWeekFormat(): void
     {
-        $currentTime = new CurrentTime();
+        $currentTime = new DateFormat();
         $currentDateFormat = $currentTime->getWeek();
 
         $this->assertSame(3, $currentDateFormat);
