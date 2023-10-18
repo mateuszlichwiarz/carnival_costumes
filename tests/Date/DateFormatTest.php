@@ -36,5 +36,13 @@ final class DateFormatTest extends TestCase
 
         $this->assertSame(3, $currentDateFormat);
     }
+
+    public function testGetFailWeekFormat(): void
+    {
+        $currentTime = new DateFormat();
+        $currentDateFormat = $currentTime->getWeek();
+
+        $this->assertSame(5, $currentDateFormat);
+    }
     
 }
