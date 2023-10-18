@@ -12,7 +12,7 @@ use App\Calendar\CurrentTime;
 final class CurrentTimeTest extends TestCase
 {
 
-    public function testGetYear(): void
+    public function testGetProperYearFormat(): void
     {
 
         $currentTime = new CurrentTime();
