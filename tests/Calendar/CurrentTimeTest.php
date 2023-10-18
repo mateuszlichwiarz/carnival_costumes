@@ -29,5 +29,12 @@ final class CurrentTimeTest extends TestCase
         $this->assertSame(10, $currentDateFormat);
     }
 
+    public function testGetProperWeekFormat(): void
+    {
+        $currentTime = new CurrentTime();
+        $currentDateFormat = $currentTime->getWeek();
+
+        $this->assertSame(3, $currentDateFormat);
+    }
     
 }
