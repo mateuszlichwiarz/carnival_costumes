@@ -16,9 +16,18 @@ final class CurrentTimeTest extends TestCase
     {
 
         $currentTime = new CurrentTime();
-        $currentYear = $currentTime->getYear();
+        $currentDateFormat = $currentTime->getYear();
 
-        $this->assertSame(2023, $currentYear);
-
+        $this->assertSame(2023, $currentDateFormat);
     }
+
+    public function testGetProperMonthFormat(): void
+    {
+        $currentTime = new CurrentTime();
+        $currentDateFormat = $currentTime->getMonth();
+
+        $this->assertSame(10, $currentDateFormat);
+    }
+
+    
 }
