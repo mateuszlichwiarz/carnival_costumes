@@ -18,13 +18,9 @@ use App\Visitors\UserSession;
 class MainController extends AbstractController
 {
 
-    public function __construct(private RequestStack $requestStack, private UserSession $userSession)
+    public function __construct(private UserSession $userSession)
     {
-        $session = $this->requestStack->getSession();
-
-        $this->userSession->getSession();
-        
-
+        $this->userSession->storeSession();
     }
 
     #[Route('/index', name: 'index')]
