@@ -6,5 +6,5 @@ namespace App\Date\CustomDate;
 
 interface CustomDateInterface
 {
-    public function getCustomDate(string $format): \DateTimeImmutable;
+    public function getCustomDate(string $customDate): \DateTimeImmutable;
 }

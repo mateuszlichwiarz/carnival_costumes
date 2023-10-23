@@ -12,8 +12,8 @@ class CustomDate implements CustomDateInterface
     public function __construct()
     {}
 
-    public function getCustomDate(string $format = '01-01-2020'): DateTimeImmutable
+    public function getCustomDate(string $customDate = '01-01-2020'): DateTimeImmutable
     {
-        return new DateTimeImmutable($format);
+        return new DateTimeImmutable($customDate);
     }
 }
