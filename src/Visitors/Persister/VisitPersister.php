@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Visitors\Persister;
 
 use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Visits;
 
 
 class VisitPersister
@@ -12,15 +13,15 @@ class VisitPersister
     public function __construct(private EntityManagerInterface $manager)
     {}
 
-    public function persist(object $data): void
+    public function persist(Visits $visits): void
     {
-        $this->manager->persist($data);
+        $this->manager->persist($visits);
         $this->manager->flush();
     }
 
-    public function remove(object $data): void
+    public function remove(Visits $visits): void
     {
-        $this->manager->remove($data);
+        $this->manager->remove($visits);
         $this->manager->flush();
     }
 }
