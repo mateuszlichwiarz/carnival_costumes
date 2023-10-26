@@ -21,4 +21,19 @@ final class DateManagerTest extends KernelTestCase
         $date = $dateManager->getDate()->format("Y-m-d");
         $this->assertSame(date("Y-m-d"), $date);
     }
+
+    public function testGetCustomDate(): void
+    {
+        self::bootKernel();
+
+        $container = static::getContainer();
+        $dateManager = $container->get(DateManager::class);
+
+        $customDateMk = mkTime(0, 0, 0, 2, 2, 2020);
+        $customDate = date("Y-m-d", $customDateMk);
+
+
+        $date = $dateManager->getDate('2020-02-02')->format('Y-m-d');
+        $this->assertSame($customDate, $date);
+    }
 }
