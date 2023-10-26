@@ -4,18 +4,20 @@ declare(strict_types=1);
 
 namespace App\Tests\Calendar;
 
-use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 use App\Date\DateFormat;
 
 
-final class DateFormatTest extends TestCase
+final class DateFormatTest extends KernelTestCase
 {
-
     public function testGetProperYearFormat(): void
     {
+        self::bootKernel();
 
-        $dateFormat = new DateFormat();
+        $container = static::getContainer();
+        $dateFormat = $container->get(DateFormat::class);
+
         $currentDateFormat = $dateFormat->getYear();
 
         $this->assertSame(2023, $currentDateFormat);
@@ -23,29 +25,41 @@ final class DateFormatTest extends TestCase
 
     public function testGetProperMonthFormat(): void
     {
-        $currentTime = new DateFormat();
-        $currentDateFormat = $currentTime->getMonth();
+        self::bootKernel();
 
-        $this->assertSame(10, $currentDateFormat);
+        $container = static::getContainer();
+        $dateFormat = $container->get(DateFormat::class);
+
+        $dateMonth = $dateFormat->getMonth();
+
+        $this->assertSame(10, $dateMonth);
     }
 
     public function testGetProperWeekFormat(): void
     {
-        $currentTime = new DateFormat();
-        $currentDateFormat = $currentTime->getWeek();
+        self::bootKernel();
 
-        $this->assertSame(3, $currentDateFormat);
+        $container = static::getContainer();
+        $dateFormat = $container->get(DateFormat::class);
+
+        $dateWeek = $dateFormat->getWeek();
+
+        $this->assertSame(4, $dateWeek);
     }
 
     public function testCustomDateWeekFormat(): void
     {
-        $currentTime = new DateFormat();
+        self::bootKernel();
+
+        $container = static::getContainer();
+        $dateFormat = $container->get(DateFormat::class);
         
-        $date = mktime(0,0,0,1,8,2014);
+        $customDateMk = mktime(0,0,0,1,8,2014);
+        $customDate = date("Y-m-d", $customDateMk);
 
-        $currentDateFormat = $currentTime->getWeek($date);
+        $customDateWeek = $dateFormat->getWeek($customDate);
 
-        $this->assertSame(2, $currentDateFormat);
+        $this->assertSame(2, $customDateWeek);
     }
     
 }
