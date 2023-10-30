@@ -44,7 +44,7 @@ final class DateFormatTest extends KernelTestCase
 
         $dateWeek = $dateFormat->getWeek();
 
-        $this->assertSame(4, $dateWeek);
+        $this->assertSame(5, $dateWeek);
     }
 
     public function testCustomDateWeekFormat(): void
