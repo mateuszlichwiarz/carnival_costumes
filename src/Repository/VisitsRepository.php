@@ -21,6 +21,16 @@ class VisitsRepository extends ServiceEntityRepository
         parent::__construct($registry, Visits::class);
     }
 
+    public function findOneByWeek(int $week): ?Visits
+    {
+        return $this->createQueryBuilder('v')
+            ->andWhere('v.week = :week')
+            ->setParameter('week', $week)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
 //    /**
 //     * @return Visits[] Returns an array of Visits objects
 //     */
