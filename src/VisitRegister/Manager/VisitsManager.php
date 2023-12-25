@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\VisitRegister;
+namespace App\VisitRegister\Manager;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 
