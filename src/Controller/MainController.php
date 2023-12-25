@@ -7,20 +7,20 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\OpeningHours;
 use App\Entity\Pricing;
 
-use App\Visitors\UserSession;
+use App\VisitRegister\VisitsManager;
 
 class MainController extends AbstractController
 {
 
-    public function __construct(private UserSession $userSession)
-    {
-        $this->userSession->storeSession();
+    public function __construct(
+        private VisitsManager $visitsManager,
+    ){
+        $this->visitsManager->saveVisit();
     }
 
     #[Route('/index', name: 'index')]
