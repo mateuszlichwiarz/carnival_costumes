@@ -28,14 +28,18 @@ class VisitsRecorder
 
     public function saveVisit(): void
     {
-        $visitFound = $this->visitsRepository->findOneByWeek($this->date->getWeek());
-
+        $visitFound = $this->visitsRepository->
+            findOneVisitByDate(
+                $this->date->getWeek(),
+                $this->date->getMonth(),
+                $this->date->getYear()
+            )
+        ;
         if(!$visitFound) {
             $visit = $this->visitFactory->create($this->date);
         }else {
             $visit = $this->visitsUpdater->updateVisits($visitFound);
         }
-
         $this->visitPersister->persist($visit);
     }
 }
