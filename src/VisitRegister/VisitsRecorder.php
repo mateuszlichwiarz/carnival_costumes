@@ -26,7 +26,7 @@ class VisitsRecorder
         $this->date = $this->currentDateFactory->createDate();
     }
 
-    public function saveVisits(): void
+    public function saveVisit(): void
     {
         $visitFound = $this->visitsRepository->findOneByWeek($this->date->getWeek());
 
