@@ -26,19 +26,8 @@ class DashboardController extends AbstractController
         /** @var Admin $admin */
         $admin = $this->security->getUser();
 
-        $session = $request->getSession();
-        $visitor = $session->get('visitors');
-
-        $ip = $request->getClientIp();     
-
-        $session->set('visitors', $visitor = $visitor+1);
-
-        $visitor = $session->get('visitors');
-
         return $this->render('admin/index.html.twig', [
             'admin' => $admin,
-            'visitor' => $visitor,
-            'ip' => $ip,
         ]);
     }
 
