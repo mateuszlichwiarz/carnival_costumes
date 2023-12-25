@@ -12,7 +12,6 @@ class VisitFactory
 {
     public function create(Date $date): Visits
     {
-
         $visit = new Visits();
         $visit->setMonth($date->getMonth());
         $visit->setWeek($date->getWeek());
