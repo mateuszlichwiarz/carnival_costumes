@@ -4,13 +4,33 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Repository\PricingRepository;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: PricingRepository::class)]
 class Pricing
 {
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\Column]
     private null|int $minPrice = 0;
 
+    #[ORM\Column]
     private null|int $maxPrice = 0;
 
+    #[ORM\Column]
     private null|int $deposit = 0;
+
+    #[ORM\Column]
+    private string $desc = '';
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getMinPrice(): ?int
     {
@@ -42,6 +62,17 @@ class Pricing
     public function setDeposit(int $deposit): self
     {
         $this->deposit = $deposit;
+        return $this;
+    }
+
+    public function getDesc(): string
+    {
+        return $this->desc;
+    }
+
+    public function setDesc(string $desc): self
+    {
+        $this->desc = $desc;
         return $this;
     }
 
