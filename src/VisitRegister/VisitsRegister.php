@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\VisitRegister\Manager;
+namespace App\VisitRegister;
 
 use Symfony\Component\HttpFoundation\RequestStack;
 
 use App\VisitRegister\SessionRegister;
 use App\VisitRegister\VisitsRecorder;
 
-class VisitsManager
+class VisitsRegister
 {
     public function __construct(
         private RequestStack $requestStack,
