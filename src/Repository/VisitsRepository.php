@@ -35,6 +35,18 @@ class VisitsRepository extends ServiceEntityRepository
         ;
     }
 
+    public function sumAllVisits(): int
+    {
+        $result = $this->createQueryBuilder('v')
+            ->select('SUM(v.visits)')
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+
+        return (int) $result;
+
+    }
+
     public function findOneByWeek(int $week): ?Visits
     {
         return $this->createQueryBuilder('v')
