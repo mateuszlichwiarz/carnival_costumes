@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\VisitRegister;
 
 use App\VisitRegister\VisitFactory;
-use App\VIsitRegister\VisitUpdater;
+use App\VisitRegister\VisitsUpdater;
 use App\VisitRegister\Persister\VisitPersister;
 use App\Repository\VisitsRepository;
 
