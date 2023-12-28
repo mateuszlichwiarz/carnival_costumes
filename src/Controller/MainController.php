@@ -12,15 +12,16 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\OpeningHours;
 use App\Entity\Pricing;
 
-use App\VisitRegister\VisitsManager;
+use App\VisitRegister\VisitsRegister;
+
 
 class MainController extends AbstractController
 {
 
     public function __construct(
-        private VisitsManager $visitsManager,
+        private VisitsRegister $visitsRegister,
     ){
-        $this->visitsManager->saveVisit();
+        $this->visitsRegister->saveVisit();
     }
 
     #[Route('/index', name: 'index')]
@@ -79,8 +80,6 @@ class MainController extends AbstractController
         $message = '/pricing';
 
         $pricing = new Pricing();
-        $pricing->setMaxPrice(35);
-        $pricing->setMinPrice(25);
 
         return $this->render('page/pricing.html.twig', [
             'message' => $message,
