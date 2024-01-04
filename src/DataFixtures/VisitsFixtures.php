@@ -14,16 +14,25 @@ class VisitsFixtures extends Fixture
     {
         $date = strtotime('2022-02');
 
-        $visitors = new Visits();
-
-        $visitors->setMonth(1);
-        $visitors->setWeek(1);
-        $visitors->setYear(2022);
-        $visitors->setVisits(234);
-
-        $manager->persist($visitors);
-
-        $manager->flush();
+        for($k = 2022; $k <=2026; $k++)
+        {
+            for($j = 1; $j <= 12; $j++)
+            {
+                for($i = 1; $i <= 5; $i++)
+                {
+                    $visitors = new Visits();
+        
+                    $visitors->setMonth($j);
+                    $visitors->setWeek($i);
+                    $visitors->setYear($k);
+                    $visitors->setVisits(rand(0, 100));
+        
+                    $manager->persist($visitors);
+                    $manager->flush();
+                }
+            }
+        }
+        
     }
 
 }
