@@ -8,6 +8,7 @@ use App\VisitRegister\VisitFactory;
 use App\VisitRegister\VisitsUpdater;
 use App\VisitRegister\Persister\VisitPersister;
 use App\Repository\VisitsRepository;
+use App\Entity\Visits;
 
 use App\Date\Date;
 use App\Date\CurrentDate\CurrentDateFactory;
@@ -15,6 +16,8 @@ use App\Date\CurrentDate\CurrentDateFactory;
 class VisitsRecorder
 {
     private Date $date;
+
+    private ?Visits $visit = null;
 
     public function __construct(
         private VisitsRepository $visitsRepository,
@@ -24,22 +27,28 @@ class VisitsRecorder
         private CurrentDateFactory $currentDateFactory,
     ){
         $this->date = $this->currentDateFactory->createDate();
+        $visitFound = $this->findVisit();
+        $this->visit = $visitFound;
     }
 
     public function saveVisit(): void
+    {
+        if($this->visit === null) {
+            $visitModified = $this->visitFactory->create($this->date);
+        }else {
+            $visitModified = $this->visitsUpdater->updateVisits($this->visit);
+        }
+        $this->visitPersister->persist($visitModified);
+    }
+
+    private function findVisit(): ?Visits
     {
         $visitFound = $this->visitsRepository->
             findOneVisitByDate(
                 $this->date->getWeek(),
                 $this->date->getMonth(),
                 $this->date->getYear()
-            )
-        ;
-        if(!$visitFound) {
-            $visit = $this->visitFactory->create($this->date);
-        }else {
-            $visit = $this->visitsUpdater->updateVisits($visitFound);
-        }
-        $this->visitPersister->persist($visit);
+            );
+        return $visitFound;
     }
 }
