@@ -6,7 +6,7 @@ namespace App\Date;
 
 trait WeeksCalculatorTrait
 {
-    public function calculateWeek($day)
+    public function calculateWeek($day): int
     {
         if($day > 0 && $day  <= 7){
             return 1;
