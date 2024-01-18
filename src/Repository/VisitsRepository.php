@@ -6,6 +6,8 @@ use App\Entity\Visits;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+use App\Date\Date;
+
 /**
  * @extends ServiceEntityRepository<Visits>
  *
@@ -20,21 +22,7 @@ class VisitsRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Visits::class);
     }
-
-    public function findOneVisitByDate(int $week, int $month, int $year): ?Visits
-    {
-        return $this->createQueryBuilder('v')
-            ->andWhere('v.week = :week')
-            ->setParameter('week', $week)
-            ->andWhere('v.month = :month')
-            ->setParameter('month', $month)
-            ->andWhere('v.year = :year')
-            ->setParameter('year', $year)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-
+    
     public function sumAllVisits(): int
     {
         $result = $this->createQueryBuilder('v')
@@ -47,13 +35,27 @@ class VisitsRepository extends ServiceEntityRepository
 
     }
 
-    public function findOneByWeek(int $week): ?Visits
+    public function findOneVisitByDate(Date $date): ?Visits
+    {
+        return $this->createQueryBuilder('v')
+            ->andWhere('v.week = :week')
+            ->setParameter('week', $date->getWeek())
+            ->andWhere('v.month = :month')
+            ->setParameter('month', $date->getMonth())
+            ->andWhere('v.year = :year')
+            ->setParameter('year', $date->getYear())
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    public function findAllByWeek(int $week): array
     {
         return $this->createQueryBuilder('v')
             ->andWhere('v.week = :week')
             ->setParameter('week', $week)
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult()
         ;
     }
 
