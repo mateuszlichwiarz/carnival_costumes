@@ -45,9 +45,7 @@ class VisitsRecorder
     {
         $visitFound = $this->visitsRepository->
             findOneVisitByDate(
-                $this->date->getWeek(),
-                $this->date->getMonth(),
-                $this->date->getYear()
+                $this->date
             );
         return $visitFound;
     }
