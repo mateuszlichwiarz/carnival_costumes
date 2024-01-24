@@ -28,6 +28,8 @@ abstract class VisitsFinderKernelTestCase extends KernelTestCase
 
     abstract protected function setUpVisitsFound(): void;
 
+    abstract protected function setUpProperVisitsCurrentDate(): void;
+
     protected function setUpDate(): void
     {
         $dateFactory = new CurrentDateFactory();
