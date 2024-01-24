@@ -26,7 +26,7 @@ abstract class VisitsFinderKernelTestCase extends KernelTestCase
 
     protected Date $currentDate;
 
-    abstract protected function setUpVisitsFinder(): void;
+    abstract protected function setUpVisitsFound(): void;
 
     protected function setUpDate(): void
     {
