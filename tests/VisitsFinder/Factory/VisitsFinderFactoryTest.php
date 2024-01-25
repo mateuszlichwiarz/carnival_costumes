@@ -31,6 +31,6 @@ final class VisitsFinderFactoryTest extends TestCase
         $visitsFinderFactory = new WeekVisitsFinderFactory();
         $visitsFinder = $visitsFinderFactory->createFinder($this->date, $this->visitsCollection);
 
-        return $this->assertInstanceOf(WeekVisitsFinder::class, $visitsFinder);
+        $this->assertInstanceOf(WeekVisitsFinder::class, $visitsFinder);
     }
 }
