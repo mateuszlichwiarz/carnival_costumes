@@ -6,7 +6,6 @@ namespace App\Tests\VisitsFinder\Factory;
 
 use App\Date\CurrentDate\CurrentDateFactory;
 use PHPUnit\Framework\TestCase;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 use App\VisitsFinder\Factory\WeekVisitsFinderFactory;
 use App\VisitsFinder\Finders\WeekVisitsFinder;
@@ -26,7 +25,7 @@ final class VisitsFinderFactoryTest extends TestCase
         $this->date = $dateFactory->createDate();
     }
 
-    public function testCanCreateVisitsFinder()
+    public function testCanCreateVisitsFinder(): void
     {
 
         $visitsFinderFactory = new WeekVisitsFinderFactory();
