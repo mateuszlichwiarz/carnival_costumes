@@ -14,7 +14,7 @@ class VisitsFixtures extends Fixture
     {
         $date = strtotime('2022-02');
 
-        for($k = 2022; $k <=2026; $k++)
+        for($k = 2022; $k <= 2026; $k++)
         {
             for($j = 1; $j <= 12; $j++)
             {
