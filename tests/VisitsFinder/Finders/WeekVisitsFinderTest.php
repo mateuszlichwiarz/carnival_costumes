@@ -29,7 +29,11 @@ final class WeekVisitsFinderTest extends VisitsFinderKernelTestCase
     protected function setUpVisitsFound(): void
     {
         $weekVisitsFinderFactory = new WeekVisitsFinderFactory();
-        $weekVisitsFinder = $weekVisitsFinderFactory->createFinder($this->currentDate, $this->visitsCollection);
+        $weekVisitsFinder = $weekVisitsFinderFactory->createFinder(
+            $this->currentDate,
+            $this->visitsCollection
+        );
+
         $this->visitsFound = $weekVisitsFinder->find();
     }
 
@@ -44,16 +48,25 @@ final class WeekVisitsFinderTest extends VisitsFinderKernelTestCase
 
     public function testWeekFinderAssertYear(): void
     {
-        $this->assertSame($this->visitsFound->getYear(), $this->properVisits->getYear());
+        $this->assertSame(
+            $this->visitsFound->getYear(),
+            $this->properVisits->getYear()
+        );
     }
 
     public function testWeekFinderAssertMonth(): void
     {
-        $this->assertSame($this->visitsFound->getMonth(), $this->properVisits->getMonth());
+        $this->assertSame(
+            $this->visitsFound->getMonth(),
+            $this->properVisits->getMonth()
+        );
     }
 
     public function testWeekFinderAssertWeek(): void
     {
-        $this->assertSame($this->visitsFound->getWeek(), $this->properVisits->getWeek());
+        $this->assertSame(
+            $this->visitsFound->getWeek(),
+            $this->properVisits->getWeek()
+        );
     }
 }
