@@ -24,7 +24,6 @@ final class MonthVisitsFinder implements VisitsFinderInterface
                 $foundedVisits[] = $visit;
             }
         }
-
         return $foundedVisits;
     }
 }
