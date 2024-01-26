@@ -9,6 +9,14 @@ use PHPUnit\Framework\TestCase;
 
 use App\VisitsFinder\Factory\WeekVisitsFinderFactory;
 use App\VisitsFinder\Finders\WeekVisitsFinder;
+
+use App\VisitsFinder\Factory\MonthVisitsFinderFactory;
+use App\VisitsFinder\Finders\MonthVisitsFinder;
+
+use App\VisitsFinder\Factory\YearVisitsFinderFactory;
+use App\VisitsFinder\Finders\YearVisitsFinder;
+
+
 use App\Date\Date;
 
 final class VisitsFinderFactoryTest extends TestCase
@@ -25,12 +33,30 @@ final class VisitsFinderFactoryTest extends TestCase
         $this->date = $dateFactory->createDate();
     }
 
-    public function testCanCreateVisitsFinder(): void
+    public function testCanCreateWeekVisitsFinder(): void
     {
 
         $visitsFinderFactory = new WeekVisitsFinderFactory();
         $visitsFinder = $visitsFinderFactory->createFinder($this->date, $this->visitsCollection);
 
         $this->assertInstanceOf(WeekVisitsFinder::class, $visitsFinder);
+    }
+
+    public function testCanCreateMonthVisitsFinder(): void
+    {
+
+        $visitsFinderFactory = new MonthVisitsFinderFactory();
+        $visitsFinder = $visitsFinderFactory->createFinder($this->date, $this->visitsCollection);
+
+        $this->assertInstanceOf(MonthVisitsFinder::class, $visitsFinder);
+    }
+
+    public function testCanCreateYearVisitsFinder(): void
+    {
+
+        $visitsFinderFactory = new YearVisitsFinderFactory();
+        $visitsFinder = $visitsFinderFactory->createFinder($this->date, $this->visitsCollection);
+
+        $this->assertInstanceOf(YearVisitsFinder::class, $visitsFinder);
     }
 }
