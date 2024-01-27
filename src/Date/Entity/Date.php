@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Date;
+namespace App\Date\Entity;
 
 use DateTime;
 
@@ -20,7 +20,7 @@ class Date
 
     use WeeksCalculatorTrait;
 
-    public function __construct(public DateTime $dateTime)
+    public function __construct(DateTime $dateTime)
     {
         $this->day   = intval($dateTime->format('d'));
         $this->month = intval($dateTime->format('m'));
