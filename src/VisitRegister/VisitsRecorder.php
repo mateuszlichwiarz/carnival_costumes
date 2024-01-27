@@ -11,7 +11,7 @@ use App\Repository\VisitsRepository;
 use App\Entity\Visits;
 
 use App\Date\Date;
-use App\Date\CurrentDate\CurrentDateFactory;
+use App\Date\Factory\CurrentDateFactory;
 
 class VisitsRecorder
 {
