@@ -6,7 +6,7 @@ namespace App\VisitRegister;
 
 use App\Entity\Visits;
 
-use App\Date\Date;
+use App\Date\Entity\Date;
 
 class VisitFactory
 {
