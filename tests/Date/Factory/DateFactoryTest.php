@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 use App\Date\Factory\CustomDateFactory;
 use App\Date\Factory\CurrentDateFactory;
-use App\Date\Date;
+use App\Date\Entity\Date;
 
 final class DateFactoryTest extends TestCase
 {
