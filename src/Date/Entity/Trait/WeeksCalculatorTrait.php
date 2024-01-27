@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Date;
+namespace App\Date\Entity\Trait;
 
 trait WeeksCalculatorTrait
 {

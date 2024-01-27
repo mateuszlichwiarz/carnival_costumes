@@ -6,7 +6,7 @@ namespace App\Date\Entity;
 
 use DateTime;
 
-use App\Date\WeeksCalculatorTrait;
+use App\Date\Entity\Trait\WeeksCalculatorTrait;
 
 class Date
 {
