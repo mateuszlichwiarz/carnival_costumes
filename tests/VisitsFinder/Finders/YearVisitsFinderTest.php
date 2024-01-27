@@ -47,9 +47,6 @@ final class YearVisitsFinderTest extends VisitsFinderKernelTestCase
         $this->visitsFoundCollection = $yearVisitsFinder->find();
     }
 
-    protected function setUpProperVisits(): void
-    {}
-
     public function testFindWeeksInYear()
     {
         $amountWeekVisits = count($this->visitsFoundCollection);
