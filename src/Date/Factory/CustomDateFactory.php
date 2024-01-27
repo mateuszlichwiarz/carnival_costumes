@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Date\CustomDate;
+namespace App\Date\Factory;
 
-use App\Date\DateFactoryInterface;
+use App\Date\Factory\DateFactoryInterface;
 use App\Date\Date;
 
 use DateTime;
