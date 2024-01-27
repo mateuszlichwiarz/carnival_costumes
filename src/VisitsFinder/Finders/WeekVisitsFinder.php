@@ -6,7 +6,7 @@ namespace App\VisitsFinder\Finders;
 
 use App\VisitsFinder\Finders\Interface\OneResultVisitsFinderInterface as VisitsFinderInterface;
 
-use App\Date\Date;
+use App\Date\Entity\Date;
 
 use App\Entity\Visits;
 

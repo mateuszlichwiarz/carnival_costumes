@@ -6,7 +6,7 @@ namespace App\VisitsFinder\Factory;
 
 use App\VisitsFinder\Factory\VisitsFinderFactoryInterface;
 use App\VisitsFinder\Finders\YearVisitsFinder;
-use App\Date\Date;
+use App\Date\Entity\Date;
 use App\VisitsFinder\Finders\Interface\VisitsFinderInterface;
 
 final class YearVisitsFinderFactory implements VisitsFinderFactoryInterface
