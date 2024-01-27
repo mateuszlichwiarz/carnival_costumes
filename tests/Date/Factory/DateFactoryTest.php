@@ -6,8 +6,8 @@ namespace App\Tests\Date\Factory;
 
 use PHPUnit\Framework\TestCase;
 
-use App\Date\CustomDate\CustomDateFactory;
-use App\Date\CurrentDate\CurrentDateFactory;
+use App\Date\Factory\CustomDateFactory;
+use App\Date\Factory\CurrentDateFactory;
 use App\Date\Date;
 
 final class DateFactoryTest extends TestCase
