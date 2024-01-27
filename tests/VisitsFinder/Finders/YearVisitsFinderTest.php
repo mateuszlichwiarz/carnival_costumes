@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\VisitsFinder\Finders;
 
-use App\Tests\VisitsFinder\VisitsFinderKernelTestCase;
+use App\Tests\VisitsFinder\TestCase\VisitsFinderKernelTestCase;
 
 use App\Entity\Visits;
 
