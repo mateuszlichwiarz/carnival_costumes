@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\VisitsFinder;
+namespace App\Tests\VisitsFinder\TestCase;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
