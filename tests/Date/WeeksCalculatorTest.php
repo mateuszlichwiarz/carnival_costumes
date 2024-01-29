@@ -5,7 +5,7 @@ namespace App\Tests\Date;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 use App\Date\CurrentDate\CurrentDateFactory;
-use App\Date\WeeksCalculatorTrait;
+use App\Date\Entity\Trait\WeeksCalculatorTrait;
 
 final class DateTest extends KernelTestCase
 {
