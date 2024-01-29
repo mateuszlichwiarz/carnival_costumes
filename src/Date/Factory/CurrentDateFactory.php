@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Date\Factory;
 
-use App\Date\Factory\DateFactoryInterface;
+use App\Date\Factory\Interface\DateFactoryInterface;
 use App\Date\Entity\Date;
 
 use DateTime;
