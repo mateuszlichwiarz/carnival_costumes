@@ -8,8 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 use App\Repository\VisitsRepository;
 
-use App\Date\CurrentDate\CurrentDateFactory;
-use App\Date\Date;
+use App\Date\Entity\Date;
+use App\Date\BetterDateInterface;
 
 abstract class VisitsFinderKernelTestCase extends KernelTestCase
 {
@@ -17,19 +17,18 @@ abstract class VisitsFinderKernelTestCase extends KernelTestCase
 
     protected VisitsRepository $visitsRepository;
 
-    protected Date $currentDate;
+    protected Date $betterDate;
+
+    public function setUp(): void
+    {
+        self::bootKernel();
+        $this->betterDate = self::getContainer()->get(BetterDateInterface::class);
+    }
 
     abstract protected function setUpVisitsFound(): void;
-
-    protected function setUpDate(): void
-    {
-        $dateFactory = new CurrentDateFactory();
-        $this->currentDate = $dateFactory->createDate();
-    }
     
     protected function setUpVisitsRepository(): void
     {
-        self::bootKernel();
         $this->visitsRepository = self::getContainer()->get(VisitsRepository::class);
     }
 
