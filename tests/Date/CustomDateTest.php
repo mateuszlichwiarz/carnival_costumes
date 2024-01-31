@@ -16,7 +16,7 @@ final class CustomDateTest extends TestCase
     public function setUp(): void
     {
         $customDateFactory = new CustomDateFactory();
-        $this->customDate = $customDateFactory->createDate('20-02-2020');
+        $this->customDate = $customDateFactory->create('20-02-2020');
     }
 
     public function testGetYear(): void
