@@ -13,11 +13,8 @@ class CustomDateFactory implements DateFactoryInterface
 {
     public function create(?string $date = null): Date
     {
-        if($date === null) {
-            throw new \Exception('no date provided');
-        }else {
-            $dateTimeObject = new DateTime($date);
-            return new Date($dateTimeObject);
-        }
+        return new Date(
+            new DateTime($date)
+        );
     }
 }
