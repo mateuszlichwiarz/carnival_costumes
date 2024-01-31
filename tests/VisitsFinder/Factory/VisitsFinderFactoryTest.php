@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\VisitsFinder\Factory;
 
-use App\Date\CurrentDate\CurrentDateFactory;
+use App\Date\Factory\CurrentDateFactory;
 use PHPUnit\Framework\TestCase;
 
 use App\VisitsFinder\Factory\WeekVisitsFinderFactory;
@@ -17,7 +17,7 @@ use App\VisitsFinder\Factory\YearVisitsFinderFactory;
 use App\VisitsFinder\Finders\YearVisitsFinder;
 
 
-use App\Date\Date;
+use App\Date\Entity\Date;
 
 final class VisitsFinderFactoryTest extends TestCase
 {
