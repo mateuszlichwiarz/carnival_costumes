@@ -26,7 +26,7 @@ class VisitsRecorder
         private VisitPersister $visitPersister,
         private CurrentDateFactory $currentDateFactory,
     ){
-        $this->date = $this->currentDateFactory->createDate();
+        $this->date = $this->currentDateFactory->create();
         $visitFound = $this->findVisit();
         $this->visit = $visitFound;
     }
