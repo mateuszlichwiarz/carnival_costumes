@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 use App\Repository\VisitsRepository;
 
-use App\Date\Entity\Date;
 use App\Date\BetterDateInterface;
 
 abstract class VisitsFinderKernelTestCase extends KernelTestCase
@@ -17,7 +16,7 @@ abstract class VisitsFinderKernelTestCase extends KernelTestCase
 
     protected VisitsRepository $visitsRepository;
 
-    protected Date $betterDate;
+    protected BetterDateInterface $betterDate;
 
     public function setUp(): void
     {
