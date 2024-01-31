@@ -7,8 +7,9 @@ namespace App\Tests\VisitsFinder\Finders;
 use App\Tests\VisitsFinder\TestCase\VisitsFinderKernelTestCase;
 
 use App\Entity\Visits;
-
 use App\VisitsFinder\Factory\WeekVisitsFinderFactory;
+
+use App\Date\Entity\Date;
 
 final class WeekVisitsFinderTest extends VisitsFinderKernelTestCase
 {
@@ -16,12 +17,13 @@ final class WeekVisitsFinderTest extends VisitsFinderKernelTestCase
 
     private Visits $properVisits;
 
+    private Date $date;
+
     public function setUp(): void
     {
-        $this->setUpDate();
-        $this->setUpVisitsRepository();
-        $this->setUpVisitsCollection();
+        parent::setUp();
 
+        $this->date = $this->betterDate->create();
         $this->setUpVisitsFound();
         $this->setUpProperVisits();
     }
@@ -30,7 +32,7 @@ final class WeekVisitsFinderTest extends VisitsFinderKernelTestCase
     {
         $weekVisitsFinderFactory = new WeekVisitsFinderFactory();
         $weekVisitsFinder = $weekVisitsFinderFactory->createFinder(
-            $this->currentDate,
+            $this->date,
             $this->visitsCollection
         );
 
@@ -41,9 +43,9 @@ final class WeekVisitsFinderTest extends VisitsFinderKernelTestCase
     {
         $this->properVisits = new Visits();
         $this->properVisits
-            ->setWeek($this->currentDate->getWeek())
-            ->setMonth($this->currentDate->getMonth())
-            ->setYear($this->currentDate->getYear());
+            ->setWeek($this->date->getWeek())
+            ->setMonth($this->date->getMonth())
+            ->setYear($this->date->getYear());
     }
 
     public function testWeekFinderAssertYear(): void

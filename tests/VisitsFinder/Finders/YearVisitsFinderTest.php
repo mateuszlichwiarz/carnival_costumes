@@ -8,8 +8,8 @@ use App\Tests\VisitsFinder\TestCase\VisitsFinderKernelTestCase;
 
 use App\Entity\Visits;
 
-use App\Date\Date;
-use App\Date\CustomDate\CustomDateFactory;
+use App\Date\Entity\Date;
+use App\Date\Factory\CustomDateFactory;
 
 use App\VisitsFinder\Factory\YearVisitsFinderFactory;
 
@@ -17,31 +17,21 @@ final class YearVisitsFinderTest extends VisitsFinderKernelTestCase
 {
     private array $visitsFoundCollection;
 
-    private Date $customDate;
+    private Date $date;
 
     public function setUp(): void
     {
-        $this->setUpDate();
-        $this->setUpCustomDate();
+        parent::setUp();
 
-        $this->setUpVisitsRepository();
-        $this->setUpVisitsCollection();
-
+        $this->date = $this->betterDate->create();
         $this->setUpVisitsFound();
-    }
-
-    private function setUpCustomDate(): void
-    {
-        $customDateFactory = new CustomDateFactory();
-
-        $this->customDate = $customDateFactory->createDate('01-01-2024');
     }
 
     protected function setUpVisitsFound(): void
     {
         $yearVisitsFinderFactory = new YearVisitsFinderFactory();
         $yearVisitsFinder = $yearVisitsFinderFactory->createFinder(
-            $this->customDate,
+            $this->date,
             $this->visitsCollection
         );
         $this->visitsFoundCollection = $yearVisitsFinder->find();
