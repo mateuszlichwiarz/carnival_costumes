@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Date\BetterDate;
+use App\Date\BetterDateInterface;
+use App\Date\Factory\Interface\CustomDateFactoryInterface;
+use App\Date\Factory\Interface\DateFactoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,10 +17,14 @@ use Symfony\Bundle\SecurityBundle\Security;
 
 use App\Entity\Admin;
 
+use App\VisitsFinder\VisitsFinder;
+
 class DashboardController extends AbstractController
 {
     public function __construct(
         private Security $security,
+        private VisitsFinder $visitsFinder,
+        private BetterDateInterface $betterDateInterface,
     )
     {}
 
