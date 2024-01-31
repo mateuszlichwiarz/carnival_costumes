@@ -23,6 +23,8 @@ abstract class VisitsFinderKernelTestCase extends KernelTestCase
     {
         self::bootKernel();
         $this->betterDate = self::getContainer()->get(BetterDateInterface::class);
+        $this->setUpVisitsRepository();
+        $this->setUpVisitsCollection();
     }
 
     abstract protected function setUpVisitsFound(): void;
