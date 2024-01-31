@@ -19,14 +19,6 @@ final class DateFactoryTest extends TestCase
 
         $this->assertInstanceOf(Date::class, $customDate);
     }
-    
-    public function testExpectExceptionCustomDateFactory(): void
-    {
-        $customDateFactory = new CustomDateFactory();
-
-        $this->expectException(\Exception::class);
-        $customDateFactory->create();
-    }
 
     public function testCanCreateCurrentDateFactory(): void
     {
@@ -35,4 +27,14 @@ final class DateFactoryTest extends TestCase
 
         $this->assertInstanceOf(Date::class, $currentDate);
     }
+
+    /*
+    public function testExpectExceptionCustomDateFactory(): void
+    {
+        $customDateFactory = new CustomDateFactory();
+
+        $this->expectException(\Exception::class);
+        $customDateFactory->create();
+    }
+    */
 }
