@@ -11,7 +11,7 @@ use DateTime;
 
 class CurrentDateFactory implements DateFactoryInterface
 {
-    public function createDate(): Date
+    public function create(): Date
     {
         $date = new DateTime('now');
 

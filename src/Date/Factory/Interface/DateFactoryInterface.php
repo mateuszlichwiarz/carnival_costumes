@@ -8,5 +8,5 @@ use App\Date\Entity\Date;
 
 interface DateFactoryInterface
 {
-    public function createDate(): Date;
+    public function create(): Date;
 }

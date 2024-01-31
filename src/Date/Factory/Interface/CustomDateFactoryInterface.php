@@ -8,5 +8,5 @@ use App\Date\Entity\Date;
 
 interface CustomDateFactoryInterface extends DateFactoryInterface
 {
-    public function createDate(?string $date = null): Date;
+    public function create(string $date = null): Date;
 }
