@@ -30,7 +30,7 @@ final class VisitsFinderFactoryTest extends TestCase
         $this->visitsCollection = [1 => 'string'];
 
         $dateFactory = new CurrentDateFactory();
-        $this->date = $dateFactory->createDate();
+        $this->date = $dateFactory->create();
     }
 
     public function testCanCreateWeekVisitsFinder(): void
