@@ -15,48 +15,71 @@ final class VisitsFinderTest extends VisitsFinderKernelTestCase
 {
     private VisitsFinderInterface $visitsFinder;
 
-    private Visits $properVisits;
+    private Visits $properVisitsCurrent;
+
+    private Visits $properVisitsCustom;
 
     private Date $currentDate;
+
+    private Date $customDate;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->currentDate = $this->betterDate->create();
+        $this->customDate = $this->betterDate->create('14-02-2024');
         $this->setUpProperVisits();
         $this->setUpVisitsFound();
     }
 
     private function setUpProperVisits(): void
     {
-        $this->properVisits = new Visits();
-        $this->properVisits
+        $this->properVisitsCurrent = new Visits();
+        $this->properVisitsCurrent
             ->setWeek($this->currentDate->getWeek())
             ->setMonth($this->currentDate->getMonth())
-            ->setYear($this->currentDate->getYear());
+            ->setYear($this->currentDate->getYear())
+            ;
+        
+        $this->properVisitsCustom = new Visits();
+        $this->properVisitsCustom
+            ->setWeek($this->customDate->getWeek())
+            ->setMonth($this->customDate->getMonth())
+            ->setYear($this->customDate->getYear())
+            ;
     }
 
     protected function setUpVisitsFound(): void
     {
         $this->visitsFinder = self::getContainer()->get(VisitsFinderInterface::class);
-        $this->visitsFinder->setup($this->visitsCollection, $this->betterDate->create());
+        $this->visitsFinder->prepare($this->visitsCollection);
     }
 
-    public function testVisitsFinderWeek(): void
+    public function testCurrentVisitsFinderWeek(): void
     {
-        $visits = $this->visitsFinder->findWeek();
-        $this->assertSame($visits->getWeek(),  $this->properVisits->getWeek());
-        $this->assertSame($visits->getMonth(), $this->properVisits->getMonth());
-        $this->assertSame($visits->getYear(),  $this->properVisits->getYear());
+        $visits = $this->visitsFinder->findWeek($this->currentDate);
+        $this->assertSame($visits->getWeek(),  $this->properVisitsCurrent->getWeek());
+        $this->assertSame($visits->getMonth(), $this->properVisitsCurrent->getMonth());
+        $this->assertSame($visits->getYear(),  $this->properVisitsCurrent->getYear());
     }
 
-    public function testWeeksInVisitsFinderMonth(): void
+    public function testCurrentWeeksInVisitsFinder(): void
     {
-        $this->assertEquals(count($this->visitsFinder->findMonth()), 5);
+        $this->assertEquals(count($this->visitsFinder->findMonth($this->currentDate)), 5);
+        $this->assertEquals(count($this->visitsFinder->findYear($this->currentDate)), 60);
     }
 
-    public function testWeeksInVisitsFinderYear(): void
+    public function testCustomVisitsFinderWeek(): void
     {
-        $this->assertEquals(count($this->visitsFinder->findYear()), 60);
+        $visits = $this->visitsFinder->findWeek($this->customDate);
+        $this->assertSame($visits->getWeek(),  $this->properVisitsCustom->getWeek());
+        $this->assertSame($visits->getMonth(), $this->properVisitsCustom->getMonth());
+        $this->assertSame($visits->getYear(),  $this->properVisitsCustom->getYear());
+    }
+
+    public function testCustomWeeksInVisitsFinder(): void
+    {
+        $this->assertEquals(count($this->visitsFinder->findMonth($this->customDate)), 5);
+        $this->assertEquals(count($this->visitsFinder->findYear($this->customDate)), 60);
     }
 }
