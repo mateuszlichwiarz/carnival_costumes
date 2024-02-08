@@ -35,7 +35,7 @@ final class MonthVisitsFinderTest extends VisitsFinderKernelTestCase
         $this->visitsFoundCollection = $monthVisitsFinder->find();
     }
 
-    public function testFindWeekInMonth()
+    public function testFindWeekInMonth(): void
     {
         $amountWeekVisits = count($this->visitsFoundCollection);
 
