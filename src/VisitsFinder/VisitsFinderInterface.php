@@ -9,11 +9,11 @@ use App\Entity\Visits;
 
 interface VisitsFinderInterface
 {
-    public function setup(array $visitsCollection, Date $date = null): void;
+    public function prepare(array $visitsCollection): void;
 
-    public function findWeek(): Visits;
+    public function findWeek(?Date $date = null): Visits;
 
-    public function findMonth(): array;
+    public function findMonth(?Date $date = null): array;
 
-    public function findYear(): array;
+    public function findYear(?Date $date = null): array;
 }
