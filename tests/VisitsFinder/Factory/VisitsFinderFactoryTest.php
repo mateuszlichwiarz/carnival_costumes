@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\VisitsFinder\Factory;
 
 use App\Date\Factory\CurrentDateFactory;
-use PHPUnit\Framework\TestCase;
+use App\Tests\VisitsFinder\TestCase\VisitsFinderKernelTestCase;
 
 use App\VisitsFinder\Factory\WeekVisitsFinderFactory;
 use App\VisitsFinder\Finders\WeekVisitsFinder;
@@ -19,19 +19,18 @@ use App\VisitsFinder\Finders\YearVisitsFinder;
 
 use App\Date\Entity\Date;
 
-final class VisitsFinderFactoryTest extends TestCase
+final class VisitsFinderFactoryTest extends VisitsFinderKernelTestCase
 {
-    private array $visitsCollection;
-
     private Date $date;
 
     public function setUp(): void
     {
-        $this->visitsCollection = [1 => 'string'];
-
+        parent::setUp();
         $dateFactory = new CurrentDateFactory();
         $this->date = $dateFactory->create();
     }
+    protected function setUpVisitsFound(): void
+    {}
 
     public function testCanCreateWeekVisitsFinder(): void
     {
