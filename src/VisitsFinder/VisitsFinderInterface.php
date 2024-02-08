@@ -13,5 +13,7 @@ interface VisitsFinderInterface
 
     public function findWeek(): Visits;
 
-    public function findMonth(): Array;
+    public function findMonth(): array;
+
+    public function findYear(): array;
 }
