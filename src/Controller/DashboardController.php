@@ -17,24 +17,23 @@ use Symfony\Bundle\SecurityBundle\Security;
 
 use App\Entity\Admin;
 
-use App\VisitsFinder\VisitsFinder;
+use App\VisitsFinder\VisitsFinderInterface;
 
 class DashboardController extends AbstractController
 {
     public function __construct(
         private Security $security,
-        private VisitsFinder $visitsFinder,
-        private BetterDateInterface $betterDateInterface,
+        private VisitsFinderInterface $visitsFinder,
     )
     {}
 
-    #[Route('/admin', name: 'admin_index')]
-    public function index(Request $request): Response
+    #[Route('/admin/info', name: 'admin_info')]
+    public function info(Request $request): Response
     {   
         /** @var Admin $admin */
         $admin = $this->security->getUser();
 
-        return $this->render('admin/index.html.twig', [
+        return $this->render('admin/info.html.twig', [
             'admin' => $admin,
         ]);
     }
