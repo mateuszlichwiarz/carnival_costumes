@@ -45,7 +45,6 @@ final class VisitsFinderTest extends VisitsFinderKernelTestCase
     public function testVisitsFinderWeek(): void
     {
         $visits = $this->visitsFinder->findWeek();
-
         $this->assertSame($visits->getWeek(),  $this->properVisits->getWeek());
         $this->assertSame($visits->getMonth(), $this->properVisits->getMonth());
         $this->assertSame($visits->getYear(),  $this->properVisits->getYear());
@@ -53,10 +52,6 @@ final class VisitsFinderTest extends VisitsFinderKernelTestCase
 
     public function testVisitsFinderMonth(): void
     {
-        $visits = $this->visitsFinder->findMonth();
-
-        $this->assertSame($visits->getWeek(),  $this->properVisits->getWeek());
-        $this->assertSame($visits->getMonth(), $this->properVisits->getMonth());
-        $this->assertSame($visits->getYear(),  $this->properVisits->getYear());
+        $this->assertEquals(count($this->visitsFinder->findMonth()), 5);
     }
 }
