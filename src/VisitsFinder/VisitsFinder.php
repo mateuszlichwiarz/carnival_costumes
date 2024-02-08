@@ -21,13 +21,12 @@ class VisitsFinder implements VisitsFinderInterface
     )
     {}
 
-    public function setup(array $visitsCollection, ?Date $date = null): void
+    public function prepare(array $visitsCollection): void
     {
         $this->visitsCollection = $visitsCollection;
-        $this->date = $date;
     }
     
-    public function findWeek(): Visits
+    public function findWeek(?Date $date = null): Visits
     {
         if(!is_null($this->visitsCollection)) {
             $finder = $this->weekVisitsFinderFactory->createFinder(
@@ -40,7 +39,7 @@ class VisitsFinder implements VisitsFinderInterface
         }
     }
 
-    public function findMonth(): array
+    public function findMonth(?Date $date = null): array
     {
         if(!is_null($this->visitsCollection)) {
             $finder = $this->monthVisitsFinderFactory->createFinder(
@@ -53,7 +52,7 @@ class VisitsFinder implements VisitsFinderInterface
         }
     }
 
-    public function findYear(): array
+    public function findYear(?Date $date = null): array
     {
         if(!is_null($this->visitsCollection)) {
             $finder = $this->yearVisitsFinderFactory->createFinder(
