@@ -26,40 +26,33 @@ class VisitsFinder implements VisitsFinderInterface
         $this->visitsCollection = $visitsCollection;
     }
     
-    public function findWeek(?Date $date = null): Visits
+    public function findWeek(Date $date): Visits
     {
         if(!is_null($this->visitsCollection)) {
-            $finder = $this->weekVisitsFinderFactory->createFinder(
-                $this->date,
-                $this->visitsCollection,
-            );
-            return $finder->find();
+            return $this->weekVisitsFinderFactory->createFinder(
+                $this->date,$this->visitsCollection
+                )->find();
         }else {
             throw new \Exception('no visits provided');
         }
     }
 
-    public function findMonth(?Date $date = null): array
+    public function findMonth(Date $date): array
     {
         if(!is_null($this->visitsCollection)) {
-            $finder = $this->monthVisitsFinderFactory->createFinder(
-                $this->date,
-                $this->visitsCollection,
-            );
-            return $finder->find();
+            return $this->monthVisitsFinderFactory->createFinder(
+                $this->date, $this->visitsCollection
+                )->find();
         }else {
             throw new \Exception('no visits provided');
         }
     }
 
-    public function findYear(?Date $date = null): array
+    public function findYear(Date $date): array
     {
         if(!is_null($this->visitsCollection)) {
-            $finder = $this->yearVisitsFinderFactory->createFinder(
-                $this->date,
-                $this->visitsCollection,
-            );
-            return $finder->find();
+            return $this->yearVisitsFinderFactory->createFinder(
+                $this->date, $this->visitsCollection)->find();
         }else {
             throw new \Exception('no visits provided');
         }
