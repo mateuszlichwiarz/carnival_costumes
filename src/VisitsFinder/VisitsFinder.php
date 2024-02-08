@@ -10,8 +10,6 @@ use App\Date\Entity\Date;
 
 class VisitsFinder implements VisitsFinderInterface
 {
-    private ?Date $date = null;
-
     private ?array $visitsCollection = null;
 
     public function __construct(
@@ -30,10 +28,10 @@ class VisitsFinder implements VisitsFinderInterface
     {
         if(!is_null($this->visitsCollection)) {
             return $this->weekVisitsFinderFactory->createFinder(
-                $this->date,$this->visitsCollection
+                $date, $this->visitsCollection
                 )->find();
         }else {
-            throw new \Exception('No visits provided.Solve: Use prepare($visitsCollection).');
+            throw new \Exception('No visits provided. Solve: use prepare($visitsCollection).');
         }
     }
 
@@ -41,10 +39,10 @@ class VisitsFinder implements VisitsFinderInterface
     {
         if(!is_null($this->visitsCollection)) {
             return $this->monthVisitsFinderFactory->createFinder(
-                $this->date, $this->visitsCollection
+                $date, $this->visitsCollection
                 )->find();
         }else {
-            throw new \Exception('No visits provided.Solve: Use prepare($visitsCollection).');
+            throw new \Exception('No visits provided. Solve: use prepare($visitsCollection).');
         }
     }
 
@@ -52,9 +50,9 @@ class VisitsFinder implements VisitsFinderInterface
     {
         if(!is_null($this->visitsCollection)) {
             return $this->yearVisitsFinderFactory->createFinder(
-                $this->date, $this->visitsCollection)->find();
+                $date, $this->visitsCollection)->find();
         }else {
-            throw new \Exception('No visits provided.Solve: Use prepare($visitsCollection).');
+            throw new \Exception('No visits provided. Solve: use prepare($visitsCollection).');
         }
     }
 }
