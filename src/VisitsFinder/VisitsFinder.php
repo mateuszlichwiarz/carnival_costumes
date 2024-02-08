@@ -12,6 +12,7 @@ use App\VisitsFinder\Factory\MonthVisitsFinderFactory;
 use App\VisitsFinder\Factory\YearVisitsFinderFactory;
 
 use App\Date\Entity\Date;
+use Symfony\Component\DependencyInjection\Attribute\Target;
 
 class VisitsFinder implements VisitsFinderInterface
 {
@@ -20,7 +21,9 @@ class VisitsFinder implements VisitsFinderInterface
     private ?array $visitsCollection = null;
 
     public function __construct(
-        private VisitsFinderFactoryInterface $visitsFinderFactory,
+        private VisitsFinderFactoryInterface $weekVisitsFinderFactory,
+        private VisitsFinderFactoryInterface $monthVisitsFinderFactory,
+        private VisitsFinderFactoryInterface $yearVisitsFinderFactory,
     )
     {}
 
@@ -32,13 +35,39 @@ class VisitsFinder implements VisitsFinderInterface
     
     public function findWeek(): Visits
     {
-        if(!is_null($this->visitsCollection)){
-            $finder = $this->visitsFinderFactory->createFinder(
+        if(!is_null($this->visitsCollection)) {
+            $finder = $this->weekVisitsFinderFactory->createFinder(
                 $this->date,
                 $this->visitsCollection,
             );
             return $finder->find();
-        }else{
+        }else {
+            throw new \Exception('no visits provided');
+        }
+    }
+
+    public function findMonth(): array
+    {
+        if(!is_null($this->visitsCollection)) {
+            $finder = $this->monthVisitsFinderFactory->createFinder(
+                $this->date,
+                $this->visitsCollection,
+            );
+            return $finder->find();
+        }else {
+            throw new \Exception('no visits provided');
+        }
+    }
+
+    public function findYear(): array
+    {
+        if(!is_null($this->visitsCollection)) {
+            $finder = $this->yearVisitsFinderFactory->createFinder(
+                $this->date,
+                $this->visitsCollection,
+            );
+            return $finder->find();
+        }else {
             throw new \Exception('no visits provided');
         }
     }
