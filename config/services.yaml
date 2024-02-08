@@ -20,10 +20,15 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    app.week.visits.finder:
+    app.week.visits.finder.factory: 
         class: App\VisitsFinder\Factory\WeekVisitsFinderFactory
 
-    App\VisitsFinder\Factory\VisitsFinderFactoryInterface: '@App\VisitsFinder\Factory\WeekVisitsFinderFactory'
+    App\VisitsFinder\Factory\VisitsFinderFactoryInterface $weekVisitsFinderFactory: '@App\VisitsFinder\Factory\WeekVisitsFinderFactory'
+    App\VisitsFinder\Factory\VisitsFinderFactoryInterface $monthVisitsFinderFactory: '@App\VisitsFinder\Factory\MonthVisitsFinderFactory'
+    App\VisitsFinder\Factory\VisitsFinderFactoryInterface $yearVisitsFinderFactory: '@App\VisitsFinder\Factory\YearVisitsFinderFactory'
+
+    App\VisitsFinder\VisitsFinder:
+        autowire: true
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
