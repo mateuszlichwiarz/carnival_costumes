@@ -6,13 +6,7 @@ use App\Entity\Visits;
 
 use App\VisitsFinder\Factory\VisitsFinderFactoryInterface;
 use App\VisitsFinder\VisitsFinderInterface;
-
-use App\VisitsFinder\Factory\WeekVisitsFinderFactory;
-use App\VisitsFinder\Factory\MonthVisitsFinderFactory;
-use App\VisitsFinder\Factory\YearVisitsFinderFactory;
-
 use App\Date\Entity\Date;
-use Symfony\Component\DependencyInjection\Attribute\Target;
 
 class VisitsFinder implements VisitsFinderInterface
 {
