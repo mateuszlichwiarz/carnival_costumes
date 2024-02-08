@@ -11,9 +11,9 @@ interface VisitsFinderInterface
 {
     public function prepare(array $visitsCollection): void;
 
-    public function findWeek(?Date $date = null): Visits;
+    public function findWeek(Date $date): Visits;
 
-    public function findMonth(?Date $date = null): array;
+    public function findMonth(Date $date): array;
 
-    public function findYear(?Date $date = null): array;
+    public function findYear(Date $date): array;
 }
