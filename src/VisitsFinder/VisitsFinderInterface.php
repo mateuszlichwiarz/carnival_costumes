@@ -12,4 +12,6 @@ interface VisitsFinderInterface
     public function setup(array $visitsCollection, Date $date = null): void;
 
     public function findWeek(): Visits;
+
+    public function findMonth(): Array;
 }
