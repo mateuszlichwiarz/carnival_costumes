@@ -24,6 +24,7 @@ class DashboardController extends AbstractController
     public function __construct(
         private Security $security,
         private VisitsFinderInterface $visitsFinder,
+        private BetterDate $betterDate,
     )
     {}
 
