@@ -33,7 +33,7 @@ class VisitsFinder implements VisitsFinderInterface
                 $this->date,$this->visitsCollection
                 )->find();
         }else {
-            throw new \Exception('no visits provided');
+            throw new \Exception('No visits provided.Solve: Use prepare($visitsCollection).');
         }
     }
 
@@ -44,7 +44,7 @@ class VisitsFinder implements VisitsFinderInterface
                 $this->date, $this->visitsCollection
                 )->find();
         }else {
-            throw new \Exception('no visits provided');
+            throw new \Exception('No visits provided.Solve: Use prepare($visitsCollection).');
         }
     }
 
@@ -54,7 +54,7 @@ class VisitsFinder implements VisitsFinderInterface
             return $this->yearVisitsFinderFactory->createFinder(
                 $this->date, $this->visitsCollection)->find();
         }else {
-            throw new \Exception('no visits provided');
+            throw new \Exception('No visits provided.Solve: Use prepare($visitsCollection).');
         }
     }
 }
