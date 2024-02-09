@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Date;
+namespace App\Tests\BetterDate;
 
 use PHPUnit\Framework\TestCase;
 

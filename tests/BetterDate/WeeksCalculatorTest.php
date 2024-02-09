@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Date;
+namespace App\Tests\BetterDate;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 

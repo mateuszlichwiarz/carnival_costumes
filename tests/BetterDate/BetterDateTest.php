@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Date;
+namespace App\Tests\BetterDate;
 
-use App\Tests\Date\TestCase\BetterDateKernelTestCase;
+use App\Tests\BetterDate\TestCase\BetterDateKernelTestCase;
 
 use App\BetterDate\Factory\CurrentDateFactory;
 use App\BetterDate\Entity\Date;

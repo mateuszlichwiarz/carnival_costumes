@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Date\TestCase;
+namespace App\Tests\BetterDate\TestCase;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
