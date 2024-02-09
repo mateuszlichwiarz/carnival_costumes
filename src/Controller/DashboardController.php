@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Date\BetterDate;
-use App\Date\BetterDateInterface;
-use App\Date\Factory\Interface\CustomDateFactoryInterface;
-use App\Date\Factory\Interface\DateFactoryInterface;
+use App\BetterDate\BetterDate;
+use App\BetterDate\BetterDateInterface;
+use App\Repository\VisitsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,24 +17,32 @@ use Symfony\Bundle\SecurityBundle\Security;
 use App\Entity\Admin;
 
 use App\VisitsFinder\VisitsFinderInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class DashboardController extends AbstractController
 {
+    private UserInterface $admin;
+
     public function __construct(
         private Security $security,
         private VisitsFinderInterface $visitsFinder,
         private BetterDate $betterDate,
-    )
-    {}
+        private VisitsRepository $visitsRepository,
+    ) {
+        $this->admin = $this->security->getUser();
+    }
 
     #[Route('/admin/info', name: 'admin_info')]
     public function info(Request $request): Response
     {   
-        /** @var Admin $admin */
-        $admin = $this->security->getUser();
+        $visitsCollection = $this->visitsRepository->findAllVisits();
+
+        $this->visitsFinder->prepare($visitsCollection);
+        $visits = $this->visitsFinder->findWeek($this->betterDate->create())->getVisits();
 
         return $this->render('admin/info.html.twig', [
-            'admin' => $admin,
+            'admin' => $this->admin,
+            'visitsInWeek' => $visits,
         ]);
     }
 
