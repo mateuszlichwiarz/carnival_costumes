@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\VisitsFinder\Finders;
 
 use App\VisitsFinder\Finders\Interface\OneResultVisitsFinderInterface as VisitsFinderInterface;
-use App\Date\Entity\Date;
+use App\BetterDate\Entity\Date;
 use App\Entity\Visits;
 
 final class WeekVisitsFinder implements VisitsFinderInterface

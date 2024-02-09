@@ -6,7 +6,7 @@ namespace App\VisitsFinder\Finders;
 
 use App\VisitsFinder\Finders\Interface\ManyResultsVisitsFinderInterface as VisitsFinderInterface;
 
-use App\Date\Entity\Date;
+use App\BetterDate\Entity\Date;
 
 final class YearVisitsFinder implements VisitsFinderInterface
 {

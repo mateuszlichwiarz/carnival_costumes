@@ -6,7 +6,7 @@ use App\Entity\Visits;
 
 use App\VisitsFinder\Factory\VisitsFinderFactoryInterface;
 use App\VisitsFinder\VisitsFinderInterface;
-use App\Date\Entity\Date;
+use App\BetterDate\Entity\Date;
 
 class VisitsFinder implements VisitsFinderInterface
 {
