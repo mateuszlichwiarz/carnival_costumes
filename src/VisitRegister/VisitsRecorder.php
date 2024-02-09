@@ -10,8 +10,8 @@ use App\VisitRegister\Persister\VisitPersister;
 use App\Repository\VisitsRepository;
 use App\Entity\Visits;
 
-use App\Date\Entity\Date;
-use App\Date\Factory\CurrentDateFactory;
+use App\BetterDate\Entity\Date;
+use App\BetterDate\Factory\CurrentDateFactory;
 
 class VisitsRecorder
 {
