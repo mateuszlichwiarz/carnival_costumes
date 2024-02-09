@@ -6,7 +6,7 @@ use App\Entity\Visits;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-use App\Date\Entity\Date;
+use App\BetterDate\Entity\Date;
 
 /**
  * @extends ServiceEntityRepository<Visits>
@@ -54,6 +54,14 @@ class VisitsRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('v')
             ->andWhere('v.week = :week')
             ->setParameter('week', $week)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findAllVisits(): array
+    {
+        return $this->createQueryBuilder('v')
             ->getQuery()
             ->getResult()
         ;
