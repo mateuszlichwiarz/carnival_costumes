@@ -6,10 +6,10 @@ namespace App\Tests\VisitsFinder\Finders;
 
 use App\Tests\VisitsFinder\TestCase\VisitsFinderKernelTestCase;
 
+use App\BetterDate\Entity\Date;
+
 use App\Entity\Visits;
 use App\VisitsFinder\Factory\WeekVisitsFinderFactory;
-
-use App\Date\Entity\Date;
 
 final class WeekVisitsFinderTest extends VisitsFinderKernelTestCase
 {

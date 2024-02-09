@@ -6,10 +6,8 @@ namespace App\Tests\VisitsFinder\Finders;
 
 use App\Tests\VisitsFinder\TestCase\VisitsFinderKernelTestCase;
 
-use App\Entity\Visits;
-
-use App\Date\Entity\Date;
-use App\Date\Factory\CustomDateFactory;
+use App\BetterDate\Entity\Date;
+use App\BetterDate\Factory\CustomDateFactory;
 
 use App\VisitsFinder\Factory\YearVisitsFinderFactory;
 

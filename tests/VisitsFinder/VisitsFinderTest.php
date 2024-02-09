@@ -6,9 +6,9 @@ namespace App\Tests\VisitsFinder;
 
 use App\Tests\VisitsFinder\TestCase\VisitsFinderKernelTestCase;
 
-use App\VisitsFinder\VisitsFinderInterface;
+use App\BetterDate\Entity\Date;
 
-use App\Date\Entity\Date;
+use App\VisitsFinder\VisitsFinderInterface;
 use App\Entity\Visits;
 
 final class VisitsFinderTest extends VisitsFinderKernelTestCase

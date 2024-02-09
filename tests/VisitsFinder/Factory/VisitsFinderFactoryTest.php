@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests\VisitsFinder\Factory;
 
-use App\Date\Factory\CurrentDateFactory;
 use App\Tests\VisitsFinder\TestCase\VisitsFinderKernelTestCase;
+
+use App\BetterDate\Factory\CurrentDateFactory;
+use App\BetterDate\Entity\Date;
 
 use App\VisitsFinder\Factory\WeekVisitsFinderFactory;
 use App\VisitsFinder\Finders\WeekVisitsFinder;
@@ -15,9 +17,6 @@ use App\VisitsFinder\Finders\MonthVisitsFinder;
 
 use App\VisitsFinder\Factory\YearVisitsFinderFactory;
 use App\VisitsFinder\Finders\YearVisitsFinder;
-
-
-use App\Date\Entity\Date;
 
 final class VisitsFinderFactoryTest extends VisitsFinderKernelTestCase
 {
