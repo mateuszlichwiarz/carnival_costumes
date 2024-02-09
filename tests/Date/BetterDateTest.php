@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Date;
 
-use App\Date\Factory\CurrentDateFactory;
 use App\Tests\Date\TestCase\BetterDateKernelTestCase;
-use App\Date\Entity\Date;
+
+use App\BetterDate\Factory\CurrentDateFactory;
+use App\BetterDate\Entity\Date;
 
 class BetterDateTest extends BetterDateKernelTestCase
 {

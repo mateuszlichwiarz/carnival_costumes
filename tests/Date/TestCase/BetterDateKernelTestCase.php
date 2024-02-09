@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace App\Tests\Date\TestCase;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use App\Date\BetterDateInterface;
+
+use App\BetterDate\BetterDateInterface;
 
 abstract class BetterDateKernelTestCase extends KernelTestCase
 {

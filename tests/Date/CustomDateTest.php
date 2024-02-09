@@ -6,8 +6,8 @@ namespace App\Tests\Date;
 
 use PHPUnit\Framework\TestCase;
 
-use App\Date\Factory\CustomDateFactory;
-use App\Date\Entity\Date;
+use App\BetterDate\Factory\CustomDateFactory;
+use App\BetterDate\Entity\Date;
 
 final class CustomDateTest extends TestCase
 {
