@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Date\Factory;
+namespace App\BetterDate\Factory;
 
-use App\Date\Factory\Interface\CustomDateFactoryInterface as DateFactoryInterface;
-use App\Date\Entity\Date;
+use App\BetterDate\Factory\Interface\CustomDateFactoryInterface as DateFactoryInterface;
+use App\BetterDate\Entity\Date;
 
 use DateTime;
 

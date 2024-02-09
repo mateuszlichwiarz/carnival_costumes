@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Date\Factory\Interface;
+namespace App\BetterDate\Factory\Interface;
 
-use App\Date\Entity\Date;
+use App\BetterDate\Entity\Date;
 
 interface DateFactoryInterface
 {

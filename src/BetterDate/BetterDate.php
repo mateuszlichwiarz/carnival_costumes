@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Date;
+namespace App\BetterDate;
 
-use App\Date\Entity\Date;
-use App\Date\Factory\CurrentDateFactory;
-use App\Date\Factory\CustomDateFactory;
-use App\Date\Factory\Interface\CustomDateFactoryInterface;
-use App\Date\Factory\Interface\DateFactoryInterface;
+use App\BetterDate\Entity\Date;
+use App\BetterDate\Factory\CurrentDateFactory;
+use App\BetterDate\Factory\CustomDateFactory;
+use App\BetterDate\Factory\Interface\CustomDateFactoryInterface;
+use App\BetterDate\Factory\Interface\DateFactoryInterface;
 
-use App\Date\BetterDateInterface;
+use App\BetterDate\BetterDateInterface;
 
 class BetterDate implements BetterDateInterface
 {

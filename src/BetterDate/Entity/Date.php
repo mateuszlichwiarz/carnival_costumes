@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Date\Entity;
+namespace App\BetterDate\Entity;
 
 use DateTime;
 
-use App\Date\Entity\Trait\WeeksCalculatorTrait;
+use App\BetterDate\Entity\Trait\WeeksCalculatorTrait;
 
 class Date
 {
