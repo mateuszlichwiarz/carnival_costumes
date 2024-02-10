@@ -58,28 +58,60 @@ final class VisitsFinderTest extends VisitsFinderKernelTestCase
     public function testCurrentVisitsFinderWeek(): void
     {
         $visits = $this->visitsFinder->findWeek($this->currentDate);
-        $this->assertSame($visits->getWeek(),  $this->properVisitsCurrent->getWeek());
-        $this->assertSame($visits->getMonth(), $this->properVisitsCurrent->getMonth());
-        $this->assertSame($visits->getYear(),  $this->properVisitsCurrent->getYear());
+
+        $this->assertSame(
+            $visits->getWeek(),
+            $this->properVisitsCurrent->getWeek()
+        );
+        $this->assertSame(
+            $visits->getMonth(),
+            $this->properVisitsCurrent->getMonth()
+        );
+        $this->assertSame(
+            $visits->getYear(),
+            $this->properVisitsCurrent->getYear()
+        );
     }
 
     public function testCurrentWeeksInVisitsFinder(): void
     {
-        $this->assertEquals(count($this->visitsFinder->findMonth($this->currentDate)), 5);
-        $this->assertEquals(count($this->visitsFinder->findYear($this->currentDate)), 60);
+        $this->assertEquals(
+            count($this->visitsFinder->findMonth($this->currentDate)),
+            5
+        );
+        $this->assertEquals(
+            count($this->visitsFinder->findYear($this->currentDate)),
+            60
+        );
     }
 
     public function testCustomVisitsFinderWeek(): void
     {
         $visits = $this->visitsFinder->findWeek($this->customDate);
-        $this->assertSame($visits->getWeek(),  $this->properVisitsCustom->getWeek());
-        $this->assertSame($visits->getMonth(), $this->properVisitsCustom->getMonth());
-        $this->assertSame($visits->getYear(),  $this->properVisitsCustom->getYear());
+
+        $this->assertSame(
+            $visits->getWeek(),
+            $this->properVisitsCustom->getWeek()
+        );
+        $this->assertSame(
+            $visits->getMonth(),
+            $this->properVisitsCustom->getMonth()
+        );
+        $this->assertSame(
+            $visits->getYear(),
+            $this->properVisitsCustom->getYear()
+        );
     }
 
     public function testCustomWeeksInVisitsFinder(): void
     {
-        $this->assertEquals(count($this->visitsFinder->findMonth($this->customDate)), 5);
-        $this->assertEquals(count($this->visitsFinder->findYear($this->customDate)), 60);
+        $this->assertEquals(
+            count($this->visitsFinder->findMonth($this->customDate)),
+            5
+        );
+        $this->assertEquals(
+            count($this->visitsFinder->findYear($this->customDate)),
+            60
+        );
     }
 }

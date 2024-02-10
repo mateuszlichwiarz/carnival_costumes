@@ -33,28 +33,37 @@ final class VisitsFinderFactoryTest extends VisitsFinderKernelTestCase
 
     public function testCanCreateWeekVisitsFinder(): void
     {
-
         $visitsFinderFactory = new WeekVisitsFinderFactory();
-        $visitsFinder = $visitsFinderFactory->createFinder($this->date, $this->visitsCollection);
-
-        $this->assertInstanceOf(WeekVisitsFinder::class, $visitsFinder);
+        $this->assertInstanceOf(
+            WeekVisitsFinder::class,
+            $visitsFinderFactory->createFinder(
+                $this->date,
+                $this->visitsCollection
+            )
+        );
     }
 
     public function testCanCreateMonthVisitsFinder(): void
     {
-
         $visitsFinderFactory = new MonthVisitsFinderFactory();
-        $visitsFinder = $visitsFinderFactory->createFinder($this->date, $this->visitsCollection);
-
-        $this->assertInstanceOf(MonthVisitsFinder::class, $visitsFinder);
+        $this->assertInstanceOf(
+            MonthVisitsFinder::class,
+            $visitsFinderFactory->createFinder(
+                $this->date,
+                $this->visitsCollection
+            )
+        );
     }
 
     public function testCanCreateYearVisitsFinder(): void
     {
-
         $visitsFinderFactory = new YearVisitsFinderFactory();
-        $visitsFinder = $visitsFinderFactory->createFinder($this->date, $this->visitsCollection);
-
-        $this->assertInstanceOf(YearVisitsFinder::class, $visitsFinder);
+        $this->assertInstanceOf(
+            YearVisitsFinder::class,
+            $visitsFinderFactory->createFinder(
+                $this->date,
+                $this->visitsCollection
+            )
+        );
     }
 }
