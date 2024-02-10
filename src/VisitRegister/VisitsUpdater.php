@@ -10,7 +10,6 @@ class VisitsUpdater
 {
     public function updateVisits(Visits $visit): Visits
     {
-        $visit->setVisits($visit->getVisits()+1);
-        return $visit;
+        return $visit->setVisits($visit->getVisits()+1);
     }
 }
