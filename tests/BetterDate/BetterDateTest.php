@@ -21,24 +21,32 @@ class BetterDateTest extends BetterDateKernelTestCase
 
     public function testCreateCurrentDate(): void
     {
-        $this->assertInstanceOf(Date::class, $this->betterDate->create());
+        $this->assertInstanceOf(
+            Date::class,
+            $this->betterDate->create()
+        );
     }
 
     public function testCurrentDate(): void
     {
-        $date = $this->betterDate->create();
-        $this->assertEquals($date->getWeek(), $this->properCurrentDate->getWeek());
+        $this->assertEquals(
+            $this->betterDate->create()->getWeek(),
+            $this->properCurrentDate->getWeek()
+        );
     }
 
     public function testCreateCustomDate(): void
     {
-        $this->assertInstanceOf(Date::class, $this->betterDate->create('14-02-2006'));
+        $this->assertInstanceOf(
+            Date::class,
+            $this->betterDate->create('14-02-2006')
+        );
     }
 
     public function testCustomDateAsserts(): void
     {
         $date = $this->betterDate->create('14-02-2006');
-        $this->assertEquals($date->getWeek(), 2);
+        $this->assertEquals($date->getWeek(),2);
         $this->assertEquals($date->getMonth(), 2);
         $this->assertEquals($date->getYear(), 2006);
     }

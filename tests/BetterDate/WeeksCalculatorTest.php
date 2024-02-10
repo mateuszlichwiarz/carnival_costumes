@@ -16,7 +16,7 @@ final class DateTest extends KernelTestCase
         $day = 3;
         $week = $this->calculateWeek($day);
 
-        $this->assertEquals(1 , $week);
+        $this->assertEquals(1, $week);
 
         $day = 3+7;
         $week = $this->calculateWeek($day);
