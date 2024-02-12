@@ -45,10 +45,12 @@ class VisitsRepository extends ServiceEntityRepository
 
     public function sumMonthVisits(Date $date): int
     {
-        return (int) $this->createQueryBuilder('v')
+        return $this->createQueryBuilder('v')
             ->select('SUM(v.visits)')
             ->andWhere('v.month = :month')
             ->setParameter('month', $date->getMonth())
+            ->andWhere('v.year = :year')
+            ->setParameter('year', $date->getYear())
             ->getQuery()
             ->getSingleScalarResult()
         ;
