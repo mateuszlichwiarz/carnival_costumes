@@ -24,11 +24,10 @@ class BetterDate implements BetterDateInterface
     public function create($date = null): Date
     {
         if($date === null) {
-            $betterDate = $this->currentDateFactory->create();
+            return $this->currentDateFactory->create();
         }else {
-            $betterDate = $this->customDateFactory->create($date);
+            return $this->customDateFactory->create($date);
         }
-        return $betterDate;
     }
 
 }
