@@ -4,65 +4,65 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\BetterDate\BetterDate;
 use App\BetterDate\BetterDateInterface;
-use App\Repository\VisitsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-use Symfony\Bundle\SecurityBundle\Security;
-
 use App\Entity\Admin;
 
 use App\VisitsFinder\VisitsFinderInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+use App\Repository\VisitsRepository;
+use App\VisitsFinder\VisitsFoundCounter;
 
-class DashboardController extends AbstractController
+final class DashboardController extends AbstractController
 {
     private UserInterface $admin;
 
     public function __construct(
         private Security $security,
         private VisitsFinderInterface $visitsFinder,
-        private BetterDate $betterDate,
+        private BetterDateInterface $betterDate,
         private VisitsRepository $visitsRepository,
+        private VisitsFoundCounter $visitsFoundCounter
     ) {
         $this->admin = $this->security->getUser();
     }
 
     #[Route('/admin/info', name: 'admin_info')]
-    public function info(Request $request): Response
+    public function visitsInfoAction(): Response
     {   
-        $visitsCollection = $this->visitsRepository->findAllVisits();
-
-        $this->visitsFinder->prepare($visitsCollection);
-        $visits = $this->visitsFinder->findWeek($this->betterDate->create())->getVisits();
-
+        $currentDate = $this->betterDate->create('01-01-2022');
+        
         return $this->render('admin/info.html.twig', [
             'admin' => $this->admin,
-            'visitsInWeek' => $visits,
+            'date' => $currentDate->getStandardDate(),
+            'sumWeekVisits' => $this->visitsRepository->sumWeekVisits($currentDate),
+            'sumMonthVisits' => $this->visitsRepository->sumMonthVisits($currentDate),
+            'sumYearVisits' => $this->visitsRepository->sumYearVisits($currentDate),
         ]);
     }
 
-    public function pricing()
+    public function pricing(): Response
     {
         return $this->render('admin/pricing.html.twig');
     }
 
     public function contact()
     {
-        return $this->render('admin/contact.html.twig');
+
     }
 
     public function openingHours()
     {
-        return $this->render('admin/openingHours.html.twig');
+
     }
 
     public function events()
     {
-        return $this->render('admin/events.html.twig');
+
     }
 }
