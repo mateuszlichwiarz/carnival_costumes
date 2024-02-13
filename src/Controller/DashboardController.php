@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\BetterDate\BetterDateInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
+use App\BetterDate\BetterDateInterface;
+use App\BetterDate\Entity\Date;
 
 use App\Entity\Admin;
 
@@ -20,22 +22,25 @@ use App\VisitsFinder\VisitsFoundCounter;
 
 final class DashboardController extends AbstractController
 {
-    private UserInterface $admin;
+    private readonly UserInterface $admin;
+
+    private readonly Date $currentDate;
 
     public function __construct(
         private Security $security,
         private VisitsFinderInterface $visitsFinder,
         private BetterDateInterface $betterDate,
         private VisitsRepository $visitsRepository,
-        private VisitsFoundCounter $visitsFoundCounter
+        private VisitsFoundCounter $visitsFoundCounter,
     ) {
         $this->admin = $this->security->getUser();
+        $this->currentDate = $this->betterDate->create();
     }
 
-    #[Route('/admin/info', name: 'admin_info')]
+    #[Route('/dashboard/visits/', name: 'dashboard_visits_index')]
     public function visitsInfoAction(): Response
     {   
-        $currentDate = $this->betterDate->create('01-01-2022');
+        $currentDate = $this->betterDate->create();
         
         return $this->render('admin/info.html.twig', [
             'admin' => $this->admin,
@@ -53,7 +58,7 @@ final class DashboardController extends AbstractController
 
     public function contact()
     {
-
+        
     }
 
     public function openingHours()
