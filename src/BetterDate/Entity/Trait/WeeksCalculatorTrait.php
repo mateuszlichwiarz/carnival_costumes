@@ -6,7 +6,7 @@ namespace App\BetterDate\Entity\Trait;
 
 trait WeeksCalculatorTrait
 {
-    public function calculateWeek($day): int
+    public function calculateWeek(int $day): int
     {
         if($day > 0 && $day  <= 7){
             return 1;
