@@ -25,7 +25,7 @@ class VisitsRegister
         }
     }
 
-    public function getSessionRegistered()
+    public function getSessionRegistered(): mixed
     {
         return $this->requestStack->getSession()->get('registered');
     }
