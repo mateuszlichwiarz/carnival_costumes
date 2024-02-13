@@ -28,7 +28,7 @@ class Date
         $this->year  = intval($dateTime->format('Y'));
     }
 
-    public function getDay()
+    public function getDay(): int
     {
         return $this->day;
     }
