@@ -47,4 +47,9 @@ class Date
     {
         return $this->year;
     }
+
+    public function getStandardDate(): string
+    {
+        return (string) $this->day.'-'.$this->month.'-'.$this->year;
+    }
 }
