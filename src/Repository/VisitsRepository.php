@@ -56,6 +56,21 @@ class VisitsRepository extends ServiceEntityRepository
         ;
     }
 
+    public function sumWeekVisits(Date $date): int
+    {
+        return (int) $this->createQueryBuilder('v')
+            ->select('v.visits')
+            ->andWhere('v.year = :year')
+            ->setParameter('year', $date->getYear())
+            ->andWhere('v.month = :month')
+            ->setParameter('month', $date->getMonth())
+            ->andWhere('v.week = :week')
+            ->setParameter('week', $date->getWeek())
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
+
     public function findOneVisitByDate(Date $date): ?Visits
     {
         return $this->createQueryBuilder('v')
