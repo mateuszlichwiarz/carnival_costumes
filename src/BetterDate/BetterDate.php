@@ -14,14 +14,12 @@ use App\BetterDate\BetterDateInterface;
 
 class BetterDate implements BetterDateInterface
 {
-    private ?string $date = null;
-
     public function __construct(
         private CurrentDateFactory $currentDateFactory,
         private CustomDateFactory $customDateFactory,
     ){}
 
-    public function create($date = null): Date
+    public function create(string $date = null): Date
     {
         if($date === null) {
             return $this->currentDateFactory->create();
