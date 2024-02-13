@@ -6,11 +6,16 @@ use App\Entity\Visits;
 
 use App\VisitsFinder\Factory\VisitsFinderFactoryInterface;
 use App\VisitsFinder\VisitsFinderInterface;
+
 use App\BetterDate\Entity\Date;
 
 class VisitsFinder implements VisitsFinderInterface
 {
     private ?array $visitsCollection = null;
+
+    private array $visitsFound;
+
+    private const EXCEPTION_MESSAGE = 'No visits provided. Solve: use prepare($visitsCollection)';
 
     public function __construct(
         private VisitsFinderFactoryInterface $weekVisitsFinderFactory,
@@ -28,21 +33,23 @@ class VisitsFinder implements VisitsFinderInterface
     {
         if(!is_null($this->visitsCollection)) {
             return $this->weekVisitsFinderFactory->createFinder(
-                $date, $this->visitsCollection
+                    $date,
+                    $this->visitsCollection
                 )->find();
         }else {
-            throw new \Exception('No visits provided. Solve: use prepare($visitsCollection).');
+            throw new \Exception(self::EXCEPTION_MESSAGE);
         }
     }
 
     public function findMonth(Date $date): array
     {
-        if(!is_null($this->visitsCollection)) {
+        if(($this->visitsCollection !== null)) {
             return $this->monthVisitsFinderFactory->createFinder(
-                $date, $this->visitsCollection
+                    $date, 
+                    $this->visitsCollection
                 )->find();
         }else {
-            throw new \Exception('No visits provided. Solve: use prepare($visitsCollection).');
+            throw new \Exception(self::EXCEPTION_MESSAGE);
         }
     }
 
@@ -52,7 +59,7 @@ class VisitsFinder implements VisitsFinderInterface
             return $this->yearVisitsFinderFactory->createFinder(
                 $date, $this->visitsCollection)->find();
         }else {
-            throw new \Exception('No visits provided. Solve: use prepare($visitsCollection).');
+            return throw new \Exception(self::EXCEPTION_MESSAGE);
         }
     }
 }
