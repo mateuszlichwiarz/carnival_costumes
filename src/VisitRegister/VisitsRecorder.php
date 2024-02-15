@@ -43,6 +43,6 @@ class VisitsRecorder
 
     private function findVisit(): ?Visits
     {
-        return $this->visitsRepository->findOneVisitByDate($this->date);
+        return $this->visitsRepository->findOneVisitsObjectByDate($this->date);
     }
 }
