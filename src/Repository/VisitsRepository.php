@@ -71,7 +71,7 @@ class VisitsRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findOneVisitByDate(Date $date): ?Visits
+    public function findOneVisitsObjectByDate(Date $date): ?Visits
     {
         return $this->createQueryBuilder('v')
             ->andWhere('v.week = :week')
