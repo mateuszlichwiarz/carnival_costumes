@@ -23,7 +23,7 @@ class SelectVisitsType extends AbstractType
     {
         $builder
             ->add('date', DateType::class, [
-                'widget' => 'single_text'
+                'widget' => 'choice',
             ])
             ->add('search', SubmitType::class)
         ;
