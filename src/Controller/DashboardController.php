@@ -20,11 +20,11 @@ use App\VisitsFinder\VisitsFinderInterface;
 use App\Repository\VisitsRepository;
 use App\VisitsFinder\VisitsFoundCounter;
 
+use App\Form\Type\SelectVisitsType;
+
 final class DashboardController extends AbstractController
 {
     private readonly UserInterface $admin;
-
-    private readonly Date $currentDate;
 
     public function __construct(
         private Security $security,
@@ -34,20 +34,35 @@ final class DashboardController extends AbstractController
         private VisitsFoundCounter $visitsFoundCounter,
     ) {
         $this->admin = $this->security->getUser();
-        $this->currentDate = $this->betterDate->create();
     }
 
-    #[Route('/dashboard/visits/', name: 'dashboard_visits_index')]
-    public function visitsInfoAction(): Response
-    {   
-        $currentDate = $this->betterDate->create();
+    #[Route('/dashboard/visits/{visitsDate}', name: 'dashboard_visits_index')]
+    public function visitsInfoAction(
+        Request $request,
+        null|string $visitsDate = null
+        ): Response
+        {
+
+        $date = $this->betterDate->create($visitsDate);
+
+        $form = $this->createForm(SelectVisitsType::class);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $dateFromRequest = new Date($form->getData()['date']);
         
-        return $this->render('admin/info.html.twig', [
+            return $this->redirectToRoute(
+                'dashboard_visits_index', [
+                    'visitsDate' => $dateFromRequest->stringDateFormat()
+            ]);
+        }
+
+        return $this->render('admin/visits.html.twig', [
             'admin' => $this->admin,
-            'date' => $currentDate->getStandardDate(),
-            'sumWeekVisits' => $this->visitsRepository->sumWeekVisits($currentDate),
-            'sumMonthVisits' => $this->visitsRepository->sumMonthVisits($currentDate),
-            'sumYearVisits' => $this->visitsRepository->sumYearVisits($currentDate),
+            'date' => $date->stringDateFormat(),
+            'form' => $form,
+            'sumWeekVisits' => $this->visitsRepository->sumWeekVisits($date),
+            'sumMonthVisits' => $this->visitsRepository->sumMonthVisits($date),
+            'sumYearVisits' => $this->visitsRepository->sumYearVisits($date),
         ]);
     }
 
