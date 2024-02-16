@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br>
+    <div id = 'content'>
+        <br><br><br><br><br><br>
+        <div class = "visitsInfo">
+             <h2>Visits Panel</h2>
+             <div class = "loggedUser">
+                You logged in, {{ admin.getUsername|capitalize }} <br><br>
+            </div>
+            Choosed date: {{ date }} <br>
+            <div class = "current">
+                Visits <br>
+                In Week: {{ sumWeekVisits }} <br>
+                In Month: {{ sumMonthVisits }} <br>
+                In Year: {{ sumYearVisits }} <br>
+            </div>
+            
+            {{ form(form) }}
+        </div>
+    </div>
+{% endblock %}
