@@ -42,7 +42,7 @@ final class DashboardController extends AbstractController
         null|string $visitsDate = null
         ): Response
         {
-
+        
         $date = $this->betterDate->create($visitsDate);
 
         $form = $this->createForm(SelectVisitsType::class);
@@ -56,11 +56,13 @@ final class DashboardController extends AbstractController
             ]);
         }
 
+        $visitsObject = $this->visitsRepository->findOneVisitsObjectByDate($date);
+        
         return $this->render('admin/visits.html.twig', [
             'admin' => $this->admin,
             'date' => $date->stringDateFormat(),
             'form' => $form,
-            'sumWeekVisits' => $this->visitsRepository->sumWeekVisits($date),
+            'sumWeekVisits' => $visitsObject->getVisits(),
             'sumMonthVisits' => $this->visitsRepository->sumMonthVisits($date),
             'sumYearVisits' => $this->visitsRepository->sumYearVisits($date),
         ]);
