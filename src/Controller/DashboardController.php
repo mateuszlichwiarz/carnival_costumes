@@ -57,8 +57,8 @@ final class DashboardController extends AbstractController
         }
 
         $visitsObject = $this->visitsRepository->findOneVisitsObjectByDate($date);
-        
-        return $this->render('admin/visits.html.twig', [
+
+        return $this->render('dashboard/visits.html.twig', [
             'admin' => $this->admin,
             'date' => $date->stringDateFormat(),
             'form' => $form,
@@ -70,7 +70,7 @@ final class DashboardController extends AbstractController
 
     public function pricing(): Response
     {
-        return $this->render('admin/pricing.html.twig');
+        return $this->render('dashboard/pricing.html.twig');
     }
 
     public function contact()
