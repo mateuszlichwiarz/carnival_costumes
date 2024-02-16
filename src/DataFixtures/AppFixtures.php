@@ -19,14 +19,14 @@ class AppFixtures extends Fixture
     {
         $admin = new Admin();
 
-        $password = 'password';
+        $password = 'admin';
         $hashedPassword = $this->passwordHasher->hashPassword(
             $admin,
             $password
         );
 
         $admin->setPassword($hashedPassword);
-        $admin->setUsername('mateusz');
+        $admin->setUsername('admin');
         $admin->setRoles(['ROLE_ADMIN']);
 
         $manager->persist($admin);
