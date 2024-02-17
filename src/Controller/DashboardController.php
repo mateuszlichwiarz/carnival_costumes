@@ -40,8 +40,7 @@ final class DashboardController extends AbstractController
     public function visitsInfoAction(
         Request $request,
         null|string $visitsDate = null
-        ): Response
-        {
+        ): Response {
         
         $date = $this->betterDate->create($visitsDate);
 
@@ -49,7 +48,7 @@ final class DashboardController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
             $dateFromRequest = new Date($form->getData()['date']);
-        
+            
             return $this->redirectToRoute(
                 'dashboard_visits_index', [
                     'visitsDate' => $dateFromRequest->stringDateFormat()
@@ -57,14 +56,28 @@ final class DashboardController extends AbstractController
         }
 
         $visitsObject = $this->visitsRepository->findOneVisitsObjectByDate($date);
+        $sumVisitsMonth = $this->visitsRepository->sumMonthVisits($date);
+        $sumVisitsYear = $this->visitsRepository->sumYearVisits($date);
+
+        if($visitsObject === null || $sumVisitsMonth === null || $sumVisitsYear === null) {
+            $this->addFlash(
+                'notice',
+                'None visits in this period',
+            );
+            $weekVisits = 0;
+            $sumVisitsMonth = 0;
+            $sumVisitsYear = 0;
+        }else{
+            $weekVisits = $visitsObject->getVisits();
+        }
 
         return $this->render('dashboard/visits.html.twig', [
             'admin' => $this->admin,
             'date' => $date->stringDateFormat(),
             'form' => $form,
-            'sumWeekVisits' => $visitsObject->getVisits(),
-            'sumMonthVisits' => $this->visitsRepository->sumMonthVisits($date),
-            'sumYearVisits' => $this->visitsRepository->sumYearVisits($date),
+            'sumWeekVisits' => $weekVisits,
+            'sumMonthVisits' => $sumVisitsMonth,
+            'sumYearVisits' => $sumVisitsYear,
         ]);
     }
 
