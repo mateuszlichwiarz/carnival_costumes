@@ -85,6 +85,7 @@ final class DashboardController extends AbstractController
         ]);
     }
 
+    #[Route('/dashboard/pricing', name: 'dashboard_pricing')]
     public function pricing(): Response
     {
         return $this->render('dashboard/pricing.html.twig');
