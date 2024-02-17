@@ -14,8 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\BetterDate\BetterDateInterface;
 use App\BetterDate\Entity\Date;
 
-use App\Entity\Admin;
-
 use App\VisitsFinder\VisitsFinderInterface;
 use App\Repository\VisitsRepository;
 use App\VisitsFinder\VisitsFoundCounter;
@@ -59,9 +57,11 @@ final class DashboardController extends AbstractController
         $sumVisitsMonth = $this->visitsRepository->sumMonthVisits($date);
         $sumVisitsYear = $this->visitsRepository->sumYearVisits($date);
 
-        if($visitsObject === null || $sumVisitsMonth === null || $sumVisitsYear === null) {
+        if($visitsObject === null ||
+        $sumVisitsMonth === null ||
+        $sumVisitsYear === null) {
             $this->addFlash(
-                'notice',
+                'warning',
                 'None visits in this period',
             );
             $weekVisits = 0;
@@ -69,6 +69,10 @@ final class DashboardController extends AbstractController
             $sumVisitsYear = 0;
         }else{
             $weekVisits = $visitsObject->getVisits();
+            $this->addFlash(
+                'success',
+                'Visits was found',
+            );
         }
 
         return $this->render('dashboard/visits.html.twig', [
