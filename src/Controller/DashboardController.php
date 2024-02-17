@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +20,7 @@ use App\Repository\VisitsRepository;
 use App\VisitsFinder\VisitsFoundCounter;
 
 use App\Form\Type\SelectVisitsType;
+use Symfony\Component\Form\Form;
 
 final class DashboardController extends AbstractController
 {
@@ -41,18 +43,8 @@ final class DashboardController extends AbstractController
         ): Response {
         
         $date = $this->betterDate->create($visitsDate);
-
-        $form = $this->createForm(SelectVisitsType::class);
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
-            $dateFromRequest = new Date($form->getData()['date']);
-            
-            return $this->redirectToRoute(
-                'dashboard_visits_index', [
-                    'visitsDate' => $dateFromRequest->stringDateFormat()
-            ]);
-        }
-
+        
+        $form  = $this->formSearchVisits($request);
         $visitsObject = $this->visitsRepository->findOneVisitsObjectByDate($date);
         $sumVisitsMonth = $this->visitsRepository->sumMonthVisits($date);
         $sumVisitsYear = $this->visitsRepository->sumYearVisits($date);
@@ -85,24 +77,20 @@ final class DashboardController extends AbstractController
         ]);
     }
 
-    #[Route('/dashboard/pricing', name: 'dashboard_pricing')]
-    public function pricing(): Response
+    private function formSearchVisits($request): Form|RedirectResponse
     {
-        return $this->render('dashboard/pricing.html.twig');
+        $form = $this->createForm(SelectVisitsType::class);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()) {
+            $dateFromRequest = new Date($form->getData()['date']);
+            
+            return $this->redirectToRoute(
+                'dashboard_visits_index', [
+                    'visitsDate' => $dateFromRequest->stringDateFormat()
+            ]);
+        }else {
+            return $form;
+        }
     }
 
-    public function contact()
-    {
-        
-    }
-
-    public function openingHours()
-    {
-
-    }
-
-    public function events()
-    {
-
-    }
 }
