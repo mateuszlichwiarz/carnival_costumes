@@ -37,7 +37,7 @@ final class DashboardController extends AbstractController
     }
 
     #[Route('/dashboard/visits/{visitsDate}', name: 'dashboard_visits_index')]
-    public function visitsInfoAction(
+    public function visitsIndexAction(
         Request $request,
         null|string $visitsDate = null
         ): Response {
