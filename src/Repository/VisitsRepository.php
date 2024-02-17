@@ -32,7 +32,7 @@ class VisitsRepository extends ServiceEntityRepository
         ;
     }
 
-    public function sumYearVisits(Date $date): int
+    public function sumYearVisits(Date $date): int|null
     {
         return (int) $this->createQueryBuilder('v')
             ->select('SUM(v.visits)')
@@ -43,7 +43,7 @@ class VisitsRepository extends ServiceEntityRepository
         ;
     }
 
-    public function sumMonthVisits(Date $date): int
+    public function sumMonthVisits(Date $date): int|null
     {
         return $this->createQueryBuilder('v')
             ->select('SUM(v.visits)')
@@ -56,7 +56,7 @@ class VisitsRepository extends ServiceEntityRepository
         ;
     }
 
-    public function sumWeekVisits(Date $date): int
+    public function sumWeekVisits(Date $date): int|null
     {
         return (int) $this->createQueryBuilder('v')
             ->select('v.visits')
