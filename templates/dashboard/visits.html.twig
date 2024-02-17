@@ -8,6 +8,11 @@
              <div class = "admin-name">
                 You logged in, {{ admin.getUsername|capitalize }} <br><br>
             </div>
+            {% for message in app.flashes('notice') %}
+                <div class="flash-notice">
+                    {{ message }}
+                </div>
+            {% endfor %}
             Visits <br><br>
             Date displayed {{ date }} <br>
             <div class = "current">
