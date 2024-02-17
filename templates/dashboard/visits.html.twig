@@ -8,15 +8,17 @@
              <div class = "admin-name">
                 You logged in, {{ admin.getUsername|capitalize }} <br><br>
             </div>
-            {% for message in app.flashes('notice') %}
-                <div class="flash-notice">
-                    {{ message }}
-                </div>
-            {% endfor %}
-            Visits <br><br>
+            <br>
+            <h3>Visits</h3>
             Date displayed {{ date }} <br>
             <div class = "current">
-            Summary visits <br>
+            {% for label, messages in app.flashes(['success', 'warning']) %}
+                {% for message in messages %}
+                    <div class="flash-{{ label }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
                 In Week: {{ sumWeekVisits }} <br>
                 In Month: {{ sumMonthVisits }} <br>
                 In Year: {{ sumYearVisits }} <br>
