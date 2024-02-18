@@ -18,6 +18,7 @@ class OpenHours
     #[ORM\Column]
     private ?string $day = '';
 
+    #[ORM\Column]
     private bool $isClosed;
 
     #[ORM\Column]
