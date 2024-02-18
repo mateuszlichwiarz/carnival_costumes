@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\BetterDate\BetterDateInterface;
 use App\BetterDate\Entity\Date;
-
+use App\Entity\Visits;
 use App\VisitsFinder\VisitsFinderInterface;
 use App\Repository\VisitsRepository;
 use App\VisitsFinder\VisitsFoundCounter;
@@ -25,6 +25,14 @@ use Symfony\Component\Form\Form;
 final class DashboardController extends AbstractController
 {
     private readonly UserInterface $admin;
+
+    private Visits|null $visitsObject = null;
+
+    private int|null $weekVisits = null;
+
+    private int|null $sumVisitsMonth = null;
+
+    private int|null $sumVisitsYear = null;
 
     public function __construct(
         private Security $security,
@@ -44,41 +52,6 @@ final class DashboardController extends AbstractController
         
         $date = $this->betterDate->create($visitsDate);
         
-        $form  = $this->formSearchVisits($request);
-        $visitsObject = $this->visitsRepository->findOneVisitsObjectByDate($date);
-        $sumVisitsMonth = $this->visitsRepository->sumMonthVisits($date);
-        $sumVisitsYear = $this->visitsRepository->sumYearVisits($date);
-
-        if($visitsObject === null ||
-        $sumVisitsMonth === null ||
-        $sumVisitsYear === null) {
-            $this->addFlash(
-                'warning',
-                'None visits in this period',
-            );
-            $weekVisits = 0;
-            $sumVisitsMonth = 0;
-            $sumVisitsYear = 0;
-        }else{
-            $weekVisits = $visitsObject->getVisits();
-            $this->addFlash(
-                'success',
-                'Visits was found',
-            );
-        }
-
-        return $this->render('dashboard/visits.html.twig', [
-            'admin' => $this->admin,
-            'date' => $date->stringDateFormat(),
-            'form' => $form,
-            'sumWeekVisits' => $weekVisits,
-            'sumMonthVisits' => $sumVisitsMonth,
-            'sumYearVisits' => $sumVisitsYear,
-        ]);
-    }
-
-    private function formSearchVisits($request): Form|RedirectResponse
-    {
         $form = $this->createForm(SelectVisitsType::class);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
@@ -88,8 +61,46 @@ final class DashboardController extends AbstractController
                 'dashboard_visits_index', [
                     'visitsDate' => $dateFromRequest->stringDateFormat()
             ]);
-        }else {
-            return $form;
+        }
+
+        $this->searchVisitsByDate($date);
+        $this->resultSearchResolve($date);
+
+        return $this->render('dashboard/visits.html.twig', [
+            'admin' => $this->admin,
+            'date' => $date->stringDateFormat(),
+            'form' => $form,
+            'sumWeekVisits' => $this->weekVisits,
+            'sumMonthVisits' => $this->sumVisitsMonth,
+            'sumYearVisits' => $this->sumVisitsYear,
+        ]);
+    }
+
+    private function searchVisitsByDate(Date $date): void
+    {
+        $this->visitsObject = $this->visitsRepository->findOneVisitsObjectByDate($date);
+        $this->sumVisitsMonth = $this->visitsRepository->sumMonthVisits($date);
+        $this->sumVisitsYear = $this->visitsRepository->sumYearVisits($date);
+    }
+
+    private function resultSearchResolve(Date $date): void
+    {
+        if( $this->visitsObject === null ||
+            $this->sumVisitsMonth === null ||
+            $this->sumVisitsYear === null) {
+            $this->addFlash(
+                'warning',
+                'None visits in this period',
+            );
+            $this->weekVisits = 0;
+            $this->sumVisitsMonth = 0;
+            $this->sumVisitsYear = 0;
+        }else{
+            $this->weekVisits = $this->visitsObject->getVisits();
+            $this->addFlash(
+                'success',
+                'Visits was found',
+            );
         }
     }
 
