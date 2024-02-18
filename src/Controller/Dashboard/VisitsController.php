@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Controller\Dashboard;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
@@ -22,7 +22,7 @@ use App\VisitsFinder\VisitsFoundCounter;
 use App\Form\Type\SelectVisitsType;
 use Symfony\Component\Form\Form;
 
-final class DashboardController extends AbstractController
+final class VisitsController extends AbstractController
 {
     private readonly UserInterface $admin;
 
