@@ -24,8 +24,6 @@ class Pricing
     #[ORM\Column]
     private null|int $deposit = 0;
 
-    #[ORM\Column]
-    private string $desc = '';
 
     public function getId(): ?int
     {
@@ -62,17 +60,6 @@ class Pricing
     public function setDeposit(int $deposit): self
     {
         $this->deposit = $deposit;
-        return $this;
-    }
-
-    public function getDesc(): string
-    {
-        return $this->desc;
-    }
-
-    public function setDesc(string $desc): self
-    {
-        $this->desc = $desc;
         return $this;
     }
 
