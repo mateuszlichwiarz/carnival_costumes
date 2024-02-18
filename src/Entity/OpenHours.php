@@ -61,7 +61,7 @@ class OpenHours
 
     public function setStart(\DateTime $start): self
     {
-        $this->start;
+        $this->start = $start;
         return $this;
     }
 
@@ -72,7 +72,7 @@ class OpenHours
 
     public function setEnd(\DateTime $end): self
     {
-        $this->end;
+        $this->end = $end;
         return $this;
     }
 }
