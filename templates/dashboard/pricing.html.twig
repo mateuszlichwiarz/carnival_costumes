@@ -1,21 +1,19 @@
-<html>
-    <head>
+{% extends 'base.html.twig' %}
 
-    </head>
-
-    <body>
-        You logged in
-        {% for label, messages in app.flashes(['success', 'error']) %}
-                {% for message in messages %}
-                    <div class="flash-{{ label }}">
-                        {{ message }}
-                    </div>
+{% block body %}
+    <div id = 'content'>
+        <br><br><br><br><br><br>
+        <div class = "dashboard">
+            <h2>Pricing</h2>
+            {% for label, messages in app.flashes(['success', 'error', 'notice']) %}
+                    {% for message in messages %}
+                        <div class="flash-{{ label }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
 
-        {{ form_start(form) }}
+            {{ form_start(form) }}
 
-        {{ form_end(form) }}
-    </body>
-
-</html>
+            {{ form_end(form) }}
+{% endblock %}
