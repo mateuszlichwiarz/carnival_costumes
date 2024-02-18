@@ -45,7 +45,7 @@ class OpenHours
         return $this->start;
     }
 
-    public function setStart(): self
+    public function setStart(int $start): self
     {
         $this->start;
         return $this;
@@ -56,7 +56,7 @@ class OpenHours
         return $this->end;
     }
 
-    public function setEnd(): self
+    public function setEnd(int $end): self
     {
         $this->end;
         return $this;
