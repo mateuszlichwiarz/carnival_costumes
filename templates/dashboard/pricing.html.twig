@@ -5,6 +5,17 @@
 
     <body>
         You logged in
+        {% for label, messages in app.flashes(['success', 'error']) %}
+                {% for message in messages %}
+                    <div class="flash-{{ label }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+        {{ form_start(form) }}
+
+        {{ form_end(form) }}
     </body>
 
 </html>
