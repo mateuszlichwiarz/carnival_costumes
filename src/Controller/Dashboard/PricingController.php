@@ -14,9 +14,14 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Pricing;
 use App\Form\Type\UpdatePricingType;
 
+use App\Repository\PricingRepository;
+
 class PricingController extends AbstractController
 {
-    public function __construct(private EntityManagerInterface $entityManager)
+    public function __construct(
+        private EntityManagerInterface $entityManager,
+        private PricingRepository $pricingRepository,
+        )
     {}
 
     #[Route('/dashboard/pricing', name: 'dashboard_pricing')]
@@ -29,9 +34,16 @@ class PricingController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $pricing = $form->getData();
 
-            $this->entityManager->persist($pricing);
-            $this->entityManager->flush();
-            $this->addFlash('success', 'write');
+            $pricingFound = $this->pricingRepository->findPricing();
+            if($pricingFound === null) {
+                $this->entityManager->persist($pricing);
+                $this->entityManager->flush();
+
+                $this->addFlash('success', 'write');
+            }else{
+                $this->entityManager->persist($pricingFound);
+                $this->entityManager->flush();
+            }
         }else {
             $this->addFlash('error', 'no write');
         }
