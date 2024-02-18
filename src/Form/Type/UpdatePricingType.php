@@ -8,7 +8,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UpdatePricingType extends AbstractType
 {
@@ -17,7 +16,7 @@ class UpdatePricingType extends AbstractType
         $builder
             ->add('minPrice', NumberType::class)
             ->add('maxPrice', NumberType::class)
-            ->add('desc', TextType::class)
+            ->add('deposit', NumberType::class)
             ->add('set', SubmitType::class)
         ;
     }
