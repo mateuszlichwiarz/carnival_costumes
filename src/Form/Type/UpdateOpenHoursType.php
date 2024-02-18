@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -16,7 +17,17 @@ class UpdateOpenHoursType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Day', TextType::class)
+            ->add('Day', ChoiceType::class, [
+                'choices' => [
+                    'Monday'    => 'Monday',
+                    'Tuesday'   => 'Tuesday',
+                    'Wednesday' => 'Wednesday',
+                    'Thursday'  => 'Thursday',
+                    'Friday'    => 'Friday',
+                    'Saturday'  => 'Saturday',
+                    'Sunday'    => 'Sunday'
+                ]
+            ])
             ->add('Start', TimeType::class)
             ->add('End', TimeType::class)
             ->add('update', SubmitType::class)
