@@ -18,6 +18,8 @@ class OpenHours
     #[ORM\Column]
     private ?string $day = '';
 
+    private bool $isClosed;
+
     #[ORM\Column]
     private null|int $start = null;
 
@@ -37,6 +39,17 @@ class OpenHours
     public function setDay(string $day): self
     {
         $this->day = $day;
+        return $this;
+    }
+
+    public function getIsClosed(): ?bool
+    {
+        return $this->isClosed;
+    }
+
+    public function setIsClosed(bool $isClosed): self
+    {
+        $this->isClosed = $isClosed;
         return $this;
     }
 
