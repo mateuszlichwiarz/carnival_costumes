@@ -24,14 +24,9 @@ class OpenHours
     #[ORM\Column]
     private null|int $end = null;
 
-    public function __construct(
-        ?string $day,
-        null|int $start,
-        null|int $end
-    ){
-        $this->day;
-        $this->start;
-        $this->end;
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
     public function getDay(): ?string
@@ -39,13 +34,31 @@ class OpenHours
         return $this->day;
     }
 
+    public function setDay(string $day): self
+    {
+        $this->day = $day;
+        return $this;
+    }
+
     public function getStart(): ?int
     {
         return $this->start;
     }
 
+    public function setStart(): self
+    {
+        $this->start;
+        return $this;
+    }
+
     public function getEnd(): ?int
     {
         return $this->end;
+    }
+
+    public function setEnd(): self
+    {
+        $this->end;
+        return $this;
     }
 }
