@@ -27,8 +27,7 @@ class VisitsRecorder
         private CurrentDateFactory $currentDateFactory,
     ){
         $this->date = $this->currentDateFactory->create();
-        $visitFound = $this->findVisit();
-        $this->visit = $visitFound;
+        $this->visit = $this->findVisit();
     }
 
     public function saveVisit(): void
