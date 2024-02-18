@@ -1,10 +1,12 @@
-<html>
-    <head>
+{% extends 'base.html.twig' %}
 
-    </head>
-
-    <body>
-        You logged in
-    </body>
-
-</html>
+{% block body %}
+    <div id = 'content'>
+        <br><br><br><br><br><br>
+        <div class = "dashboard">
+            <h2>Contact</h2>
+            <br>
+            <h3>Open hours </h3>
+            {{ form_start(form) }}
+            {{ form_end(form) }}
+{% endblock %}
