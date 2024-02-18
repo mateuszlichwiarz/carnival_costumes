@@ -21,10 +21,10 @@ class OpenHours
     private bool $isClosed;
 
     #[ORM\Column]
-    private null|int $start = null;
+    private \DateTime|null $start = null;
 
     #[ORM\Column]
-    private null|int $end = null;
+    private \DateTime|null $end = null;
 
     public function getId(): ?int
     {
@@ -53,23 +53,23 @@ class OpenHours
         return $this;
     }
 
-    public function getStart(): ?int
+    public function getStart(): ?\DateTime
     {
         return $this->start;
     }
 
-    public function setStart(int $start): self
+    public function setStart(\DateTime $start): self
     {
         $this->start;
         return $this;
     }
 
-    public function getEnd(): ?int
+    public function getEnd(): ?\DateTime
     {
         return $this->end;
     }
 
-    public function setEnd(int $end): self
+    public function setEnd(\DateTime $end): self
     {
         $this->end;
         return $this;
