@@ -22,5 +22,13 @@ class PricingRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Pricing::class);
     }
+
+    public function findOnlyOnePricing(): Pricing|null
+    {
+        return $this->createQueryBuilder('p')
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
     
 }
