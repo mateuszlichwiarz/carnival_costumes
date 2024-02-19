@@ -22,5 +22,24 @@ class OpenHoursRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, OpenHours::class);
     }
+
+    public function findAllDaysOpenHours(): array
+    {
+        return (array) $this->createQueryBuilder('o')
+            ->setMaxResults(7)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findDayOpenHours(string $day): OpenHours|null
+    {
+        return $this->createQueryBuilder('o')
+            ->andWhere('o.day = :day')
+            ->setParameter('day', $day)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
     
 }
