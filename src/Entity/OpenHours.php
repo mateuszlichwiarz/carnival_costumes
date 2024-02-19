@@ -22,10 +22,10 @@ class OpenHours
     private bool $isClosed;
 
     #[ORM\Column]
-    private \DateTime|null $startDate = null;
+    private \DateTime $startDate;
 
     #[ORM\Column]
-    private \DateTime|null $endDate = null;
+    private \DateTime $endDate;
 
     public function getId(): ?int
     {
@@ -59,6 +59,11 @@ class OpenHours
         return $this->startDate;
     }
 
+    public function getStringStartDate(): string
+    {
+        return $this->startDate->format('H:i');
+    }
+
     public function setStartDate(\DateTime $startDate): self
     {
         $this->startDate = $startDate;
@@ -68,6 +73,11 @@ class OpenHours
     public function getEndDate(): ?\DateTime
     {
         return $this->endDate;
+    }
+
+    public function getStringEndDate(): string
+    {
+        return $this->endDate->format('H:i');
     }
 
     public function setEndDate(\DateTime $endDate): self
