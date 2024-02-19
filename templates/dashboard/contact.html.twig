@@ -6,7 +6,25 @@
         <div class = "dashboard">
             <h2>Contact</h2>
             <br>
-            <h3>Open hours </h3>
+            <div class = "open-hours">
+                <h3>Open Hours</h3>
+                <table class = 'days-open-hours'>
+                {% for openHours in daysOpenHours %}
+                    <tr>
+                        <th>{{ openHours.getDay() }} </th>
+                        {% if openHours.isClosed() == false %}
+                        <th> {{ openHours.getStringStartDate() }} - </th>
+                        <th> {{ openHours.getStringEndDate() }} </th>
+                        {% else %}
+                        <th> closed </th>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
+            <br><br>
             {{ form_start(form) }}
             {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}
