@@ -16,7 +16,7 @@ class OpenHours
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?string $day = '';
+    private int $day;
 
     #[ORM\Column]
     private bool $isClosed;
@@ -32,12 +32,42 @@ class OpenHours
         return $this->id;
     }
 
-    public function getDay(): ?string
+    public function getStringDay(): string
+    {
+        $day = $this->day;
+        switch($day)
+        {
+            case 1:
+                $day = 'monday';
+            break;
+            case 2:
+                $day = 'tuesday';
+            break;
+            case 3:
+                $day = 'wednesday';
+            break;
+            case 4:
+                $day = 'thursday';
+            break;
+            case 5:
+                $day = 'friday';
+            break;
+            case 6:
+                $day = 'saturday';
+            break;
+            case 7:
+                $day = 'sunday';
+            break;
+        }
+        return $day;
+    }
+
+    public function getDay(): int
     {
         return $this->day;
     }
 
-    public function setDay(string $day): self
+    public function setDay(int $day): self
     {
         $this->day = $day;
         return $this;
