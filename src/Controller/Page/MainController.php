@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace App\Controller\Page;
 
+use App\Repository\OpenHoursRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-use App\Entity\OpeningHours;
+use App\Entity\OpenHours;
 use App\Entity\Pricing;
 
 use App\VisitRegister\VisitsRegister;
@@ -17,7 +18,6 @@ use App\VisitRegister\VisitsRegister;
 
 class MainController extends AbstractController
 {
-
     public function __construct(
         private VisitsRegister $visitsRegister,
     ){
@@ -48,29 +48,12 @@ class MainController extends AbstractController
     }
 
     #[Route('/contact', name: 'contact')]
-    public function contact(): Response
+    public function contact(
+        OpenHoursRepository $openHoursRepository
+    ): Response
     {
-        $message = '/contact';
-
-        $openHours = new OpeningHours();
-        $openHours->setMonday('6-14');
-        $openHours->setTuesday('9-18');
-
-        $contact = ['city' => 'klodzko',
-            'street' => 'holdu pruskiego',
-        ];
-
-        $phoneNumber = 697160121;
-
-        $hours = ['monday' => $openHours->getMonday(),
-            'tuesday' => $openHours->getTuesday(),
-        ];
-
         return $this->render('page/contact.html.twig', [
-            'message' => $message,
-            'phoneNumber' => $phoneNumber,
-            'hours' => $hours,
-            'contact' => $contact,
+            'daysOpenHours' => $openHoursRepository->findAllDaysOpenHours(),
         ]);
     }
 
