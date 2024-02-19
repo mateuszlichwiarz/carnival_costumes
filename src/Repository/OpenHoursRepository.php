@@ -33,7 +33,7 @@ class OpenHoursRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findDayOpenHours(string $day): OpenHours|null
+    public function findDayOpenHours(int $day): OpenHours|null
     {
         return $this->createQueryBuilder('o')
             ->andWhere('o.day = :day')
