@@ -26,6 +26,7 @@ class OpenHoursRepository extends ServiceEntityRepository
     public function findAllDaysOpenHours(): array
     {
         return (array) $this->createQueryBuilder('o')
+            ->orderBy('o.day', 'asc')
             ->setMaxResults(7)
             ->getQuery()
             ->getResult()
