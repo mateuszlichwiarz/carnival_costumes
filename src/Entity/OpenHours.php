@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
-use App\Repository\PricingRepository;
+use App\Repository\OpenHoursRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: PricingRepository::class)]
+#[ORM\Entity(repositoryClass: OpenHoursRepository::class)]
 class OpenHours
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private int $id;
+    private ?int $id = null;
 
     #[ORM\Column]
     private ?string $day = '';
@@ -22,10 +22,10 @@ class OpenHours
     private bool $isClosed;
 
     #[ORM\Column]
-    private \DateTime|null $start = null;
+    private \DateTime|null $startDate = null;
 
     #[ORM\Column]
-    private \DateTime|null $end = null;
+    private \DateTime|null $endDate = null;
 
     public function getId(): ?int
     {
@@ -54,25 +54,25 @@ class OpenHours
         return $this;
     }
 
-    public function getStart(): ?\DateTime
+    public function getStartDate(): ?\DateTime
     {
-        return $this->start;
+        return $this->startDate;
     }
 
-    public function setStart(\DateTime $start): self
+    public function setStartDate(\DateTime $startDate): self
     {
-        $this->start = $start;
+        $this->startDate = $startDate;
         return $this;
     }
 
-    public function getEnd(): ?\DateTime
+    public function getEndDate(): ?\DateTime
     {
-        return $this->end;
+        return $this->endDate;
     }
 
-    public function setEnd(\DateTime $end): self
+    public function setEndDate(\DateTime $endDate): self
     {
-        $this->end = $end;
+        $this->endDate = $endDate;
         return $this;
     }
 }
