@@ -11,7 +11,7 @@
                 <table class = 'days-open-hours'>
                 {% for openHours in daysOpenHours %}
                     <tr>
-                        <th>{{ openHours.getDay() }} </th>
+                        <th>{{ openHours.getStringDay() }} </th>
                         {% if openHours.isClosed() == false %}
                         <th> {{ openHours.getStringStartDate() }} - </th>
                         <th> {{ openHours.getStringEndDate() }} </th>
