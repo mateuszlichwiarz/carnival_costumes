@@ -18,7 +18,7 @@ class UpdateOpenHoursType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Day', ChoiceType::class, [
+            ->add('day', ChoiceType::class, [
                 'choices' => [
                     'Monday'    => 'Monday',
                     'Tuesday'   => 'Tuesday',
@@ -29,9 +29,12 @@ class UpdateOpenHoursType extends AbstractType
                     'Sunday'    => 'Sunday'
                 ]
             ])
-            ->add('isClosed', CheckboxType::class)
-            ->add('Start', TimeType::class)
-            ->add('End', TimeType::class)
+            ->add('isClosed', CheckboxType::class, [
+                'label'    => 'Closed day?',
+                'required' => false,
+            ])
+            ->add('startDate', TimeType::class)
+            ->add('endDate', TimeType::class)
             ->add('update', SubmitType::class)
         ;
     }
