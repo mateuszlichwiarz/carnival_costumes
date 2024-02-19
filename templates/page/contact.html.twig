@@ -4,33 +4,35 @@
     <div id="content">
         <div class="contact">
             <br><br><br><br><br><br>
-            <br>{{ message }}<br>
+            <br><br>
                 <br><br>
             <div class="phoneNumber">
 
                 <h2>Phone number </h2>
 
-                {{ phoneNumber }} <br><br>
             </div>
 
-            <div class="openingHours">
-
-                <h2>Opening hours </h2>
-
-                Monday: {{ hours.monday }}<br>
-                Tuesday: {{hours.tuesday }}<br>
-                Wendsday: <br>
-                Thursday: <br>
-                Saturday: <br>
-                Sunday: <br>
-                <br><br>
+             <div class = "open-hours">
+                <h3>Open Hours</h3>
+                <table class = 'days-open-hours'>
+                {% for openHours in daysOpenHours %}
+                    <tr>
+                        <th>{{ openHours.getStringDay() }} </th>
+                        {% if openHours.isClosed() == false %}
+                        <th> {{ openHours.getStringStartDate() }} - </th>
+                        <th> {{ openHours.getStringEndDate() }} </th>
+                        {% else %}
+                        <th> closed </th>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </table>
             </div>
 
             <div class="address">
             
                 <h2>Address</h2>
 
-                {{ contact.city|capitalize }}, st. {{ contact.street|capitalize }}
             </div>
         </div>
     </div>
