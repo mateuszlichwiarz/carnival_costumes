@@ -41,5 +41,4 @@ class OpenHoursRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    
 }
