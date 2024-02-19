@@ -1,8 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id = 'content'>
+    <div id='content'>
         <br><br><br><br><br><br>
-        <div class = "dashboard">
+        <div class="dashboard">
             <h2>Dashboard</h2>
+            <span>{{ admin.getUsername|capitalize }}</span>
+            <br>
+            <a class='button' href="{{ path('dashboard_visits_index') }}">visits</a>
+            <a class='button' href="{{ path('dashboard_contact_index') }}">contact</a>
+            <a class='button' href="{{ path('dashboard_pricing') }}">pricing</a>
+        </div>
+    </div>
 {% endblock %}
