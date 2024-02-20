@@ -11,10 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 class OpenHours
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-
     #[ORM\Column]
     private int $day;
 
@@ -26,11 +22,6 @@ class OpenHours
 
     #[ORM\Column]
     private \DateTime $endDate;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getStringDay(): string
     {
