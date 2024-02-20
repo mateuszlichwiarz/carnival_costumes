@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller\Dashboard;
 
-use App\Repository\OpenHoursRepository;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,6 +24,7 @@ class ContactController extends AbstractController
     #[Route('/dashboard/contact', name: 'dashboard_contact_index')]
     public function updateContactAction(Request $request): Response
     {
+        $allDaysOpenHours = $this->openHoursRepository->findAllDaysOpenHours();
         $openHours = new OpenHours();
         $form = $this->createForm(UpdateOpenHoursType::class, $openHours);
         $form->handleRequest($request);
@@ -47,7 +47,7 @@ class ContactController extends AbstractController
 
         return $this->render('dashboard/contact.html.twig', [
             'form' => $form,
-            'daysOpenHours' => $this->openHoursRepository->findAllDaysOpenHours()
+            'daysOpenHours' => $allDaysOpenHours,
         ]);
     }
 }
