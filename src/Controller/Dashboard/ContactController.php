@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Dashboard;
 
+use App\Repository\OpenHoursRepository;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
