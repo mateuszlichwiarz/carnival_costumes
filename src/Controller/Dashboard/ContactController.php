@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Entity\OpenHours;
 
-use App\Form\Type\UpdateOpenHoursType;
+use App\Form\Type\OpenHoursUpdateType;
 use Doctrine\ORM\EntityManagerInterface;
 
 class ContactController extends AbstractController
@@ -27,7 +27,7 @@ class ContactController extends AbstractController
     {
         $allDaysOpenHours = $this->openHoursRepository->findAllDaysOpenHours();
         $openHours = new OpenHours();
-        $form = $this->createForm(UpdateOpenHoursType::class, $openHours);
+        $form = $this->createForm(OpenHoursUpdateType::class, $openHours);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
             $openHours = $form->getData();
