@@ -8,5 +8,5 @@ use App\Entity\OpenHours;
 
 interface OpenHoursUpdateFactoryInterface
 {
-    public function createUpdate(OpenHours $form): openHours;
+    public function createUpdate(OpenHours $foundOpenHours, OpenHours $formOpenHours): openHours;
 }

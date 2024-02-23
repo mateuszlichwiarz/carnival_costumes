@@ -10,12 +10,15 @@ use App\OpenHoursForm\Factory\OpenHoursUpdateFactoryInterface;
 
 class OpenHoursUpdateFactory implements OpenHoursUpdateFactoryInterface
 {
-    public function createUpdate(openHours $openHours): OpenHours
+    public function createUpdate(
+        OpenHours $foundOpenHours,
+        OpenHours $formOpenHours
+        ): OpenHours 
     {
-        return $openHours
-            ->setIsClosed($openHours->getIsClosed())
-            ->setStartDate($openHours->getStartDate())
-            ->setEndDate($openHours->getEndDate())
+        return $foundOpenHours
+            ->setIsClosed($formOpenHours->getIsClosed())
+            ->setStartDate($formOpenHours->getStartDate())
+            ->setEndDate($formOpenHours->getEndDate())
         ;
     }
 }
