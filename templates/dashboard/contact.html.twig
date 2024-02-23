@@ -15,19 +15,23 @@
                 {% endfor %}
             {% endfor %}
                 <h3>Open Hours</h3>
-                <table class = 'days-open-hours'>
-                {% for openHours in daysOpenHours %}
-                    <tr>
-                        <th>{{ openHours.getStringDay() }} </th>
-                        {% if openHours.isClosed() == false %}
-                        <th> {{ openHours.getStringStartDate() }} - </th>
-                        <th> {{ openHours.getStringEndDate() }} </th>
-                        {% else %}
-                        <th> closed </th>
-                        {% endif %}
-                    </tr>
-                {% endfor %}
-                </table>
+                {% if daysOpenHours is empty %}
+                    <span>Your days works is not defined.</span>
+                {% else %}
+                    <table class = 'days-open-hours'>
+                    {% for openHours in daysOpenHours %}
+                        <tr>
+                            <th>{{ openHours.getStringDay() }} </th>
+                            {% if openHours.isClosed() == false %}
+                            <th> {{ openHours.getStringStartDate() }} - </th>
+                            <th> {{ openHours.getStringEndDate() }} </th>
+                            {% else %}
+                            <th> closed </th>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                    </table>
+                {% endif %}
             </div>
             <br><br>
             {{ form_start(form) }}
