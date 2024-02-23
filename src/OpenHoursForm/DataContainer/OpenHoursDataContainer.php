@@ -25,16 +25,11 @@ class OpenHoursDataContainer implements OpenHoursDataContainerInterface
 
     public function getOpenHoursDay(int $day): OpenHours|null
     {
-        /*
         foreach($this->allDays as $openHours) {
             if($openHours->getDay() === $day){
                 return $openHours;
             }
         }
         return null;
-        */
-        
-        return $this->repository->findDayOpenHours($day);
-
     }
 }
