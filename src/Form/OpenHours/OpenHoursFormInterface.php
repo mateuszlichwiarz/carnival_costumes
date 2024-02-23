@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\OpenHoursForm;
+namespace App\Form\OpenHours;
 
 use App\Entity\OpenHours;
 use Symfony\Component\Form\FormInterface;

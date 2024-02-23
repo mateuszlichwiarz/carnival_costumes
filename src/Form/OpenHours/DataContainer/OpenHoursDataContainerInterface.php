@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\OpenHoursForm\DataContainer;
+namespace App\Form\OpenHours\DataContainer;
 
 use App\Entity\OpenHours;
 

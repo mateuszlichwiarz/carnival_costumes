@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\OpenHoursForm\Persister;
+namespace App\Form\OpenHours\Persister;
 
 use App\Entity\OpenHours;
 use Doctrine\ORM\EntityManagerInterface;

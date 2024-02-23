@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\OpenHoursForm\Factory;
+namespace App\Form\OpenHours\Factory;
 
 use App\Entity\OpenHours;
 
-use App\OpenHoursForm\Factory\OpenHoursUpdateFactoryInterface;
+use App\Form\OpenHours\Factory\OpenHoursUpdateFactoryInterface;
 
 class OpenHoursUpdateFactory implements OpenHoursUpdateFactoryInterface
 {

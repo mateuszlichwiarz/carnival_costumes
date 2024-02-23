@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\OpenHoursForm\Resolver;
+namespace App\Form\OpenHours\Resolver;
 
 use App\Entity\OpenHours;
-use App\OpenHoursForm\Resolver\OpenHoursUpdateResolverInterface;
-use App\OpenHoursForm\Factory\OpenHoursUpdateFactoryInterface;
-use App\OpenHoursForm\DataContainer\OpenHoursDataContainerInterface;
+use App\Form\OpenHours\Resolver\OpenHoursUpdateResolverInterface;
+use App\Form\OpenHours\Factory\OpenHoursUpdateFactoryInterface;
+use App\Form\OpenHours\DataContainer\OpenHoursDataContainerInterface;
 
 class OpenHoursUpdateResolver implements OpenHoursUpdateResolverInterface
 {

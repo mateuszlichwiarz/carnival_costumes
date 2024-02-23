@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\OpenHoursForm;
+namespace App\Form\OpenHours;
 
 use App\Entity\OpenHours;
-use App\Form\Type\OpenHoursUpdateType;
-use App\OpenHoursForm\Persister\OpenHoursPersister;
-use App\OpenHoursForm\DataContainer\OpenHoursDataContainerInterface;
-use App\OpenHoursForm\Resolver\OpenHoursUpdateResolver;
-use App\OpenHoursForm\OpenHoursFormInterface;
+use App\Form\OpenHours\Type\OpenHoursUpdateType;
+use App\Form\OpenHours\Persister\OpenHoursPersister;
+use App\Form\OpenHours\DataContainer\OpenHoursDataContainerInterface;
+use App\Form\OpenHours\Resolver\OpenHoursUpdateResolver;
+use App\Form\OpenHours\OpenHoursFormInterface;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\OpenHoursForm\DataContainer;
+namespace App\Form\OpenHours\DataContainer;
 
 use App\Entity\OpenHours;
 use App\Repository\OpenHoursRepository;
 
-use App\OpenHoursForm\DataContainer\OpenHoursDataContainerInterface;
+use App\Form\OpenHours\DataContainer\OpenHoursDataContainerInterface;
 
 class OpenHoursDataContainer implements OpenHoursDataContainerInterface
 {

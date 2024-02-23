@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\OpenHoursForm\Resolver;
+namespace App\Form\OpenHours\Resolver;
 
 use App\Entity\OpenHours;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\OpenHoursForm\Factory;
+namespace App\Form\OpenHours\Factory;
 
 use App\Entity\OpenHours;
 

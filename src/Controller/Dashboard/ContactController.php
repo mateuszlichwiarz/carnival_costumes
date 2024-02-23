@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-use App\OpenHoursForm\OpenHoursForm;
+use App\Form\OpenHours\OpenHoursForm;
 
 class ContactController extends AbstractController
 {
