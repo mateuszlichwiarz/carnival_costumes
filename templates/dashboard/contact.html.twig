@@ -7,6 +7,13 @@
             <h2>Contact</h2>
             <br>
             <div class = "open-hours">
+            {% for label, messages in app.flashes(['success', 'notice']) %}
+                {% for message in messages %}
+                    <div class="flash-{{ label }}">
+                        <span>{{ message }}</span>
+                    </div>
+                {% endfor %}
+            {% endfor %}
                 <h3>Open Hours</h3>
                 <table class = 'days-open-hours'>
                 {% for openHours in daysOpenHours %}
