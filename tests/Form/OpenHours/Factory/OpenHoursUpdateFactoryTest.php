@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Tests\Form\OpenHours\Factory;
 
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use PHPUnit\Framework\TestCase;
 
 use App\Form\OpenHours\Factory\OpenHoursUpdateFactory;
 use App\Entity\OpenHours;
 
-class OpenHoursUpdateFactoryTest extends KernelTestCase
+class OpenHoursUpdateFactoryTest extends TestCase
 {
     private \DateTime $dateTime;
 
@@ -54,7 +54,7 @@ class OpenHoursUpdateFactoryTest extends KernelTestCase
         $this->assertInstanceOf(OpenHours::class, $updatedOpenHours);
     }
 
-    public function testCreateUpdateSuccess()
+    public function testCreateUpdateSuccess(): void
     {
         $this->assertEquals(
             $this->expectedOpenHours
