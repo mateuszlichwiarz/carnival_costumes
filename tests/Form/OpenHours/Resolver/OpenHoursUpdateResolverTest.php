@@ -8,13 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 use App\Entity\OpenHours;
 use App\Form\OpenHours\Resolver\OpenHoursUpdateResolverInterface;
-use App\Form\OpenHours\DataContainer\OpenHoursDataContainerInterface;
 
 class OpenHoursUpdateResolverTest extends KernelTestCase
 {
     private OpenHoursUpdateResolverInterface $resolver;
-
-    private OpenHoursDataContainerInterface $dataContainer;
 
     private \DateTime $dateTimeStart;
 
@@ -24,7 +21,6 @@ class OpenHoursUpdateResolverTest extends KernelTestCase
     {
         self::bootKernel();
         $this->resolver = self::getContainer()->get(OpenHoursUpdateResolverInterface::class);
-        $this->dataContainer = self::getContainer()->get(OpenHoursDataContainerInterface::class);
 
         $this->dateTimeStart = new \DateTime('2001-01-01');
         $this->dateTimeStart->setTime(10, 30);
@@ -33,7 +29,7 @@ class OpenHoursUpdateResolverTest extends KernelTestCase
 
     }
 
-    public function testResolveReturnOpenHoursWhenIsNotSavedInDb(): void
+    public function testResolveReturnOpenHours(): void
     {
         $mockFormOpenHours = new OpenHours();
         $mockFormOpenHours
@@ -42,8 +38,22 @@ class OpenHoursUpdateResolverTest extends KernelTestCase
             ->setStartDate($this->dateTimeStart)
             ->setEndDate($this->dateTimeEnd)
         ;
-
         $this->assertSame(
+            $mockFormOpenHours,
+            $this->resolver->resolve($mockFormOpenHours)
+        );
+    }
+
+    public function testResolveReturnUpdatedOpenHoursAnotherDay(): void
+    {
+        $mockFormOpenHours = new OpenHours();
+        $mockFormOpenHours
+            ->setDay(2)
+            ->setIsClosed(false)
+            ->setStartDate($this->dateTimeStart)
+            ->setEndDate($this->dateTimeEnd)
+        ;
+        $this->assertEquals(
             $mockFormOpenHours,
             $this->resolver->resolve($mockFormOpenHours)
         );
