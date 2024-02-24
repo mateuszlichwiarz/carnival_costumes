@@ -25,7 +25,5 @@ class VisitsFixtures extends Fixture
                 }
             }
         }
-        
     }
-
 }
