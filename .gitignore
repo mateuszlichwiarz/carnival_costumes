@@ -24,3 +24,7 @@ phpstan.neon
 .platform.app.yaml
 .platform/
 .vscode/
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor/
+###< symfony/asset-mapper ###
