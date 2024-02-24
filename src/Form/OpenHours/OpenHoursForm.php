@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class OpenHoursForm implements OpenHoursFormInterface
 {
-    private Form $form;
+    private FormInterface $form;
 
     private OpenHours $openHours;
 
