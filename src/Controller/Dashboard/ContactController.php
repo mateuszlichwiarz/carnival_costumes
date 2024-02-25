@@ -10,11 +10,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 use App\Form\OpenHours\OpenHoursForm;
+use App\Form\Contact\ContactUpdateForm;
 
 class ContactController extends AbstractController
 {
     public function __construct(
         private OpenHoursForm $openHoursForm,
+        private ContactUpdateForm $contactUpdateForm,
     ){}
 
     #[Route('/dashboard/contact', name: 'dashboard_contact_index')]
@@ -27,8 +29,17 @@ class ContactController extends AbstractController
             return $this->redirectToRoute('dashboard_contact_index');
         }
         
+        $this->contactUpdateForm->createForms();
+        $contact = $this->contactUpdateForm->handleRequest($request);
+        if($contact !== null) {
+            $this->contactUpdateForm->persist($contact);
+            return $this->redirectToRoute('dashboard_contact_index');
+        }
+
         return $this->render('dashboard/contact.html.twig', [
-            'form' => $this->openHoursForm->viewForm(),
+            'openHoursForm' => $this->openHoursForm->viewForm(),
+            'addressForm'   => $this->contactUpdateForm->viewAddressForm(),
+            'phoneForm'     => $this->contactUpdateForm->viewPhoneForm(),
             'daysOpenHours' => $this->openHoursForm->daysContainer()->getAllDays(),
         ]);
     }
