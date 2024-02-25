@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller\Page;
 
 use App\Repository\OpenHoursRepository;
+use App\Repository\PricingRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -58,15 +59,12 @@ class MainController extends AbstractController
     }
 
     #[Route('/pricing', name: 'pricing')]
-    public function pricing(): Response
+    public function pricing(
+        PricingRepository $pricingRepository
+        ): Response
     {
-        $message = '/pricing';
-
-        $pricing = new Pricing();
-
         return $this->render('page/pricing.html.twig', [
-            'message' => $message,
-            'pricing' => $pricing,
+            'pricing' => $pricingRepository->findOnlyOnePricing(),
         ]);
     }
 
