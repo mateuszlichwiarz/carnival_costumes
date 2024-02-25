@@ -23,12 +23,10 @@ class ContactRepository extends ServiceEntityRepository
         parent::__construct($registry, Contact::class);
     }
 
-    public function findOneContact()
+    public function findOneContact(): Contact|null
     {
         return $this
             ->createQueryBuilder("c")
-            ->orderBy("id", "DESC")
-            ->setMaxResults(1)
             ->getQuery()
             ->getOneORNullResult()
         ;
