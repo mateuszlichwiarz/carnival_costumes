@@ -10,7 +10,7 @@ use App\Form\OpenHours\Persister\OpenHoursPersister;
 use App\Form\OpenHours\DataContainer\OpenHoursDataContainerInterface;
 use App\Form\OpenHours\Resolver\OpenHoursUpdateResolver;
 use App\Form\OpenHours\OpenHoursFormInterface;
-use Symfony\Component\Form\Form;
+
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
