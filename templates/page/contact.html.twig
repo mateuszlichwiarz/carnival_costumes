@@ -14,19 +14,7 @@
 
              <div class = "open-hours">
                 <h3>Open Hours</h3>
-                <table class = 'days-open-hours'>
-                {% for openHours in daysOpenHours %}
-                    <tr>
-                        <th>{{ openHours.getStringDay() }} </th>
-                        {% if openHours.isClosed() == false %}
-                        <th> {{ openHours.getStringStartDate() }} - </th>
-                        <th> {{ openHours.getStringEndDate() }} </th>
-                        {% else %}
-                        <th> closed </th>
-                        {% endif %}
-                    </tr>
-                {% endfor %}
-                </table>
+                {{ include('open_hours_table.html.twig') }} 
             </div>
 
             <div class="address">
