@@ -15,14 +15,14 @@ class Contact
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private string $city;
+    #[ORM\Column(nullable:true)]
+    private string $city = '';
 
-    #[ORM\Column]
-    private string $street;
+    #[ORM\Column(nullable:true)]
+    private string $street = '';
 
-    #[ORM\Column]
-    private int $phone;
+    #[ORM\Column(nullable:true)]
+    private ?int $phone = null;
 
     public function getId(): ?int
     {
