@@ -34,7 +34,7 @@ class PricingController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $pricing = $form->getData();
 
-            $pricingFound = $this->pricingRepository->findPricing();
+            $pricingFound = $this->pricingRepository->findOnlyOnePricing();
             if($pricingFound === null) {
                 $this->entityManager->persist($pricing);
                 $this->entityManager->flush();
