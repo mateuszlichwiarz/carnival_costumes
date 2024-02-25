@@ -26,6 +26,8 @@ class ContactController extends AbstractController
         $openHours = $this->openHoursForm->handleRequest($request);
         if($openHours !== null) {
             $this->openHoursForm->persist($openHours);
+            $this->addFlash('notice', 'Your changes were saved!');
+
             return $this->redirectToRoute('dashboard_contact_index');
         }
         
@@ -33,6 +35,8 @@ class ContactController extends AbstractController
         $contact = $this->contactUpdateForm->handleRequest($request);
         if($contact !== null) {
             $this->contactUpdateForm->persist($contact);
+            $this->addFlash('notice', 'Your changes were saved!');
+            
             return $this->redirectToRoute('dashboard_contact_index');
         }
 
