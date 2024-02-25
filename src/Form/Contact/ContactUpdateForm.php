@@ -53,6 +53,38 @@ class ContactUpdateForm implements ContactUpdateFormInterface
         );
     }
 
+    public function handleRequest(Request $request): Contact|null
+    {
+        $this->formAddress->handleRequest($request);
+        $this->formPhone->handleRequest($request);
+        if($this->formAddress->isSubmitted() && $this->formAddress->isValid()) {
+            $this->contactAddress = $this->formAddress->getData();
+            
+            if($this->foundContact !== null) {
+                return $this->foundContact
+                ->setCity($this->contactAddress->getCity())
+                ->setStreet($this->contactAddress->getStreet())
+                ;
+            }else {
+                return $this->contactAddress;
+            }
+            
+        }elseif($this->formPhone->isSubmitted() && $this->formPhone->isValid()){
+            $this->contactPhone = $this->formPhone->getData();
+
+            if($this->foundContact !== null) {
+                return $this->foundContact
+                ->setCity($this->contactAddress->getCity())
+                ->setStreet($this->contactAddress->getStreet())
+                ;
+            }else {
+                return $this->contactPhone;
+            }
+        }else {
+            return null;
+        }
+    }
+
     public function persist(Contact $contact): void
     {
         $this->contactPersister->persist($contact);
