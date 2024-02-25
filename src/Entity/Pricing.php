@@ -16,13 +16,13 @@ class Pricing
     private ?int $id = null;
 
     #[ORM\Column]
-    private null|int $minPrice = 0;
+    private int $minPrice;
 
     #[ORM\Column]
-    private null|int $maxPrice = 0;
+    private int $maxPrice;
 
     #[ORM\Column]
-    private null|int $deposit = 0;
+    private int $deposit;
 
 
     public function getId(): ?int
