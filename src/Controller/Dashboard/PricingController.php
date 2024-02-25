@@ -38,15 +38,16 @@ class PricingController extends AbstractController
 
             if($pricingFound === null) {
                 $this->entityManager->persist($pricing);
-                $this->entityManager->flush();
-
-                $this->addFlash('success', 'write');
             }else{
-                $this->entityManager->persist($pricingFound);
-                $this->entityManager->flush();
+                $this->entityManager->persist(
+                    $pricingFound
+                        ->setMinPrice($pricing->getMinPrice())
+                        ->setMaxPrice($pricing->getMaxPrice())
+                        ->setDeposit($pricing->getDeposit())
+                );
             }
-        }else {
-            $this->addFlash('error', 'no write');
+            $this->entityManager->flush();
+            return $this->redirectToRoute('dashboard_pricing');
         }
 
         return $this->render('dashboard/pricing.html.twig', [
