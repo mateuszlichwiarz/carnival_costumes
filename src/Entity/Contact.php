@@ -4,13 +4,30 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Repository\ContactRepository;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
 {
-    private string $city = '';
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private int $id = null;
 
-    private string $street = '';
+    #[ORM\Column]
+    private string $city;
 
-    private null|int $phone = null;
+    #[ORM\Column]
+    private string $street;
+
+    #[ORM\Column]
+    private int $phone;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getPhone(): null|int
     {
