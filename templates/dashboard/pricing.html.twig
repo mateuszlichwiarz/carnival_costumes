@@ -5,6 +5,7 @@
         <br><br><br><br><br><br>
         <div class = "dashboard">
             <h2>Pricing</h2>
+                <br>
             {% for label, messages in app.flashes(['success', 'error', 'notice']) %}
                     {% for message in messages %}
                         <div class="flash-{{ label }}">
@@ -12,6 +13,18 @@
                         </div>
                     {% endfor %}
                 {% endfor %}
+
+            <table>
+                <tr>
+                    <th>Price range</th>
+                    <th>Deposit</th>
+                </tr>
+                <tr>
+                    <th> {{ pricing.getMinPrice }} - {{ pricing.getMaxPrice }} </th>
+                    <th> {{ pricing.getDeposit }} </th>
+                </tr>
+            </table>
+            <br>
 
             {{ form_start(form) }}
 
