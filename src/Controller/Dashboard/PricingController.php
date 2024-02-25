@@ -29,12 +29,13 @@ class PricingController extends AbstractController
     {
         $pricing = new Pricing();
 
+        $pricingFound = $this->pricingRepository->findOnlyOnePricing();
+
         $form = $this->createForm(UpdatePricingType::class, $pricing);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
             $pricing = $form->getData();
 
-            $pricingFound = $this->pricingRepository->findOnlyOnePricing();
             if($pricingFound === null) {
                 $this->entityManager->persist($pricing);
                 $this->entityManager->flush();
@@ -49,7 +50,8 @@ class PricingController extends AbstractController
         }
 
         return $this->render('dashboard/pricing.html.twig', [
-            'form' => $form
+            'form' => $form,
+            'pricing' => $pricingFound,
         ]);
     }
 }
