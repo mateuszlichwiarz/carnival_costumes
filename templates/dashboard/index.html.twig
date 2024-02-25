@@ -3,11 +3,11 @@
 {% block body %}
     <div id='content'>
         <br><br><br><br><br><br>
+        {{ include('dashboard_navbar.html.twig') }}
         <div class="dashboard">
             <h2>Dashboard</h2>
             <span>{{ admin.getUsername|capitalize }}</span>
             <br>
-            {{ include('dashboard_navbar.html.twig') }}
         </div>
     </div>
 {% endblock %}
