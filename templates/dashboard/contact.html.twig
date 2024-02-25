@@ -4,38 +4,36 @@
     <div id='content'>
         <br><br><br><br><br><br>
         {{ include('dashboard_navbar.html.twig') }}
-        <div class = "dashboard">
+        <div class="dashboard">
             <h2>Contact</h2>
             <br>
-            <div class = "open-hours">
-            {% for label, messages in app.flashes(['success', 'notice']) %}
-                {% for message in messages %}
-                    <div class="flash-{{ label }}">
-                        <span>{{ message }}</span>
-                    </div>
+            {% for message in app.flashes('notice') %}
+                <div class="flash-notice">
+                {{ message }}
+            </div>
                 {% endfor %}
-            {% endfor %}
+            <div class="open-hours">
                 <h3>Open Hours</h3>
                 {% if daysOpenHours is empty %}
                     <span>Your days works is not defined.</span>
                 {% else %}
                 {{ include('open_hours_table.html.twig') }}  
                 {% endif %}
+                <br><br>
+                {{ form_start(openHoursForm) }}
+                {{ form_end(openHoursForm) }}
             </div>
-            <br><br>
-            {{ form_start(openHoursForm) }}
-            {{ form_end(openHoursForm) }}
-        </div>
-        <div class="contact">
-            <div class="phone">
-                <h3>Phone</h3>
-                {{ form_start(phoneForm) }}
-                {{ form_end(phoneForm) }}
-            </div>
-            <div class="address">
-                <h3>Address</h3>
-                {{ form_start(addressForm) }}
-                {{ form_end(addressForm) }}
+            <div class="contact">
+                <div class="phone">
+                    <h3>Phone</h3>
+                    {{ form_start(phoneForm) }}
+                    {{ form_end(phoneForm) }}
+                </div>
+                <div class="address">
+                    <h3>Address</h3>
+                    {{ form_start(addressForm) }}
+                    {{ form_end(addressForm) }}
+                </div>
             </div>
         </div>
     </div>
