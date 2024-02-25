@@ -44,4 +44,14 @@ class ContactUpdateForm implements ContactUpdateFormInterface
             $this->contactPhone
         );
     }
+
+    public function viewAddressForm(): FormInterface
+    {
+        return $this->formAddress;
+    }
+
+    public function viewPhoneForm(): FormInterface
+    {
+        return $this->formPhone;
+    }
 }
