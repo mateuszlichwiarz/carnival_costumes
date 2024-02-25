@@ -1,15 +1,12 @@
 {% block body %}
-    <nav class='dashboard-navbar'>
-        <div id="logo">
-            <span class="text1"> Dashboard</span>
-            <img src="img/crown.png" />
-        </div>              
-        <div id="menu">
-            <a id="link" href="/dashboard/visits"><div class="option"> Visits </div></a>
-            <a id="link" href="/dashboard/pricing"><div class="option"> Pricing </div></a>
-            <a id="link" href="/dashboard/contact"><div class="option"> Contact </div></a>
-            <a id="link" href="/dashboard/gallery"><div class="option"> Gallery </div></a>
-            <div style="clear:both" ></div>
+    <div class="dashboard-nav">
+            <span class="title-section"><a class='dashboard' href='/dashboard'>Dashboard</a></span>              
+        <div class="dashboard-menu">
+            <a class="dashboard-link" href="/dashboard/visits"><div class="dashboard-option"> Visits </div></a>
+            <a class="dashboard-link" href="/dashboard/pricing"><div class="dashboard-option"> Pricing </div></a>
+            <a class="dashboard-link" href="/dashboard/contact"><div class="dashboard-option"> Contact </div></a>
+            <a class="dashboard-link" href="/dashboard/gallery"><div class="dashboard-option"> Gallery </div></a>
+            <div style="clear:both"></div>
         </div>
-    </nav>
+    </div>
 {% endblock %}
