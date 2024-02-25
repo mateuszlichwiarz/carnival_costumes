@@ -74,8 +74,7 @@ class ContactUpdateForm implements ContactUpdateFormInterface
 
             if($this->foundContact !== null) {
                 return $this->foundContact
-                ->setCity($this->contactPhone->getCity())
-                ->setStreet($this->contactPhone->getStreet())
+                ->setPhone($this->contactPhone->getPhone())
                 ;
             }else {
                 return $this->contactPhone;
