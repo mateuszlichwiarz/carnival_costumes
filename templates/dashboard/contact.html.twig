@@ -18,13 +18,16 @@
                 {% if daysOpenHours is empty %}
                     <span>Your days works is not defined.</span>
                 {% else %}
-                    <table class = 'days-open-hours'>
+                    <table class='days-open-hours'>
+                        <tr>
+                            <th>Day</th>
+                            <th>Open</th>
+                        </tr>
                     {% for openHours in daysOpenHours %}
                         <tr>
-                            <th>{{ openHours.getStringDay() }} </th>
+                            <th> {{ openHours.getStringDay() }} </th>
                             {% if openHours.isClosed() == false %}
-                            <th> {{ openHours.getStringStartDate() }} - </th>
-                            <th> {{ openHours.getStringEndDate() }} </th>
+                            <th> {{ openHours.getStringStartDate() }} - {{ openHours.getStringEndDate() }}</th>
                             {% else %}
                             <th> closed </th>
                             {% endif %}
