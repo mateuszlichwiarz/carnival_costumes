@@ -1,1 +1,1 @@
-*.js linguist-language=Php
+*.js linguist-detectable=false
