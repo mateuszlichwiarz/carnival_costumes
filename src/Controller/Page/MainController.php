@@ -14,15 +14,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class MainController extends AbstractController
 {
+    private ?UserInterface $admin = null;
+
     public function __construct(
         private VisitsRegister $visitsRegister,
         private ContactRepository $contactRepository,
         private PricingRepository $pricingRepository,
+        private Security $security
     ){
         $this->visitsRegister->saveVisit();
+        $this->admin = $this->security->getUser();
     }
 
     #[Route('/{_locale}/index', name: 'index', locale: 'pl')]
@@ -36,6 +42,7 @@ class MainController extends AbstractController
     {
         return $this->render('page/home.html.twig', [
             'contact' => $this->contactRepository->findOneContact(),
+            'admin' => $this->admin,
         ]);
     }
 
@@ -45,6 +52,7 @@ class MainController extends AbstractController
         return $this->render('page/contact.html.twig', [
             'daysOpenHours' => $openHoursRepository->findAllDaysOpenHours(),
             'contact' => $this->contactRepository->findOneContact(),
+            'admin' => $this->admin,
         ]);
     }
 
@@ -53,13 +61,14 @@ class MainController extends AbstractController
     {
         return $this->render('page/pricing.html.twig', [
             'pricing' => $this->pricingRepository->findOnlyOnePricing(),
+            'admin' => $this->admin,
         ]);
     }
 
     #[Route('/{_locale}/gallery', name: 'gallery', locale: 'pl')]
     public function galleryAction(): Response
     {
-        return $this->render('page/gallery.html.twig');
+        return $this->render('page/gallery.html.twig', ['admin' => $this->admin]);
     }
 
     #[Route('/{_locale}/statute', name: 'statute', locale: 'pl')]
@@ -67,6 +76,7 @@ class MainController extends AbstractController
     {
         return $this->render('page/statute.html.twig', [
             'pricing' => $this->pricingRepository->findOnlyOnePricing(),
+            'admin' => $this->admin,
         ]);
     }
 }
