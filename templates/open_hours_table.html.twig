@@ -1,18 +1,23 @@
 {% block body %}
-<table class='days-open-hours'>
-    <tr>
-        <th>Dzień tygodnia</th>
-        <th>Otwarte w godzinach</th>
-    </tr>
-    {% for openHours in daysOpenHours %}
-        <tr>
-            <th> {{ openHours.getDayPolishStringType()|capitalize }} </th>
-            {% if openHours.isClosed() == false %}
-            <th> {{ openHours.getStringStartDate() }} - {{ openHours.getStringEndDate() }}</th>
-            {% else %}
-            <th> Zamknięte </th>
-            {% endif %}
+<div class='open-hours-table'>
+    <table>
+        <tr class="label">
+            <th>Dzień tygodnia</th>
+            <th>Otwarte w godzinach</th>
         </tr>
-    {% endfor %}
-</table>
+        {% for openHours in daysOpenHours %}
+            {% if openHours.isClosed() == false %}
+            <tr>
+                <th> {{ openHours.getDayPolishStringType()|capitalize }} </th>
+                <th> {{ openHours.getStringStartDate() }} - {{ openHours.getStringEndDate() }}</th>
+            </tr>
+            {% else %}
+            <tr class='closed'>
+                <th> {{ openHours.getDayPolishStringType()|capitalize }} </th>
+                <th> Zamknięte </th>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+</div>
 {% endblock body %}
