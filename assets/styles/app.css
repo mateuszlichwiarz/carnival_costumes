@@ -178,6 +178,7 @@ tr.label {
 }
 
 .dashboard-nav {
+    background-color: #fff;
     text-align: center;
     width: 100%;
     border: 2px solid #dddddd;
@@ -247,4 +248,25 @@ ul {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
+
+.dash {
+    background-color: #fff;
+    border: 2px solid #dddddd;
+    border-radius: 10px;
+    padding: 2%;
+    padding-top: 15%;
+}
+
+tr.down-table {
+    background-color: #fff;
+}
+
+.visits {
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+
+tr.visits-label {
+    background-color: #ffdd56;
 }
