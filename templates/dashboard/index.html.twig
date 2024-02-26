@@ -2,11 +2,12 @@
 
 {% block body %}
     <div id='content'>
-        <br><br><br><br><br><br>
         {{ include('dashboard_navbar.html.twig') }}
         <div class="dashboard">
             <h2>Dashboard</h2>
-            <span>{{ admin.getUsername|capitalize }}</span>
+            <span>You logged in, {{ admin.getUsername|capitalize }}</span>
+            <br>
+            <span>Enter an interesting section at dashbord bar.</span>
             <br>
         </div>
     </div>
