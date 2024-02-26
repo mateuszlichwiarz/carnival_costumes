@@ -106,23 +106,26 @@ footer {
     text-align: center;
 }
   
-.photo {
+.photo-row {
     display: flex;
     justify-content: center;
+    padding-bottom: 3%;
+}
+
+.photo {
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-top: 3%;
 }
 
 .gallery {
     background-color: #fff;
-    width: 850px;
+    border: 3px solid #dddddd;
+    border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
     text-align: justify;
-    padding-top: 10px;
-    padding-left: 75px;
-    padding-right: 75px;
-    border-bottom: 3px solid #e0e0e0;
-    border-left: 3px solid #e0e0e0;
-    border-right: 3px solid #e0e0e0;
+    max-width: 80%;
 }
 
 .scrollup {
