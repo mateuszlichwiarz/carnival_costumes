@@ -22,19 +22,19 @@ class Contact
     private string $street = '';
 
     #[ORM\Column(nullable:true)]
-    private ?int $phone = null;
+    private ?string $phone = '';
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPhone(): null|int
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(int $phone): self
+    public function setPhone(?string $phone): self
     {
         $this->phone = $phone;
         return $this;
