@@ -149,17 +149,6 @@ a:visited {
 a:hover {
     color: black;
 }
-  
-h1 {
-    color: gold;
-    font-size: 40px;
-    text-align: center;
-    text-shadow: 
-        1px 1px 0.05em #333,
-        -1px 1px 0.05em #333,
-        -1px -1px 0.05em #333,
-        1px -1px 0.05em #333;
-}
 
 table {
     border-collapse: collapse;
