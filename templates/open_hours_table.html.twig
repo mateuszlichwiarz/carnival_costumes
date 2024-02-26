@@ -6,7 +6,7 @@
     </tr>
     {% for openHours in daysOpenHours %}
         <tr>
-            <th> {{ openHours.getStringDay()|capitalize }} </th>
+            <th> {{ openHours.getDayPolishStringType()|capitalize }} </th>
             {% if openHours.isClosed() == false %}
             <th> {{ openHours.getStringStartDate() }} - {{ openHours.getStringEndDate() }}</th>
             {% else %}
