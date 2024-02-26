@@ -5,26 +5,28 @@
         <div class="dashboard">
         {{ include('dashboard_navbar.html.twig') }}
              <h2>Visits Panel</h2>
-             <div class = "admin-name">
-                You logged in, {{ admin.getUsername|capitalize }} <br><br>
-            </div>
             <br>
             <h3>Visits</h3>
-            Date displayed {{ date }} <br>
-            <div class = "current">
-            {% for label, messages in app.flashes(['success', 'warning']) %}
-                {% for message in messages %}
-                    <div class="flash-{{ label }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endfor %}
-                In Week: {{ sumWeekVisits }} <br>
-                In Month: {{ sumMonthVisits }} <br>
-                In Year: {{ sumYearVisits }} <br>
+            <div class='visits-form'>
+                {{ form(form) }}
             </div>
-            <br>
-            {{ form(form) }}
+            <div class="visits-table">
+                <table>
+                    <tr>
+                        <th>Date</th>
+                        <th>Week</th>
+                        <th>Month</th>
+                        <th>Year</th>
+                    </tr>
+                        <th>{{ date }} </th>
+                        <th>{{ sumWeekVisits }}</th>
+                        <th>{{ sumMonthVisits }}</th>
+                        <th>{{ sumYearVisits }}</th>
+                    <tr>
+                    </tr>
+                </table>
+                <br><br>
+            </div>
         </div>
     </div>
 {% endblock %}
