@@ -3,19 +3,25 @@
 {% block body %}
     <div id = "content">
         <div class="home">
-            <h2>Welcome!</h2>
+            <h2>{{ "Witam!"|trans }}</h2>
 			<br><br>
             <div class="desc">
-                <b>This is not on-line rental service</b>
+                <div class='warning'>
+                    <img src="img/icon-warning.png"/>
+                    <span><b>To online rental service</b></span>
+                </div>
                 <br><br>
 
-                Welcome to Carnival Rental at <strong>{{ contact.street|capitalize }}</strong> street in <strong>{{ contact.city|capitalize }}</strong>.
+                Carnival Rental at <strong>{{ contact.street|capitalize }}</strong> street in <strong>{{ contact.city|capitalize }}</strong>.
 			    <br><br>
 
-                <b>Costumes only for kids</b>
+                <div class='warning'>
+                    <img src="img/icon-warning.png"/>
+                    <span><b> Costumes only for kids</b></span>
+                </div>
                 <br><br>
 
-			    We have costumes for kids from few month age to 12 years old. Most of collection is licensed brand costumes like 
+			    We have wide age range kids costumes. From few month to 12 years old. Most of collection is licensed brand costumes like:  
                 <strong>Cinderella, Batman, Superman, Starwars</strong>.
             </div>
         </div>
