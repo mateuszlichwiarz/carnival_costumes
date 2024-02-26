@@ -3,21 +3,22 @@
 {% block body %}
     <div id="content">
         {{ include('dashboard_navbar.html.twig') }}
-        <div class="section">
-             <h2>Visits Panel</h2>
             <br>
-            <h3>Visits</h3>
+            <h3>Visits Panel</h3>
+            <br>
+            <div class="dash">
             <div class='visits-form'>
                 {{ form(form) }}
             </div>
-            <div class="visits-table">
-                <table>
-                    <tr>
+            <div class="visits">
+                <h4>Visits</h4>
+                <table class="visits-table">
+                    <tr class="visits-label">
                         <th>Date</th>
                         <th>Week</th>
                         <th>Month</th>
                         <th>Year</th>
-                    </tr>
+                    </tr class="visits-tr">
                         <th>{{ date }} </th>
                         <th>{{ sumWeekVisits }}</th>
                         <th>{{ sumMonthVisits }}</th>

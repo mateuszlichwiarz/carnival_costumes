@@ -3,9 +3,10 @@
 {% block body %}
     <div id='content'>
         {{ include('dashboard_navbar.html.twig') }}
-        <div class="section">
-            <h2>Pricing</h2>
-                <br>
+            <br>
+            <h3>Pricing Panel</h3>
+            <br>
+            <div class="dash">
             {% for label, messages in app.flashes(['success', 'error', 'notice']) %}
                     {% for message in messages %}
                         <div class="flash-{{ label }}">
@@ -31,4 +32,6 @@
             {{ form_start(form) }}
 
             {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}

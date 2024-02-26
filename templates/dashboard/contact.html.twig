@@ -3,17 +3,21 @@
 {% block body %}
     <div id='content'>
         {{ include('dashboard_navbar.html.twig') }}
-        <div class="section">
-            <h2>Contact</h2>
+            <br>
+            <h3>Contact</h3>
             <br>
             {% for message in app.flashes('notice') %}
                 <div class="flash-notice">
                 {{ message }}
-            </div>
-                {% endfor %}
-            <div class="open-hours">
+                </div>
+            {% endfor %}
+            <div class="dash">
                 <h3>Open Hours</h3>
                 {% if daysOpenHours is empty %}
+                    <div class='warning'>
+                        <img src="/img/icon-warning.png"/>
+                        <span><b>Your days work is not defined</b></span>
+                    </div>
                     <span>Your days works is not defined.</span>
                 {% else %}
                 {{ include('open_hours_table.html.twig') }}  
@@ -21,19 +25,16 @@
                 <br><br>
                 {{ form_start(openHoursForm) }}
                 {{ form_end(openHoursForm) }}
+                    <div class="phone">
+                        <h3>Phone</h3>
+                        {{ form_start(phoneForm) }}
+                        {{ form_end(phoneForm) }}
+                    </div>
+                    <div class="address">
+                        <h3>Address</h3>
+                        {{ form_start(addressForm) }}
+                        {{ form_end(addressForm) }}
+                    </div>
             </div>
-            <div class="contact">
-                <div class="phone">
-                    <h3>Phone</h3>
-                    {{ form_start(phoneForm) }}
-                    {{ form_end(phoneForm) }}
-                </div>
-                <div class="address">
-                    <h3>Address</h3>
-                    {{ form_start(addressForm) }}
-                    {{ form_end(addressForm) }}
-                </div>
-            </div>
-        </div>
     </div>
 {% endblock %}
