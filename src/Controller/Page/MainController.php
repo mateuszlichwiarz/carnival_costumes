@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\OpenHours;
 use App\Entity\Pricing;
-
+use App\Repository\ContactRepository;
 use App\VisitRegister\VisitsRegister;
 
 
@@ -50,11 +50,13 @@ class MainController extends AbstractController
 
     #[Route('/contact', name: 'contact')]
     public function contact(
-        OpenHoursRepository $openHoursRepository
+        OpenHoursRepository $openHoursRepository,
+        ContactRepository $contactRepository,
     ): Response
     {
         return $this->render('page/contact.html.twig', [
             'daysOpenHours' => $openHoursRepository->findAllDaysOpenHours(),
+            'contact' => $contactRepository->findOneContact(),
         ]);
     }
 
