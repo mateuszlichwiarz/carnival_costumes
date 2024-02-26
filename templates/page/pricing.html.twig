@@ -3,14 +3,18 @@
 {% block body %}
     <div id="content">
     
-		<h2>Pricing</h2>
-        
+		<h2>Cennik</h2>
+        <br><br>
         <div class="desc">
-
-            Price range is between {{ pricing.getMinPrice }} pln in minimal and {{ pricing.getMaxPrice }} pln in maximal.
+            <span>Cena na ten moment wynosi między: <b>{{ pricing.getMinPrice }} zł a {{ pricing.getMaxPrice }} zł</b>.</span>
+            <br>
+            <span>Wysokość kaucji: <b>{{ pricing.getDeposit }} zł</b>.</span>
 
 			<br/><br/>
-			* Akcesoria do stroju są już wliczone w cene. Również podlegają regulaminowi.
+            <div class="green">
+                <img src="/img/icon-green.png"/>
+			    Akcesoria do stroju są już wliczone w cene.
+            </div>
         </div>
     </div>
 {% endblock %}
