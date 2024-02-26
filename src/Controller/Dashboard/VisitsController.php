@@ -88,19 +88,11 @@ final class VisitsController extends AbstractController
         if( $this->visitsObject === null ||
             $this->sumVisitsMonth === null ||
             $this->sumVisitsYear === null) {
-            $this->addFlash(
-                'warning',
-                'None visits in this period',
-            );
             $this->weekVisits = 0;
             $this->sumVisitsMonth = 0;
             $this->sumVisitsYear = 0;
         }else{
             $this->weekVisits = $this->visitsObject->getVisits();
-            $this->addFlash(
-                'success',
-                'Visits was found',
-            );
         }
     }
 
