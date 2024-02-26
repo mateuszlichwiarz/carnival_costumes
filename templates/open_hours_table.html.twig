@@ -7,12 +7,12 @@
         </tr>
         {% for openHours in daysOpenHours %}
             {% if openHours.isClosed() == false %}
-            <tr>
+            <tr class='down-table'>
                 <th> {{ openHours.getDayPolishStringType()|capitalize }} </th>
                 <th> {{ openHours.getStringStartDate() }} - {{ openHours.getStringEndDate() }}</th>
             </tr>
             {% else %}
-            <tr class='closed'>
+            <tr class='down-table'>
                 <th> {{ openHours.getDayPolishStringType()|capitalize }} </th>
                 <th> Zamknięte </th>
             </tr>
