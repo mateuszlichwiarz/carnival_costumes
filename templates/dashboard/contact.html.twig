@@ -3,7 +3,7 @@
 {% block body %}
     <div id='content'>
         {{ include('dashboard_navbar.html.twig') }}
-        <div class="dashboard">
+        <div class="section">
             <h2>Contact</h2>
             <br>
             {% for message in app.flashes('notice') %}
