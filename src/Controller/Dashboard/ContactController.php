@@ -8,16 +8,23 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 use App\Form\OpenHours\OpenHoursForm;
 use App\Form\Contact\ContactUpdateForm;
 
 class ContactController extends AbstractController
 {
+    private ?UserInterface $admin = null;
+
     public function __construct(
         private OpenHoursForm $openHoursForm,
         private ContactUpdateForm $contactUpdateForm,
-    ){}
+        private Security $security
+    ){
+        $this->admin = $this->security->getUser();
+    }
 
     #[Route('/dashboard/contact', name: 'dashboard_contact_index')]
     public function updateContactAction(Request $request): Response
@@ -45,6 +52,7 @@ class ContactController extends AbstractController
             'addressForm'   => $this->contactUpdateForm->viewAddressForm(),
             'phoneForm'     => $this->contactUpdateForm->viewPhoneForm(),
             'daysOpenHours' => $this->openHoursForm->daysContainer()->getAllDays(),
+            'admin'         => $this->admin,
         ]);
     }
 }
