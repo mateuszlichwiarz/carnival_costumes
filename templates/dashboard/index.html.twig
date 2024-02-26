@@ -8,7 +8,10 @@
             <span>You logged in, {{ admin.getUsername|capitalize }}</span>
             <br>
             <span>Enter an interesting section at dashbord bar.</span>
-            <br>
+            <br><br>
+            <button class="btn btn-primary" type="submit">
+                <a href="{{ path('app_logout') }}">Logout</a>
+            </button>
         </div>
     </div>
 {% endblock %}
