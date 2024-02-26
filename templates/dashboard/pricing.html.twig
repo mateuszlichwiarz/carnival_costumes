@@ -2,8 +2,8 @@
 
 {% block body %}
     <div id='content'>
+        {{ include('dashboard_navbar.html.twig') }}
         <div class="section">
-            {{ include('dashboard_navbar.html.twig') }}
             <h2>Pricing</h2>
                 <br>
             {% for label, messages in app.flashes(['success', 'error', 'notice']) %}
