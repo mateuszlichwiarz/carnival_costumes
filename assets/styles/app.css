@@ -270,3 +270,8 @@ tr.down-table {
 tr.visits-label {
     background-color: #ffdd56;
 }
+
+a.logout:visited {
+    color: black;
+    text-decoration: none;
+}
