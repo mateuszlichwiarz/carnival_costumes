@@ -218,3 +218,11 @@ a.dashboard {
     padding-top: 10%;
     padding-bottom: 8%;
 }
+
+ul {
+    list-style-type: disc;
+}
+
+.warning {
+    color: #cc3300;
+}
