@@ -19,7 +19,7 @@ use App\VisitsFinder\VisitsFinderInterface;
 use App\Repository\VisitsRepository;
 use App\VisitsFinder\VisitsFoundCounter;
 
-use App\Form\Type\SelectVisitsType;
+use App\Form\Type\VisitsSelectType;
 use Symfony\Component\Form\Form;
 
 final class VisitsController extends AbstractController
@@ -52,7 +52,7 @@ final class VisitsController extends AbstractController
         
         $date = $this->betterDate->create($visitsDate);
         
-        $form = $this->createForm(SelectVisitsType::class);
+        $form = $this->createForm(VisitsSelectType::class);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
             $dateFromRequest = new Date($form->getData()['date']);
