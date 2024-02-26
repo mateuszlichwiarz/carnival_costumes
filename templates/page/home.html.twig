@@ -5,7 +5,19 @@
         <div class="home">
             <h2>Witaj!</h2>
 			<br><br>
+            <div class="about">
+                <h4>O Wypożyczalni</h4>
+
+                <span>Wypożyczalnia od ponad 10 lat nieustanie zapewnia możliwość wcielenia się w ulubioną postać. Posiadamy setki strojów dzięki czemu każde dziecko może znaleźć coś dla siebie na każdą okazje.</span>
+                <br><br>
+            </div>
+
             <div class="desc">
+                <div class='warning'>
+                    <img src="/img/icon-warning.png"/>
+                    <span><b>Wypożyczenie podlega Regulaminowi</b></span>
+                </div>
+                <br>
                 <div class='warning'>
                     <img src="/img/icon-warning.png"/>
                     <span><b>Nie prowadzimy wypożyczeń online</b></span>
@@ -14,7 +26,7 @@
 
                 <span>Zapraszamy do wizyty bezpośrednio na miejscu.</span>
                 <br>
-                <span>Wypożyczalnia strojów znajduje się na ulicy <strong>{{ contact.street|capitalize }}</strong> w <strong>{{ contact.city|capitalize }}</strong>.</span>
+                <span>Wypożyczalnia strojów znajduje się na ulicy <strong>{{ contact.street|capitalize }}</strong> w mieście <strong>{{ contact.city|capitalize }}</strong>.</span>
                 <br>
                 <span>Po więcej informacji wejdź w sekcje <b>Kontakt</b> na pasku nawigacyjnym.</span> 
 			    <br><br><br>
@@ -24,7 +36,6 @@
                     <span><b>Kostiumy tylko dla dzieci</b></span>
                 </div>
                 <br>
-
 			    <span>Wypożyczalnia wyposażona jest w szeroką gamę strojów dziecięcych.</span>
                 <br>
                 <span>Od małych strojów dla kilkumiesięcznych dzieci po większe stroje dla 12 latków.</span>
