@@ -1,0 +1,23 @@
+{% block body %}
+<div class='open-hours-table'>
+    <table>
+        <tr class="label">
+            <th>Day</th>
+            <th>Open</th>
+        </tr>
+        {% for openHours in daysOpenHours %}
+            {% if openHours.isClosed() == false %}
+            <tr class='down-table'>
+                <th> {{ openHours.getDayStringType()|capitalize }} </th>
+                <th> {{ openHours.getStringStartDate() }} - {{ openHours.getStringEndDate() }}</th>
+            </tr>
+            {% else %}
+            <tr class='down-table'>
+                <th> {{ openHours.getDayStringType()|capitalize }} </th>
+                <th> Closed </th>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+</div>
+{% endblock body %}
