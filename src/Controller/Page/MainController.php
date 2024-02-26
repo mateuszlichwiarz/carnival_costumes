@@ -66,7 +66,6 @@ class MainController extends AbstractController
     public function statuteAction(): Response
     {
         return $this->render('page/statute.html.twig', [
-            'contact' => $this->contactRepository->findOneContact(),
             'pricing' => $this->pricingRepository->findOnlyOnePricing(),
         ]);
     }

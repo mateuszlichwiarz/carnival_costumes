@@ -6,15 +6,14 @@
 		<h2>Cennik</h2>
         <br><br>
         <div class="desc">
+            <div class="green">
+                <img src="/img/icon-green.png"/>
+			    Akcesoria do stroju są już wliczone w cene
+            </div>
+            <br/><br/>
             <span>Cena na ten moment wynosi między: <b>{{ pricing.getMinPrice }} zł a {{ pricing.getMaxPrice }} zł</b>.</span>
             <br>
             <span>Wysokość kaucji: <b>{{ pricing.getDeposit }} zł</b>.</span>
-
-			<br/><br/>
-            <div class="green">
-                <img src="/img/icon-green.png"/>
-			    Akcesoria do stroju są już wliczone w cene.
-            </div>
         </div>
     </div>
 {% endblock %}
