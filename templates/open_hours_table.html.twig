@@ -1,8 +1,8 @@
 {% block body %}
 <table class='days-open-hours'>
     <tr>
-        <th>Day</th>
-        <th>Open</th>
+        <th>Dzień tygodnia</th>
+        <th>Otwarte w godzinach</th>
     </tr>
     {% for openHours in daysOpenHours %}
         <tr>
@@ -10,7 +10,7 @@
             {% if openHours.isClosed() == false %}
             <th> {{ openHours.getStringStartDate() }} - {{ openHours.getStringEndDate() }}</th>
             {% else %}
-            <th> Closed </th>
+            <th> Zamknięte </th>
             {% endif %}
         </tr>
     {% endfor %}
