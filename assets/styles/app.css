@@ -224,3 +224,8 @@ a.dashboard {
     text-decoration: none;
     color: #000;
 }
+
+.section {
+    padding-top: 10%;
+    padding-bottom: 8%;
+}
