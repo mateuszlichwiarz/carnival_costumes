@@ -3,26 +3,45 @@
 {% block body %}
     <div id = "content">
         <div class="home">
-            <h2>{{ "Witam!"|trans }}</h2>
+            <h2>Witaj!</h2>
 			<br><br>
             <div class="desc">
                 <div class='warning'>
-                    <img src="img/icon-warning.png"/>
-                    <span><b>To online rental service</b></span>
+                    <img src="/img/icon-warning.png"/>
+                    <span><b>Nie prowadzimy wypożyczeń online</b></span>
                 </div>
-                <br><br>
+                <br>
 
-                Carnival Rental at <strong>{{ contact.street|capitalize }}</strong> street in <strong>{{ contact.city|capitalize }}</strong>.
-			    <br><br>
+                <span>Zapraszamy do wizyty bezpośrednio na miejscu.</span>
+                <br>
+                <span>Wypożyczalnia strojów znajduje się na ulicy <strong>{{ contact.street|capitalize }}</strong> w <strong>{{ contact.city|capitalize }}</strong>.</span>
+                <br>
+                <span>Po więcej informacji wejdź w sekcje <b>Kontakt</b> na pasku nawigacyjnym.</span> 
+			    <br><br><br>
 
                 <div class='warning'>
-                    <img src="img/icon-warning.png"/>
-                    <span><b> Costumes only for kids</b></span>
+                    <img src="/img/icon-warning.png"/>
+                    <span><b>Kostiumy tylko dla dzieci</b></span>
                 </div>
-                <br><br>
+                <br>
 
-			    We have wide age range kids costumes. From few month to 12 years old. Most of collection is licensed brand costumes like:  
-                <strong>Cinderella, Batman, Superman, Starwars</strong>.
+			    <span>Wypożyczalnia wyposażona jest w szeroką gamę strojów dziecięcych.</span>
+                <br>
+                <span>Od małych strojów dla kilkumiesięcznych dzieci po większe stroje dla 12 latków.</span>
+                <br>
+                <span>Większość kolekcji to licencjonowane markowe stroje.</span>
+                <br>
+                <span>Znajdziesz tutaj stroje z takich bajek i filmów jak:</span>
+                
+                <ul>
+                    <li>Kopciuszek</li>
+                    <li>Królewna Śnieżka</li>
+                    <li>Batman</li>
+                    <li>Superman</li>
+                    <li>Starwars</li>
+                    <b>i wiele wiele więcej</b>.
+                </ul>
+                <span>W sekcji <b>Galeria</b> znajdują się zdjęcia poglądowe kilku strojów.</span>
             </div>
         </div>
     </div>
