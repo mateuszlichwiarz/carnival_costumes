@@ -25,13 +25,13 @@ class MainController extends AbstractController
         $this->visitsRegister->saveVisit();
     }
 
-    #[Route('/index', name: 'index')]
+    #[Route('/{_locale}/index', name: 'index', locale: 'pl')]
     public function index(): Response
     {
         return $this->redirectToRoute('home');
     }
 
-    #[Route('/home', name: 'home')]
+    #[Route('/{_locale}/home', name: 'home', locale: 'pl')]
     public function homeAction(Request $request): Response
     {
         return $this->render('page/home.html.twig', [
@@ -39,7 +39,7 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/contact', name: 'contact')]
+    #[Route('/{_locale}/contact', name: 'contact', locale: 'pl')]
     public function contactAction(OpenHoursRepository $openHoursRepository): Response
     {
         return $this->render('page/contact.html.twig', [
@@ -48,7 +48,7 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/pricing', name: 'pricing')]
+    #[Route('/{_locale}/pricing', name: 'pricing', locale: 'pl')]
     public function pricingAction(): Response
     {
         return $this->render('page/pricing.html.twig', [
@@ -56,13 +56,13 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/gallery', name: 'gallery')]
+    #[Route('/{_locale}/gallery', name: 'gallery', locale: 'pl')]
     public function galleryAction(): Response
     {
         return $this->render('page/gallery.html.twig');
     }
 
-    #[Route('/statute', name: 'statute')]
+    #[Route('/{_locale}/statute', name: 'statute', locale: 'pl')]
     public function statuteAction(): Response
     {
         return $this->render('page/statute.html.twig', [
