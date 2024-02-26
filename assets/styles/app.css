@@ -160,14 +160,19 @@ table {
 }
 
 td, th {
-    border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+tr.label {
+    background-color: #ffdd56;
+    border-bottom: 3px solid #dddddd;
+}
+
+.open-hours-table {
+    border: 3px solid #dddddd;
+    border-radius: 10px;
+}
 
 .dashboard-nav {
     text-align: center;
