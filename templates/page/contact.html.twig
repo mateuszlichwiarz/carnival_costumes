@@ -3,24 +3,22 @@
 {% block body %}
     <div id="content">
         <div class="contact">
-            <br><br>
-                <br><br>
-            <div class="phoneNumber">
-
-                <h2>Phone number </h2>
-
+            <h2>Contact</h2><br><br>
+            <div class="phone">
+                <h4>Phone number </h4>
+                <h5>+48 {{ contact.getPhone }}</h5>
             </div>
-
-             <div class = "open-hours">
-                <h3>Open Hours</h3>
+            <br>
+             <div class="open-hours">
+                <h4>Open Hours</h4>
                 {{ include('open_hours_table.html.twig') }} 
             </div>
-
+            <br>
             <div class="address">
-            
-                <h2>Address</h2>
-
+                <h4>Address</h4>
+                    <h5>{{ contact.getCity }}, {{ contact.getStreet }}</h5>
             </div>
+            <br>
         </div>
     </div>
 {% endblock %}
