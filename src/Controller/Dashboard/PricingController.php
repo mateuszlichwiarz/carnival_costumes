@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 
 use App\Entity\Pricing;
-use App\Form\Type\UpdatePricingType;
+use App\Form\Type\PricingUpdateType;
 
 use App\Repository\PricingRepository;
 
@@ -31,7 +31,7 @@ class PricingController extends AbstractController
 
         $pricingFound = $this->pricingRepository->findOnlyOnePricing();
 
-        $form = $this->createForm(UpdatePricingType::class, $pricing);
+        $form = $this->createForm(PricingUpdateType::class, $pricing);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
             $pricing = $form->getData();
