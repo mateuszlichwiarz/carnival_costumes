@@ -23,31 +23,61 @@ class OpenHours
     #[ORM\Column]
     private \DateTime $endDate;
 
-    public function getStringDay(): string
+    public function getDayStringType(): string
     {
         $day = $this->day;
         switch($day)
         {
             case 1:
-                $day = 'monday';
+                $day = 'Monday';
             break;
             case 2:
-                $day = 'tuesday';
+                $day = 'Tuesday';
             break;
             case 3:
-                $day = 'wednesday';
+                $day = 'Wednesday';
             break;
             case 4:
-                $day = 'thursday';
+                $day = 'Thursday';
             break;
             case 5:
-                $day = 'friday';
+                $day = 'Friday';
             break;
             case 6:
-                $day = 'saturday';
+                $day = 'Saturday';
             break;
             case 7:
-                $day = 'sunday';
+                $day = 'Sunday';
+            break;
+        }
+        return $day;
+    }
+
+    public function getDayPolishStringType(): string
+    {
+        $day = $this->day;
+        switch($day)
+        {
+            case 1:
+                $day = 'Poniedziałek';
+            break;
+            case 2:
+                $day = 'Wtorek';
+            break;
+            case 3:
+                $day = 'Środa';
+            break;
+            case 4:
+                $day = 'Czwartek';
+            break;
+            case 5:
+                $day = 'Piątek';
+            break;
+            case 6:
+                $day = 'Sobota';
+            break;
+            case 7:
+                $day = 'Niedziela';
             break;
         }
         return $day;
