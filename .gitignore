@@ -28,3 +28,6 @@ phpstan.neon
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+carnival_symfony.code-workspace
+workspace.code-workspace
