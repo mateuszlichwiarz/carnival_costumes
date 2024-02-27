@@ -8,9 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 
 class OpenHoursUpdateType extends AbstractType
@@ -33,9 +31,15 @@ class OpenHoursUpdateType extends AbstractType
                 'label'    => 'Closed day?',
                 'required' => false,
             ])
-            ->add('startDate', TimeType::class)
-            ->add('endDate', TimeType::class)
-            ->add('update', SubmitType::class)
+            ->add('startDate', TimeType::class, [
+                'widget' => 'choice',
+                'label' => 'Start time'
+            ])
+            ->add('endDate', TimeType::class, [
+                'widget' => 'choice',
+                'label' => 'End time'
+            ])
+            ->add('set', SubmitType::class)
         ;
     }
 }
