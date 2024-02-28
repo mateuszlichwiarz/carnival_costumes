@@ -4,7 +4,9 @@
 <div id='content'>
     <div class="dash">
         <br>
-        <h3>Dashboard</h3>
+        <div style="text-align: center;">
+            <h2>Dashboard</h2>
+        </div>
         <br>
         <form method="post">
             {% if error %}
@@ -16,7 +18,7 @@
                     You are logged in as {{ app.user.userIdentifier }},<button> <a class='logout' href="{{ path('app_logout') }}">Logout</a></button>
                 </div>
             {% endif %}
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <h1 class="h6 mb-3 font-weight-normal">Please sign in</h1>
             <label for="inputUsername">Username</label>
             <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
             <label for="inputPassword">Password</label>
