@@ -31,7 +31,7 @@ class MainController extends AbstractController
         $this->admin = $this->security->getUser();
     }
 
-    #[Route('/{_locale}/index', name: 'index', locale: 'pl')]
+    #[Route('/')]
     public function index(): Response
     {
         return $this->redirectToRoute('home');
