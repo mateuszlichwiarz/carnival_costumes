@@ -15,8 +15,8 @@
                     {% endfor %}
                 {% endfor %}
 
-            <table>
-                <tr>
+            <table class="visits-table">
+                <tr class="visits-label">
                     <th>Price range</th>
                     <th>Deposit</th>
                     <th>Currency</th>
@@ -24,7 +24,7 @@
                 <tr>
                     <th> {{ pricing.getMinPrice }} - {{ pricing.getMaxPrice }} </th>
                     <th> {{ pricing.getDeposit }} </th>
-                    <th> pln </th>
+                    <th> PLN </th>
                 </tr>
             </table>
             <br>
