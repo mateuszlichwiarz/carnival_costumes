@@ -10,7 +10,8 @@
         <br>
         {% if app.user %}
             <div class="mb-3">
-                    You are logged in as {{ app.user.userIdentifier }},<p><button> <a class='logout' href="{{ path('app_logout') }}">Logout</a></button></p>
+                    You are logged in as {{ app.user.userIdentifier }},
+                    <p> <button class="btn btn-primary" type="submit"> <a href="{{ path('app_logout') }}">Logout</a> </button></p>
             </div>
         {% else %}
         <form method="post">
