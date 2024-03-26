@@ -10,7 +10,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 use App\Entity\Admin;
 
-class AppFixtures extends Fixture
+class AdminFixtures extends Fixture
 {
     public function __construct(private UserPasswordHasherInterface $passwordHasher)
     {}
