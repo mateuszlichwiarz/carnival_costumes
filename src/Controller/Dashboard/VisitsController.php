@@ -12,15 +12,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-use App\BetterDate\BetterDateInterface;
-use App\BetterDate\Entity\Date;
-use App\Entity\Visits;
 use App\VisitsFinder\VisitsFinderInterface;
-use App\Repository\VisitsRepository;
 use App\VisitsFinder\VisitsFoundCounter;
 
+use Hume\SessionVisitsBundle\Component\DateSystem\DateSystem;
+use Hume\SessionVisitsBundle\Entity\Date;
+use Hume\SessionVisitsBundle\Entity\Visits;
+use Hume\SessionVisitsBundle\Repository\VisitsRepository;
+
 use App\Form\Type\VisitsSelectType;
-use Symfony\Component\Form\Form;
 
 final class VisitsController extends AbstractController
 {
@@ -37,7 +37,7 @@ final class VisitsController extends AbstractController
     public function __construct(
         private Security $security,
         private VisitsFinderInterface $visitsFinder,
-        private BetterDateInterface $betterDate,
+        private DateSystem $dateSystem,
         private VisitsRepository $visitsRepository,
         private VisitsFoundCounter $visitsFoundCounter,
     ) {
@@ -50,7 +50,7 @@ final class VisitsController extends AbstractController
         null|string $visitsDate = null
         ): Response {
         
-        $date = $this->betterDate->create($visitsDate);
+        $date = $this->dateSystem->create($visitsDate);
         
         $form = $this->createForm(VisitsSelectType::class);
         $form->handleRequest($request);
