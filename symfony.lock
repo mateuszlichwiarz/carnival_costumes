@@ -38,6 +38,9 @@
             "migrations/.gitignore"
         ]
     },
+    "hume/session-visits-bundle": {
+        "version": "dev-main"
+    },
     "phpstan/phpstan": {
         "version": "1.10",
         "recipe": {
