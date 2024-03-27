@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller\Page;
 
-use App\VisitRegister\VisitsRegister;
-
 use App\Repository\ContactRepository;
 use App\Repository\OpenHoursRepository;
 use App\Repository\PricingRepository;
@@ -17,17 +15,17 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class MainController extends AbstractController
+use Hume\SessionVisitsBundle\Component\VisitsTracker\Controller\VisitsTrackableController;
+
+class MainController extends AbstractController implements VisitsTrackableController
 {
     private ?UserInterface $admin = null;
 
     public function __construct(
-        private VisitsRegister $visitsRegister,
         private ContactRepository $contactRepository,
         private PricingRepository $pricingRepository,
         private Security $security
     ){
-        $this->visitsRegister->saveVisit();
         $this->admin = $this->security->getUser();
     }
 
