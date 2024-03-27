@@ -15,7 +15,6 @@ use Doctrine\ORM\EntityManagerInterface;
 
 use App\Entity\Pricing;
 use App\Form\Type\PricingUpdateType;
-
 use App\Repository\PricingRepository;
 
 class PricingController extends AbstractController
