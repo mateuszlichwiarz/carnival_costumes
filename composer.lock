@@ -1311,12 +1311,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mateuszlichwiarz/SessionVisitsBundle.git",
-                "reference": "c0258eec9deb4d5b9659299167f9fbd3752cb304"
+                "reference": "7eca940ce0954109b699cee3a559b834fc296aa6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mateuszlichwiarz/SessionVisitsBundle/zipball/c0258eec9deb4d5b9659299167f9fbd3752cb304",
-                "reference": "c0258eec9deb4d5b9659299167f9fbd3752cb304",
+                "url": "https://api.github.com/repos/mateuszlichwiarz/SessionVisitsBundle/zipball/7eca940ce0954109b699cee3a559b834fc296aa6",
+                "reference": "7eca940ce0954109b699cee3a559b834fc296aa6",
                 "shasum": ""
             },
             "require": {
@@ -1350,7 +1350,7 @@
                 "issues": "https://github.com/mateuszlichwiarz/SessionVisitsBundle/issues",
                 "source": "https://github.com/mateuszlichwiarz/SessionVisitsBundle/tree/main"
             },
-            "time": "2024-03-27T00:23:38+00:00"
+            "time": "2024-03-27T00:50:23+00:00"
         },
         {
             "name": "lcobucci/jwt",
