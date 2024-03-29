@@ -30,24 +30,21 @@ class CreateContactCommand extends Command
     {
         $this->setDescription('Creates contact');
         $this->setHelp('This command create contact');
-        $this->addArgument('phone', InputArgument::REQUIRED, 'phone number.');
-        $this->addArgument('city', InputArgument::REQUIRED, 'city.');
-        $this->addArgument('street', InputArgument::REQUIRED, 'city.');
     }
     
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln([
-            'Admin Creator',
+            'Contact Creator',
             '=============',
             '',
         ]);
 
         $contact = new Contact();
         $contact
-            ->setPhone($input->getArgument('phone'))
-            ->setCity($input->getArgument('city'))
-            ->setStreet($input->getArgument('street'))
+            ->setPhone('697160121')
+            ->setCity($input->getArgument('Kłodzko'))
+            ->setStreet($input->getArgument('Hołdu Pruskiego'))
         ;
 
         $this->manager->persist($contact);
