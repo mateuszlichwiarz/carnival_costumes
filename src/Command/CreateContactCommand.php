@@ -43,8 +43,8 @@ class CreateContactCommand extends Command
         $contact = new Contact();
         $contact
             ->setPhone('697160121')
-            ->setCity($input->getArgument('Kłodzko'))
-            ->setStreet($input->getArgument('Hołdu Pruskiego'))
+            ->setCity('Kłodzko')
+            ->setStreet('Hołdu Pruskiego')
         ;
 
         $this->manager->persist($contact);
