@@ -1312,12 +1312,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mateuszlichwiarz/SessionVisitsBundle.git",
-                "reference": "1c296c94c85fe0b574623345696e329d7cb1e866"
+                "reference": "3d05d6a14a18486139fe3957a1db7ae495963bda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mateuszlichwiarz/SessionVisitsBundle/zipball/1c296c94c85fe0b574623345696e329d7cb1e866",
-                "reference": "1c296c94c85fe0b574623345696e329d7cb1e866",
+                "url": "https://api.github.com/repos/mateuszlichwiarz/SessionVisitsBundle/zipball/3d05d6a14a18486139fe3957a1db7ae495963bda",
+                "reference": "3d05d6a14a18486139fe3957a1db7ae495963bda",
                 "shasum": ""
             },
             "require": {
@@ -1330,7 +1330,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5",
-                "symfony/phpunit-bridge": "^7.0"
+                "symfony/test-pack": "^1.1"
             },
             "default-branch": true,
             "type": "symfony-bundle",
@@ -1352,9 +1352,9 @@
             "description": "This bundle tracking visits by Symfony session.",
             "support": {
                 "issues": "https://github.com/mateuszlichwiarz/SessionVisitsBundle/issues",
-                "source": "https://github.com/mateuszlichwiarz/SessionVisitsBundle/tree/main"
+                "source": "https://github.com/mateuszlichwiarz/SessionVisitsBundle/tree/date_system"
             },
-            "time": "2024-03-27T21:37:16+00:00"
+            "time": "2024-04-02T04:40:49+00:00"
         },
         {
             "name": "lcobucci/jwt",
@@ -6831,16 +6831,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.65",
+            "version": "1.10.66",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "3c657d057a0b7ecae19cb12db446bbc99d8839c6"
+                "reference": "94779c987e4ebd620025d9e5fdd23323903950bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/3c657d057a0b7ecae19cb12db446bbc99d8839c6",
-                "reference": "3c657d057a0b7ecae19cb12db446bbc99d8839c6",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/94779c987e4ebd620025d9e5fdd23323903950bd",
+                "reference": "94779c987e4ebd620025d9e5fdd23323903950bd",
                 "shasum": ""
             },
             "require": {
@@ -6889,7 +6889,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-23T10:30:26+00:00"
+            "time": "2024-03-28T16:17:31+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

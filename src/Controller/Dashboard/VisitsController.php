@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller\Dashboard;
 
+use Hume\SessionVisitsBundle\Component\DateSystem\Calculator\WeekCalculator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -14,8 +15,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\VisitsFinder\VisitsFinderInterface;
 use App\VisitsFinder\VisitsFoundCounter;
 
-use Hume\SessionVisitsBundle\Component\DateSystem\DateSystem;
-use Hume\SessionVisitsBundle\Entity\Date;
+use Hume\SessionVisitsBundle\Component\DateSystem\Factory\DateFactory;
+use Hume\SessionVisitsBundle\Component\DateSystem\Model\Date;
 use Hume\SessionVisitsBundle\Entity\Visits;
 use Hume\SessionVisitsBundle\Repository\VisitsRepository;
 
@@ -36,7 +37,7 @@ final class VisitsController extends AbstractController
     public function __construct(
         private Security $security,
         private VisitsFinderInterface $visitsFinder,
-        private DateSystem $dateSystem,
+        private DateFactory $dateFactory,
         private VisitsRepository $visitsRepository,
         private VisitsFoundCounter $visitsFoundCounter,
     ) {
@@ -48,17 +49,20 @@ final class VisitsController extends AbstractController
         Request $request,
         null|string $visitsDate = null
         ): Response {
-        
-        $date = $this->dateSystem->create($visitsDate);
+
+        if($visitsDate === null) {
+            $visitsDate = 'now';
+        }
+        $date = $this->dateFactory->create($visitsDate);
         
         $form = $this->createForm(VisitsSelectType::class);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
-            $dateFromRequest = new Date($form->getData()['date']);
-            
+            $dateFromRequest = $this->dateFactory->create($form->getData()['date']->format('d-m-Y'));
+
             return $this->redirectToRoute(
                 'dashboard_visits_index', [
-                    'visitsDate' => $dateFromRequest->stringDateFormat()
+                    'visitsDate' => $dateFromRequest->convertDateTimeInt()->stringDateFormat()
             ]);
         }
 
