@@ -19,7 +19,7 @@ with [FrankenPHP](https://frankenphp.dev) and [Caddy](https://caddyserver.com/) 
 7. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
 8. Run `docker compose down --remove-orphans` to stop the Docker containers
 
-Dashboard `https://localhost/dashboard`
+Dashboard `https://localhost/dashboard` <br>
 Credentials: <br>
 login: admin <br>
 password: admin <br>
